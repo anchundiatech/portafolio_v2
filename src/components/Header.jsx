@@ -1,24 +1,43 @@
-import React, { useState, useEffect, useCallback } from "react";
+﻿import React, { useState, useEffect, useCallback } from "react";
+//import { Globe, icons } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
+//import Select from "react-select";
 import "../App.css";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
+//import esFlags from "@/assets/flags/icons8-espaÃ±a-48.png";
+//import enFlags from "@/assets/flags/icons8-estados-unidos-48.png";
 
 function Header() {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const { t } = useTranslation();
+  const { language, setLanguage } = useLanguage();
+
   // Debounced scroll handler para mejor performance
   const handleScroll = useCallback(() => {
     // Cambiar el estado del header cuando se hace scroll
     setIsScrolled(window.scrollY > 50);
 
-    // Detectar la sección actual con mejor precisión
-    const sections = ["inicio", "about-mi", "proyects", "tecnologias", "contacto"];
+    // Detectar la secciÃ³n actual con mejor precisiÃ³n
+    const sections = [
+      "inicio",
+      "about-mi",
+      "proyects",
+      "tecnologias",
+      "contacto",
+    ];
     const current = sections.find((section) => {
       const element = document.getElementById(section);
       if (element) {
         const rect = element.getBoundingClientRect();
-        // Mejor detección: centro de la ventana
-        return rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+        // Mejor detecciÃ³n: centro de la ventana
+        return (
+          rect.top <= window.innerHeight / 2 &&
+          rect.bottom >= window.innerHeight / 2
+        );
       }
       return false;
     });
@@ -42,7 +61,7 @@ function Header() {
     };
   }, [handleScroll]);
 
-  // Cerrar menú móvil con Escape
+  // Cerrar menÃº mÃ³vil con Escape
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape" && isMobileMenuOpen) {
@@ -52,7 +71,7 @@ function Header() {
 
     if (isMobileMenuOpen) {
       document.addEventListener("keydown", handleKeyDown);
-      // Prevenir scroll del body cuando menú está abierto
+      // Prevenir scroll del body cuando menÃº estÃ¡ abierto
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -65,11 +84,16 @@ function Header() {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { href: "#inicio", text: "Inicio" },
-    { href: "#about-mi", text: "Sobre Mi" },
-    { href: "#proyects", text: "Proyectos" },
-    { href: "#tecnologias", text: "Tecnologías" },
-    { href: "#contacto", text: "Contacto" },
+    { href: "#inicio", text: t("Inicio") },
+    //{ href: "#about-mi", text: t("Sobre Mi") },
+    { href: "#proyects", text: t("Proyectos") },
+    { href: "#tecnologias", text: t("TecnologÃ­as") },
+    { href: "#contact", text: t("Contacto") },
+  ];
+
+  const OptionsLanguage = [
+    { value: "es", label: "EspaÃ±ol", flag: esFlags },
+    { value: "en", label: "English", flag: enFlags },
   ];
 
   const handleNavClick = (href) => {
@@ -77,10 +101,10 @@ function Header() {
     setActiveSection(sectionId);
     setIsMobileMenuOpen(false);
 
-    // Scroll suave programático (fallback si CSS no funciona)
+    // Scroll suave programÃ¡tico (fallback si CSS no funciona)
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -89,30 +113,26 @@ function Header() {
       <nav
         className="nav bg-grip"
         role="navigation"
-        aria-label="Navegación principal">
-        <div className="logo_container">
-          <a
-            href="#inicio"
-            className="logo_nav"
-            aria-label="Inicio - Alejandro Anchundia"
-            onClick={() => handleNavClick("#inicio")}>
-            Alejandro
-          </a>
-        </div>
+        aria-label="NavegaciÃ³n principal">
 
-        {/* Menú Desktop */}
+
+
         <div className="menu_container">
           <ul className="list_nav">
             {navItems.map((item) => (
-              <li key={item.href} className='nav_item'>
+              <li key={item.href} className="nav_item">
                 <a
                   href={item.href}
-                  className={activeSection === item.href.slice(1) ? "active" : ""}
+                  className={
+                    activeSection === item.href.slice(1) ? "active" : ""
+                  }
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  aria-current={activeSection === item.href.slice(1) ? "page" : undefined}>
+                  aria-current={
+                    activeSection === item.href.slice(1) ? "page" : undefined
+                  }>
                   {item.text}
                 </a>
               </li>
@@ -120,19 +140,36 @@ function Header() {
           </ul>
         </div>
 
-        {/* Menú Mobile */}
+        <div className="header_right_info">
+
+
+
+        </div>
+
+
         <button
           className="mobile-menu-button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
-          aria-label={isMobileMenuOpen ? "Cerrar menú móvil" : "Abrir menú móvil"}
+          aria-label={
+            isMobileMenuOpen ? "Cerrar menÃº mÃ³vil" : "Abrir menÃº mÃ³vil"
+          }
           aria-controls="mobile-navigation">
-          <span className={`burger_line ${isMobileMenuOpen ? 'burger_line--1' : ''}`}></span>
-          <span className={`burger_line ${isMobileMenuOpen ? 'burger_line--2' : ''}`}></span>
-          <span className={`burger_line ${isMobileMenuOpen ? 'burger_line--3' : ''}`}></span>
+          <span
+            className={`burger_line ${
+              isMobileMenuOpen ? "burger_line--1" : ""
+            }`}></span>
+          <span
+            className={`burger_line ${
+              isMobileMenuOpen ? "burger_line--2" : ""
+            }`}></span>
+          <span
+            className={`burger_line ${
+              isMobileMenuOpen ? "burger_line--3" : ""
+            }`}></span>
         </button>
 
-        {/* Overlay para cerrar menú móvil */}
+
         {isMobileMenuOpen && (
           <div
             className="mobile-menu-overlay"
@@ -143,18 +180,24 @@ function Header() {
 
         <div
           id="mobile-navigation"
-          className={`mobile-menu ${isMobileMenuOpen ? "mobile-menu--open" : ""}`}>
+          className={`mobile-menu ${
+            isMobileMenuOpen ? "mobile-menu--open" : ""
+          }`}>
           <ul>
             {navItems.map((item) => (
               <li key={`mobile-${item.href}`}>
                 <a
                   href={item.href}
-                  className={activeSection === item.href.slice(1) ? "active" : ""}
+                  className={
+                    activeSection === item.href.slice(1) ? "active" : ""
+                  }
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  aria-current={activeSection === item.href.slice(1) ? "page" : undefined}>
+                  aria-current={
+                    activeSection === item.href.slice(1) ? "page" : undefined
+                  }>
                   {item.text}
                 </a>
               </li>
