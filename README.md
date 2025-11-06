@@ -23,13 +23,15 @@ Soy desarrollador frontend con 1+ año de experiencia especializado en **React**
 
 ## 📦 Estructura del proyecto
 
-├── src/ │
-├── assets/ # Imágenes y SVGs │
-├── components  # Componentes reutilizables │
-├── App.jsx # Componente principal │
+```
+├── src/ 
+├── assets/ # Imágenes y SVGs 
+├── components  # Componentes reutilizables 
+├── App.jsx # Componente principal 
 └── main.jsx          # Punto de entrada
 ├── public/
 ├── index.html
 ├── package.json
 ├── vite.config.js
 └── README.md
+```
