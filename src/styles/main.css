@@ -1,0 +1,27 @@
+/* ======================
+   ARCHIVO PRINCIPAL CSS
+   PORTAFOLIO
+====================== */
+
+/* Base */
+@import './base/variables.css';
+@import './base/reset.css';
+
+/* Efectos */
+@import './effects/gaming-effects.css';
+
+/* Componentes */
+@import './components/header.css';
+@import './components/hero.css';
+@import './components/sobremi.css';
+@import './components/tecnologias.css';
+@import './components/proyectos.css';
+@import './components/projects_timeline.css';
+@import './components/footer.css';
+@import './components/contact.css';
+
+/* Layouts */
+@import './layouts/main.css';
+
+/* Utilidades */
+@import './utils/utilities.css';

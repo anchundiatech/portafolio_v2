@@ -1,0 +1,53 @@
+
+:root {
+
+  --neon-purple: #8b5cf6;
+  --deep-purple: #7c3aed;
+  --dark-purple: #6d28d9;
+  --light-purple: #a78bfa;
+  --electric-purple: #c084fc;
+
+  --neon-pink: #ec4899;
+  --electric-blue: #3b82f6;
+  --cyber-white: #f8fafc;
+
+  --pure-black: #000000;
+  --deep-black: #0a0a0a;
+  --charcoal: #111111;
+  --dark-gray: #1a1a1a;
+  --medium-gray: #2a2a2a;
+  --light-gray: #404040;
+
+
+  --bg-primary: var(--pure-black);
+  --bg-secondary: var(--charcoal);
+  --bg-tertiary: var(--dark-gray);
+  --bg-card: rgba(17, 17, 17, 0.95);
+
+
+  --text-primary: var(--cyber-white);
+  --text-secondary: #b0b0b0;
+  --text-accent: var(--neon-purple);
+
+  --gradient-primary: linear-gradient(135deg, var(--neon-purple) 0%, var(--deep-purple) 50%, var(--dark-purple) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--pure-black) 0%, var(--neon-purple) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--electric-purple) 0%, var(--neon-pink) 100%);
+  --gradient-dark: linear-gradient(135deg, var(--deep-black) 0%, var(--charcoal) 100%);
+
+  
+  --shadow-purple: 0 0 20px rgba(139, 92, 246, 0.4);
+  --shadow-purple-intense: 0 0 40px rgba(139, 92, 246, 0.6);
+  --shadow-purple-glow: 0 0 60px rgba(139, 92, 246, 0.3);
+  --shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.8);
+
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+
+  --mobile-max: 768px;
+  --tablet-max: 1024px;
+}
