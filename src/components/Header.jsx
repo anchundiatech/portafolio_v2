@@ -91,10 +91,10 @@ function Header() {
     { href: "#contact", text: t("Contacto") },
   ];
 
-  const OptionsLanguage = [
-    { value: "es", label: "EspaÃ±ol", flag: esFlags },
-    { value: "en", label: "English", flag: enFlags },
-  ];
+  //const OptionsLanguage = [
+  //  { value: "es", label: "EspaÃ±ol", flag: esFlags },
+  //  { value: "en", label: "English", flag: enFlags },
+  //];
 
   const handleNavClick = (href) => {
     const sectionId = href.slice(1);
