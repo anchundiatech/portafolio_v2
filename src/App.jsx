@@ -34,15 +34,14 @@ function App() {
           <Hero />
           <main className='main'>
 
-            <section id="proyects" className="section">
+            
               <Proyectos />
-            </section>
-            <section id="tecnologias" className="section">
+         
+         
               <Tecnologias />
-            </section>
-            <section id="contacto" className="section_contacto">
+           
               <Contacto />
-            </section>
+            
           </main>
         </>
       )}
