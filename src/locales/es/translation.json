@@ -1,0 +1,32 @@
+﻿{
+  "Inicio": "Inicio",
+  "Sobre Mi": "Sobre Mi",
+  "Proyectos": "Proyectos",
+  "Tecnologías": "Tecnologías",
+  "Contacto": "Contacto",
+  "hero": {
+    "title": "Hola, soy Alejandro",
+    "subtitle": "Desarrollador Frontend",
+    "description": "Frontend especializado en React y JavaScript. Diseño interfaces rápidas, accesibles y escalables para impulsar productos digitales.",
+    "cta_projects": "Ver Proyectos",
+    "cta_contact": "Contactar"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Desarrollador Frontend con experiencia en crear aplicaciones web modernas y responsivas.",
+    "skills_title": "Tecnologías principales:",
+    "available": "Disponible para nuevos proyectos",
+    "response_time": "Respuesta típica: menos de 24 horas"
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "view_project": "Ver Proyecto",
+    "view_code": "Ver Código"
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "¿Tienes un proyecto en mente? ¡Hablemos!",
+    "download_cv": "Descargar CV"
+  },
+  "tecnologias_subtitle": ""
+}
