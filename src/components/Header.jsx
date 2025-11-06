@@ -21,12 +21,12 @@ function Header() {
     // Cambiar el estado del header cuando se hace scroll
     setIsScrolled(window.scrollY > 50);
 
-    // Detectar la secciÃ³n actual con mejor precisiÃ³n
+
     const sections = [
       "inicio",
       "about-mi",
       "proyects",
-      "tecnologias",
+      "Tecnologías",
       "contacto",
     ];
     const current = sections.find((section) => {
@@ -61,7 +61,7 @@ function Header() {
     };
   }, [handleScroll]);
 
-  // Cerrar menÃº mÃ³vil con Escape
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape" && isMobileMenuOpen) {
@@ -87,12 +87,12 @@ function Header() {
     { href: "#inicio", text: t("Inicio") },
     //{ href: "#about-mi", text: t("Sobre Mi") },
     { href: "#proyects", text: t("Proyectos") },
-    { href: "#tecnologias", text: t("TecnologÃ­as") },
+    { href: "#tecnologias", text: t("Tecnologías") },
     { href: "#contact", text: t("Contacto") },
   ];
 
   //const OptionsLanguage = [
-  //  { value: "es", label: "EspaÃ±ol", flag: esFlags },
+  //  { value: "es", label: "Español", flag: esFlags },
   //  { value: "en", label: "English", flag: enFlags },
   //];
 
@@ -113,7 +113,7 @@ function Header() {
       <nav
         className="nav bg-grip"
         role="navigation"
-        aria-label="NavegaciÃ³n principal">
+        aria-label="Navegación principal">
 
 
 
@@ -152,7 +152,7 @@ function Header() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-label={
-            isMobileMenuOpen ? "Cerrar menÃº mÃ³vil" : "Abrir menÃº mÃ³vil"
+            isMobileMenuOpen ? "Cerrar menú móvil" : "Abrir menú móvil"
           }
           aria-controls="mobile-navigation">
           <span
@@ -210,3 +210,7 @@ function Header() {
 }
 
 export default Header;
+
+
+
+

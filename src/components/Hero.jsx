@@ -26,7 +26,7 @@ export default function Hero() {
           <h2 className="hero_subtitle">{t("hero.subtitle", "Desarrollador Frontend")}</h2>
 
           <p className="hero_description">
-            {t("hero.description", "Especializado en React, JavaScript y tecnologÃ­as de desarrollo web."
+            {t("hero.description", "Especializado en React, JavaScript y tecnologías de desarrollo web."
             )}
           </p>
           <div className="hero_cta">
@@ -53,3 +53,5 @@ export default function Hero() {
     </section>
   )
 }
+
+

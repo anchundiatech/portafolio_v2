@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
@@ -102,3 +102,4 @@ import GalaxyOrbit from "./GalaxyOrbit";
 }
 
 export default Tecnologias;
+

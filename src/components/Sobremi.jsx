@@ -16,15 +16,15 @@ export default function Sobremi() {
   const { t } = useTranslation();
 
   const skills = [
-    { icon: Reactjs, name: "React", level: "Avanzado", experience: "2+ aÃ±os" },
-    { icon: Javascript, name: "JavaScript", level: "Avanzado", experience: "3+ aÃ±os" },
-    { icon: Css3, name: "CSS3", level: "Experto", experience: "4+ aÃ±os" },
-    { icon: Html, name: "HTML5", level: "Experto", experience: "4+ aÃ±os" }
+    { icon: Reactjs, name: "React", level: "Avanzado", experience: "2+ años" },
+    { icon: Javascript, name: "JavaScript", level: "Avanzado", experience: "3+ años" },
+    { icon: Css3, name: "CSS3", level: "Experto", experience: "4+ años" },
+    { icon: Html, name: "HTML5", level: "Experto", experience: "4+ años" }
   ];
 
-  const fullText = "Sobre MÃ­";
+  const fullText = "Sobre Mí";
 
-  // Efecto de escritura para el tÃ­tulo
+  // Efecto de escritura para el título
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
@@ -94,7 +94,7 @@ export default function Sobremi() {
               <div className="image_stats">
                 <div className="stat_item">
                   <span className="stat_number">3+</span>
-                  <span className="stat_label">AÃ±os Exp.</span>
+                  <span className="stat_label">años Exp.</span>
                 </div>
                 <div className="stat_item">
                   <span className="stat_number">50+</span>
@@ -134,8 +134,8 @@ export default function Sobremi() {
           >
             <p>
               Soy desarrollador frontend enfocado en crear interfaces claras,
-              <span className="highlight_text"> Ã©picas y funcionales</span>.
-              Especializado en tecnologÃ­as modernas y diseÃ±o responsivo.
+              <span className="highlight_text"> épicas y funcionales</span>.
+              Especializado en tecnologías modernas y diseño responsivo.
             </p>
             <p>
               ðŸŽ¯ Mi objetivo es transformar ideas en
@@ -154,7 +154,7 @@ export default function Sobremi() {
             <div className="skills_header">
               <h4 className="skills_title">
                 <span className="code_bracket">{"{"}</span>
-                TecnologÃ­as principales
+                tecnologías principales
                 <span className="code_bracket">{"}"}</span>
               </h4>
               <div className="skills_bar"></div>
@@ -268,7 +268,7 @@ export default function Sobremi() {
               <div className="status_details">
                 <div className="detail_item">
                   <span className="detail_icon">âš¡</span>
-                  <span className="detail_text">Respuesta rÃ¡pida: &lt; 24h</span>
+                  <span className="detail_text">Respuesta rápida: &lt; 24h</span>
                 </div>
                 <div className="detail_item">
                   <span className="detail_icon">ðŸŒ</span>
@@ -286,4 +286,6 @@ export default function Sobremi() {
     </section>
   );
 }
+
+
 
