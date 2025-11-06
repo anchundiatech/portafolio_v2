@@ -1,6 +1,6 @@
 {
   "name": "portafolio-alejandro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Portafolio personal de Alejandro Anchundia - Desarrollador Frontend",
   "author": "Alejandro Anchundia",
   "license": "MIT",
@@ -11,9 +11,15 @@
     "lint": "eslint . --ext .js,.jsx"
   },
   "dependencies": {
+    "i18next": "^25.3.6",
+    "konami-code": "^0.3.0",
+    "lucide-react": "^0.541.0",
+    "motion": "^12.23.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^5.5.0"
+    "react-i18next": "^15.6.1",
+    "react-icons": "^5.5.0",
+    "react-select": "^5.10.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
