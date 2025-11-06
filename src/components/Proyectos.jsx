@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 
 import "@/App.css";
 import skilllinkImage from "@/assets/proyects/722shots_so.png";
@@ -20,7 +20,7 @@ const name_proyects = [
   {
     title: "SkillLink - Plataforma de Aprendizaje ",
     description:
-      "Desarrollado en colaboración con el Equipo 3 durante el Hackathon AlumniThon 2025. El proyecto consistió en crear una plataforma de aprendizaje dirigida a estudiantes y profesionales, ofreciendo un espacio interactivo para compartir conocimientos, acceder a recursos educativos y fomentar el crecimiento profesional.",
+      "Desarrollado en colaboraciÃ³n con el Equipo 3 durante el Hackathon AlumniThon 2025. El proyecto consistiÃ³ en crear una plataforma de aprendizaje dirigida a estudiantes y profesionales, ofreciendo un espacio interactivo para compartir conocimientos, acceder a recursos educativos y fomentar el crecimiento profesional.",
     image: skilllinkImage,
     link: "https://skilllink-alumnithon-nine.vercel.app/",
     repository: "https://github.com/mandalorians-team/Skilllink-Alumnithon.git",
@@ -28,7 +28,7 @@ const name_proyects = [
   },
   {
     title: "AluraGeek",
-    description: "AluraGeek es una aplicación web enfocada en la gestión de productos, diseñada para mejorar la organización y productividad. Desarrollada con React, JavaScript, CSS y consumo de una API REST, permite agregar, editar y eliminar tareas o ítems de forma intuitiva. Su interfaz responsiva y moderna ofrece una experiencia fluida tanto en escritorio como en dispositivos móviles.",
+    description: "AluraGeek es una aplicaciÃ³n web enfocada en la gestiÃ³n de productos, diseÃ±ada para mejorar la organizaciÃ³n y productividad. Desarrollada con React, JavaScript, CSS y consumo de una API REST, permite agregar, editar y eliminar tareas o Ã­tems de forma intuitiva. Su interfaz responsiva y moderna ofrece una experiencia fluida tanto en escritorio como en dispositivos mÃ³viles.",
     image: AluraGeek,
     link: "https://challenge-alura-geek-pi.vercel.app/",
     repository: "https://github.com/anchundiatech/challenge-AluraGeek.git",
@@ -37,7 +37,7 @@ const name_proyects = [
   {
     title: "Org",
     description:
-      "Diseño de interfaz moderna y minimalista para una plataforma de gestión de personas y equipos. Incluye elementos gráficos limpios y tipografía clara para transmitir organización, colaboración y productividad en un solo lugar.",
+      "DiseÃ±o de interfaz moderna y minimalista para una plataforma de gestiÃ³n de personas y equipos. Incluye elementos grÃ¡ficos limpios y tipografÃ­a clara para transmitir organizaciÃ³n, colaboraciÃ³n y productividad en un solo lugar.",
     image: Org,
     link: "https://org-kappa-hazel.vercel.app/",
     repository: "https://github.com/anchundiatech/org.git",
@@ -46,7 +46,7 @@ const name_proyects = [
   {
     title: "ProfileCard",
     description:
-      'Tarjeta de perfil interactiva con datos de usuario, diseñada con un estilo fresco y profesional. Presenta información clave como seguidores, "likes" y fotos, destacando la identidad visual con colores vibrantes y un diseño responsivo.',
+      'Tarjeta de perfil interactiva con datos de usuario, diseÃ±ada con un estilo fresco y profesional. Presenta informaciÃ³n clave como seguidores, "likes" y fotos, destacando la identidad visual con colores vibrantes y un diseÃ±o responsivo.',
     image: Profilecard,
     link: "https://anchundiatech.github.io/profile-card/",
     repository: "https://github.com/anchundiatech/profile-card.git",
@@ -78,7 +78,7 @@ function ProyectoCard({title, description,  image,  link,  repository,  tecnolog
     <div className="proyecto_card">
       <h3>{title}</h3>
       <details ref={detailsRef}>
-        <summary style={{ display: "none" }}></summary> {/* ocultamos el summary */}
+        <summary style={{ display: "none" }}></summary> 
         <p>{description}</p>
       </details>
 
@@ -134,18 +134,29 @@ function ProyectoCard({title, description,  image,  link,  repository,  tecnolog
 
 export default function Proyectos() {
   return (
-    <section id="proyects" className="container_proyectos">
+    <section className="proyectos_section" id="#proyects">
       <div className="proyectos_content">
         <div className="proyectos_text">
           <h2 className="title_proyectos">Mis Proyectos</h2>
         </div>
 
         <div className="projects-grid">
-          {name_proyects.map((proyect, i) => (
+          {name_proyects.slice(0, 3).map((proyect, i) => (
             <ProyectoCard key={i} {...proyect} />
           ))}
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.25rem' }}>
+          <a
+            href="#/proyectos"
+            className="btn_secondary"
+            aria-label="Ver todos los proyectos"
+          >
+            Ver todos los proyectos â†’
+          </a>
         </div>
       </div>
     </section>
   );
 }
+
