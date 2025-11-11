@@ -12,31 +12,46 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
-      <Header />
-      {isProjectsPage ? (
-        <ProjectsTimeline />
-      ) : (
-        <>
-          <Hero />
-          <main className='main'>
+    <>
+      <SEO />
 
-            <section id="proyects" className="section">
-              <Proyectos />
-            </section>
-            <section id="tecnologias" className="section">
-              <Tecnologias />
-            </section>
-            <section id="contacto" className="section_contacto">
-              <Contacto />
-            </section>
-          </main>
-        </>
-      )}
-      <Footer  />
-      <KonnamiGame />
-    </div>
-  )
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <main id="main-content">
+                  <Hero />
+                   <Proyectos />
+                  <Tecnologias />
+
+                  <CardContacto />
+                </main>
+              </>
+            }
+          />
+          <Route
+            path="/sobremi-detallado"
+            element={
+              <>
+                <SEO
+                  title="Sobre Mí - Alejandro Anchundia"
+                  description="Conoce mi viaje profesional, fortalezas y valores como desarrollador frontend."
+                  url="https://portafolio-v2-peach.vercel.app/sobremi-detallado"
+                />
+                <main id="main-content">
+                  <AboutMeDetailed />
+                </main>
+              </>
+            }
+          />
+        </Routes>
+        <KonamiCode />
+        <Footer />
+
+    </>
+  );
 }
 
 export default App;
