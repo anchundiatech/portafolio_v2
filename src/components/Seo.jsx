@@ -2,9 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 export default function SEO({
-  title = 'Alejandro Anchundia - Frontend Developer',
-  description = 'Desarrollador Frontend especializado en React, JavaScript y tecnologías modernas. Portafolio con proyectos innovadores y diseño gaming.',
-  image = 'https://portafolio-v2-peach.vercel.app/me.jpg',
+  title = 'Alejandro Anchundia - Desarrollador Frontend',
+  description = 'Portafolio de Alejandro Anchundia. Desarrollador Frontend especializado en React, JavaScript y diseño responsivo.',
+  image = 'https://portafolio-v2-peach.vercel.app/og-image.jpg',
   url = 'https://portafolio-v2-peach.vercel.app/',
   type = 'website'
 }) {
@@ -13,7 +13,7 @@ export default function SEO({
       {/* Básicos */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charset="utf-8" />
 
       {/* Palabras clave */}
