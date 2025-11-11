@@ -1,6 +1,9 @@
-﻿
+﻿/* ==========================================
+   SECCIÓN DE CONTACTO - ESTILOS PRINCIPALES
+=========================================== */
+
 .container_contacto {
-  padding: var(--spacing-xl) var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-md);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -15,17 +18,20 @@
   z-index: 2;
 }
 
+/* ==========================================
+   HEADER Y TÍTULOS
+=========================================== */
 
 .contact_header {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .tech_header_wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
   position: relative;
 }
@@ -38,7 +44,7 @@
 }
 
 .tech_main_icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--neon-purple);
   text-shadow: 0 0 30px var(--neon-purple);
   animation: iconPulse 3s ease-in-out infinite;
@@ -62,8 +68,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   animation: glowRotate 4s linear infinite;
@@ -81,45 +87,36 @@
 }
 
 .tech_title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 900;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  position: relative;
-}
-
-.contact_title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 900;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: var(--spacing-md);
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-sm);
 }
 
 .contact_description {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: var(--spacing-lg);
-  max-width: 700px;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md);
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* ==========================================
+   ESTADÍSTICAS/ARSENAL STATS
+=========================================== */
 
 .arsenal_stats {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-lg);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
   flex-wrap: wrap;
 }
 
@@ -127,24 +124,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--spacing-sm);
+  padding: var(--spacing-xs);
   background: rgba(139, 92, 246, 0.1);
   border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 10px;
+  border-radius: 8px;
   backdrop-filter: blur(10px);
-  min-width: 100px;
+  min-width: 85px;
   transition: all 0.3s ease;
 }
 
 .stat_box:hover {
   background: rgba(139, 92, 246, 0.2);
   border-color: var(--neon-purple);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
 }
 
 .stat_number {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 900;
   color: var(--neon-purple);
   text-shadow: 0 0 15px var(--neon-purple);
@@ -152,118 +149,87 @@
 }
 
 .stat_label {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-align: center;
+  margin-top: 0.3rem;
+  line-height: 1.2;
 }
 
+/* ==========================================
+   SECCIONES Y HEADERS
+=========================================== */
 
 .contact-methods-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-xl);
-}
-
-.contact-methods {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-xl);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
 }
 
 .section_header {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .section_header h3 {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: var(--neon-purple);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: var(--spacing-sm);
-}
-
-.primary_contact h3,
-.secondary_contacts h3 {
-  font-size: 1.2rem;
-  color: var(--neon-purple);
-  margin-bottom: var(--spacing-md);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .section_icon {
-  font-size: 1.2em;
-  filter: drop-shadow(0 0 10px var(--neon-purple));
+  font-size: 1em;
+  filter: drop-shadow(0 0 8px var(--neon-purple));
 }
 
+/* ==========================================
+   TARJETAS DE CONTACTO
+=========================================== */
 
-.contact_card,
-.contact_item {
+.contact_card {
   position: relative;
   background: var(--bg-secondary);
-  border: 2px solid rgba(139, 92, 246, 0.3);
-  border-radius: 15px;
-  padding: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
-  transition: all 0.4s ease;
-  backdrop-filter: blur(15px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
   overflow: hidden;
   cursor: pointer;
 }
 
-.contact_item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  padding: var(--spacing-sm);
-  border-radius: 12px;
-  margin-bottom: var(--spacing-sm);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.contact_item:hover {
-  background: rgba(139, 92, 246, 0.2);
+.contact_card--primary {
   border-color: var(--neon-purple);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-purple);
-}
-
-.contact_card--primary,
-.contact_item--primary {
-  border-color: var(--neon-purple);
-  background: rgba(139, 92, 246, 0.1);
-  box-shadow: var(--shadow-purple);
+  background: rgba(139, 92, 246, 0.12);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
+  margin-bottom: 0.5rem;
 }
 
 .contact_card--secondary {
-  background: rgba(139, 92, 246, 0.05);
+  background: rgba(139, 92, 246, 0.06);
+  border: 1px solid rgba(139, 92, 246, 0.25);
 }
 
-
+/* Efectos de brillo en tarjetas */
 .card_glow {
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
-  transition: left 0.6s ease;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.15), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
 }
 
-.contact_card:hover .card_glow,
-.contact_item:hover .card_glow {
+.contact_card:hover .card_glow {
   left: 100%;
 }
 
@@ -271,84 +237,94 @@
   position: absolute;
   inset: -2px;
   background: var(--gradient-primary);
-  border-radius: 15px;
+  border-radius: 10px;
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
 }
 
 .contact_card:hover .card_border_glow {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
+/* ==========================================
+   CONTENIDO DE TARJETAS
+=========================================== */
 
 .contact_card_content {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: 0.5rem;
   position: relative;
   z-index: 2;
 }
 
-.contact_link,
-.contact_item a {
+.contact_link {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: 0.5rem;
   color: var(--text-primary);
   text-decoration: none;
   flex: 1;
   transition: all 0.3s ease;
 }
 
-.contact_link:hover,
-.contact_item a:hover {
+.contact_link:hover {
   color: var(--neon-purple);
 }
+
+.contact_link:focus-visible {
+  outline: 2px solid var(--neon-purple);
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   ICONOS Y WRAPPER DE ICONOS
+=========================================== */
 
 .icon_wrapper {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(139, 92, 246, 0.2);
-  border: 2px solid rgba(139, 92, 246, 0.4);
-  border-radius: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 8px;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
-.contact_card:hover .icon_wrapper,
-.contact_item:hover .icon_wrapper {
+.contact_card:hover .icon_wrapper {
   background: rgba(139, 92, 246, 0.3);
   border-color: var(--neon-purple);
-  box-shadow: var(--shadow-purple);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+  transform: scale(1.08);
 }
 
 .contact_icon {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: var(--neon-purple);
   transition: all 0.3s ease;
 }
 
-.contact_card:hover .contact_icon,
-.contact_item:hover .contact_icon {
+.contact_card:hover .contact_icon {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 10px var(--neon-purple));
+  filter: drop-shadow(0 0 6px var(--neon-purple));
 }
 
 .icon_pulse {
   position: absolute;
-  inset: -2px;
+  inset: -1px;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
-  border-radius: 12px;
+  border-radius: 8px;
   animation: iconPulseAnim 2s ease-in-out infinite;
   opacity: 0;
+  pointer-events: none;
 }
 
-.contact_card--primary .icon_pulse,
-.contact_item--primary .icon_pulse {
+.contact_card--primary .icon_pulse {
   opacity: 1;
 }
 
@@ -357,79 +333,92 @@
   0%,
   100% {
     transform: scale(1);
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   50% {
-    transform: scale(1.2);
-    opacity: 0.6;
+    transform: scale(1.12);
+    opacity: 0.4;
   }
 }
 
-.contact_info,
-.contact_text {
+/* ==========================================
+   INFORMACIÓN DE CONTACTO
+=========================================== */
+
+.contact_info {
   display: flex;
   flex-direction: column;
+  gap: 0.1rem;
 }
 
 .contact_name {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
   color: var(--text-primary);
 }
 
 .contact_value {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   color: var(--text-secondary);
-  margin-top: 0.2rem;
+  font-weight: 400;
 }
 
+/* ==========================================
+   GRILLAS DE CONTACTO
+=========================================== */
 
-.contact_grid,
-.contact-links {
+.contact_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+  gap: 0.5rem;
 }
 
+/* Tarjetas secundarias (estilo grid) */
 .contact_card--secondary {
+  display: flex;
   flex-direction: column;
   text-align: center;
-  padding: var(--spacing-md);
-  min-height: 120px;
+  padding: 0.6rem 0.4rem;
+  min-height: 90px;
   justify-content: center;
+  align-items: center;
 }
 
 .contact_card--secondary .contact_link {
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: 0.3rem;
 }
 
 .contact_card--secondary .icon_wrapper {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .contact_card--secondary .contact_icon {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .contact_card--secondary .contact_name {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 }
 
+/* ==========================================
+   SECCIÓN DE DESCARGAR CV
+=========================================== */
 
 .cv_section {
   text-align: center;
-  padding: var(--spacing-xl) var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-md);
   background: rgba(139, 92, 246, 0.05);
-  border: 2px solid rgba(139, 92, 246, 0.2);
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
+  margin-top: var(--spacing-lg);
 }
 
 .cv_container {
@@ -438,68 +427,80 @@
 }
 
 .cv_header {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .cv_header h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing_sm);
-  font-size: 1.6rem;
+  gap: var(--spacing-sm);
+  font-size: 1.3rem;
   color: var(--neon-purple);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-xs);
 }
 
 .cv_icon {
-  font-size: 1.2em;
-  filter: drop-shadow(0 0 10px var(--neon-purple));
+  font-size: 1.1em;
+  filter: drop-shadow(0 0 8px var(--neon-purple));
 }
 
 .cv_subtitle {
   color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: var(--spacing-sm);
 }
 
+/* ==========================================
+   BOTÓN DE DESCARGA CV
+=========================================== */
 
-.cv-button,
-.cv-button- {
-  position: ive;
+.cv-button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--gradient-primary);
   color: var(--text-primary);
-  padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: 15px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 2px solid var(--neon-purple);
-  box-shadow: var(--shadow-purple);
+  letter-spacing: 0.5px;
+  border: 1px solid var(--neon-purple);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
   transition: all 0.3s ease;
   overflow: hidden;
-  min-width: 200px;
-  margin-bottom: var(--spacing-md);
+  min-width: 180px;
+  margin-bottom: var(--spacing-sm);
+  cursor: pointer;
 }
 
-.cv-button:hover,
-.cv-button- :hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-purple-intense);
+.cv-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
   background: var(--gradient-accent);
+}
+
+.cv-button:active:not(:disabled) {
+  transform: translateY(0px);
+}
+
+.cv-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .cv_button_content {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: 0.5rem;
   position: relative;
   z-index: 2;
 }
@@ -508,26 +509,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .cv_download_icon {
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
 }
 
-.cv-button- :hover .cv_download_icon,
-.cv-button:hover .cv_download_icon {
+.cv-button:hover:not(:disabled) .cv_download_icon {
   transform: translateY(-2px);
 }
 
 .loading_spinner {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .cv_button_text {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .cv_button_glow {
@@ -537,230 +544,748 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.6s ease;
+  transition: left 0.5s ease;
+  pointer-events: none;
 }
 
-.cv-button- :hover .cv_button_glow,
-.cv-button:hover .cv_button_glow {
+.cv-button:hover:not(:disabled) .cv_button_glow {
   left: 100%;
 }
 
-.cv-button--downloading {
-  cursor: not-allowed;
-  opacity: 0.8;
-}
+/* ==========================================
+   DETALLES DE CV
+=========================================== */
 
-
-.cv_info,
-.cv_info_ {
-  margin-top: var(--spacing-md);
-}
-
-.cv_info small {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+.cv_info {
+  margin-top: var(--spacing-sm);
 }
 
 .cv_details {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   flex-wrap: wrap;
+  margin-top: var(--spacing-sm);
 }
 
 .cv_detail {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--spacing-sm);
-  background: rgba(139, 92, 246, 0.1);
+  padding: 0.5rem;
+  background: rgba(139, 92, 246, 0.08);
   border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: 8px;
-  min-width: 80px;
+  border-radius: 6px;
+  min-width: 70px;
 }
 
 .detail_label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.2rem;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.15rem;
 }
 
 .detail_value {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--neon-purple);
   font-weight: 600;
 }
 
+/* ==========================================
+   NOTIFICACIÓN DE COPIA
+=========================================== */
 
-.copy_notification,
-.copy_notification_ {
+.copy_notification {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
   background: var(--bg-secondary);
-  border: 2px solid var(--neon-purple);
-  border-radius: 12px;
-  padding: var(--spacing-md);
-  box-shadow: var(--shadow-purple-intense);
+  border: 1px solid var(--neon-purple);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
   z-index: 1000;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
   overflow: hidden;
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: 0.75rem;
   color: var(--text-primary);
 }
 
 .notification_content {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: 0.5rem;
   position: relative;
   z-index: 2;
 }
 
 .notification_icon {
   color: var(--neon-purple);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .notification_text {
   color: var(--text-primary);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .notification_glow {
   position: absolute;
   inset: -2px;
   background: var(--gradient-primary);
-  border-radius: 12px;
-  opacity: 0.3;
-  animation: notificationPulse 2s ease-in-out infinite;
+  border-radius: 10px;
+  opacity: 0;
+  z-index: -1;
 }
 
-@keyframes notificationPulse {
+/* ==========================================
+   BOTONES DE COPIA
+=========================================== */
 
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.6;
-    transform: scale(1.02);
-  }
-}
-
-
-.contact_card--copying {
-  transform: scale(0.98);
-  filter: brightness(1.1);
-}
-
-.contact_card--success {
-  border-color: #10b981;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-}
-
-.copy_button_ --success {
-  background: rgba(16, 185, 129, 0.3);
-  border-color: #10b981;
-}
-
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+.copy_button {
+  position: relative;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: var(--neon-purple);
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
   padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
-
-.contact_card:focus-within,
-.copy_button_ :focus {
-  outline: 2px solid var(--neon-purple);
-  outline-offset: 2px;
-  border-radius: 8px;
+.copy_button:hover {
+  background: rgba(139, 92, 246, 0.3);
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
 }
 
-
-.success-pulse {
-  animation: successPulse 0.6s ease-out;
+.copy_button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-@keyframes successPulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+.copy_icon {
+  font-size: 0.75rem;
+}
+
+.copy_button_small {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--neon-purple);
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.copy_button_small:hover {
+  background: rgba(139, 92, 246, 0.3);
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.3);
+}
+
+.copy_button_small svg {
+  font-size: 0.6rem;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+=========================================== */
+
+@media (max-width: 1024px) {
+  .contact-methods-grid {
+    grid-template-columns: 1fr;
   }
 
-  70% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
-  }
-
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  .contact_grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   }
 }
-
 
 @media (max-width: 768px) {
-
-  .contact-methods-grid,
-  .contact-methods {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+  .container_contacto {
+    padding: var(--spacing-md) var(--spacing-sm);
+    min-height: auto;
   }
 
-  .contact_grid,
-  .contact-links {
-    grid-template-columns: 1fr;
+  .contact_header {
+    margin-bottom: var(--spacing-md);
   }
 
-  .cv_details {
+  .tech_header_wrapper {
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .tech_title {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  }
+
+  .contact_description {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .arsenal_stats {
     gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
   }
 
-  .cv_detail {
+  .stat_box {
+    min-width: 75px;
+    padding: var(--spacing-xs);
+  }
+
+  .stat_number {
+    font-size: 1.2rem;
+  }
+
+  .stat_label {
+    font-size: 0.65rem;
+  }
+
+  .contact-methods-grid {
+    gap: var(--spacing-md);
+  }
+
+  .contact_grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.4rem;
+  }
+
+  .contact_card {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .contact_card--secondary {
+    padding: 0.5rem 0.3rem;
+    min-height: 85px;
+  }
+
+  .section_header h3 {
+    font-size: 1rem;
+  }
+
+  .cv_section {
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+
+  .cv_header h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container_contacto {
+    padding: var(--spacing-md) var(--spacing-sm);
+    min-height: auto;
+  }
+
+  .tech_header_wrapper {
+    gap: var(--spacing-xs);
+  }
+
+  .tech_main_icon {
+    font-size: 2.2rem;
+  }
+
+  .icon_glow {
+    width: 55px;
+    height: 55px;
+  }
+
+  .tech_title {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    letter-spacing: 1.5px;
+  }
+
+  .contact_description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .arsenal_stats {
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
+  }
+
+  .stat_box {
     min-width: 70px;
     padding: var(--spacing-xs);
   }
 
-  .copy_notification,
-  .copy_notification_ {
+  .stat_number {
+    font-size: 1.1rem;
+  }
+
+  .stat_label {
+    font-size: 0.6rem;
+  }
+
+  .section_header h3 {
+    font-size: 0.95rem;
+  }
+
+  .contact_grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 0.35rem;
+  }
+
+  .contact_card {
+    padding: 0.4rem 0.55rem;
+  }
+
+  .contact_card--secondary {
+    padding: 0.45rem 0.25rem;
+    min-height: 80px;
+  }
+
+  .contact_card_content {
+    gap: 0.4rem;
+  }
+
+  .icon_wrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .contact_icon {
+    font-size: 0.95rem;
+  }
+
+  .contact_name {
+    font-size: 0.6rem;
+  }
+
+  .contact_value {
+    font-size: 0.65rem;
+  }
+
+  .cv_section {
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin-top: var(--spacing-md);
+  }
+
+  .cv_header h3 {
+    font-size: 1rem;
+    gap: var(--spacing-xs);
+  }
+
+  .cv_subtitle {
+    font-size: 0.85rem;
+  }
+
+  .cv-button {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.85rem;
+    min-width: 150px;
+  }
+
+  .cv_button_text {
+    font-size: 0.8rem;
+  }
+
+  .cv_details {
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+  }
+
+  .cv_detail {
+    min-width: 60px;
+    padding: 0.4rem;
+  }
+
+  .detail_label {
+    font-size: 0.7rem;
+  }
+
+  .detail_value {
+    font-size: 0.75rem;
+  }
+
+  .copy_notification {
     bottom: 1rem;
     right: 1rem;
-    left: 1rem;
-    max-width: calc(100vw - 2rem);
+    padding: 0.6rem 0.8rem;
+  }
+
+  .notification_text {
+    font-size: 0.75rem;
   }
 }
 
 @media (max-width: 480px) {
-  .contact_card_content {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--spacing-sm);
-  }
-
-  .cv-button,
-  .cv-button- {
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: 1rem;
-    min-width: 180px;
-  }
-
   .container_contacto {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-sm);
+    min-height: auto;
+  }
+
+  .contact-wrapper {
+    width: 100%;
+  }
+
+  .contact_header {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .tech_header_wrapper {
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .tech_main_icon {
+    font-size: 2rem;
+  }
+
+  .icon_glow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .tech_title {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .contact_description {
+    font-size: 0.8rem;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.4;
+  }
+
+  .arsenal_stats {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+  }
+
+  .stat_box {
+    min-width: 65px;
+    padding: 0.4rem;
+  }
+
+  .stat_number {
+    font-size: 1rem;
+  }
+
+  .stat_label {
+    font-size: 0.6rem;
+  }
+
+  .contact-methods-grid {
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section_header {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section_header h3 {
+    font-size: 0.9rem;
+    gap: var(--spacing-xs);
+  }
+
+  .contact_grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.3rem;
+  }
+
+  .contact_card {
+    padding: 0.35rem 0.45rem;
+  }
+
+  .contact_card_content {
+    gap: 0.3rem;
+  }
+
+  .icon_wrapper {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+  }
+
+  .contact_icon {
+    font-size: 0.9rem;
+  }
+
+  .contact_name {
+    font-size: 0.6rem;
+  }
+
+  .contact_value {
+    font-size: 0.6rem;
+  }
+
+  .contact_card--secondary {
+    padding: 0.4rem 0.25rem;
+    min-height: 70px;
+  }
+
+  .contact_card--secondary .contact_link {
+    gap: 0.25rem;
+  }
+
+  .contact_card--secondary .icon_wrapper {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact_card--secondary .contact_icon {
+    font-size: 0.85rem;
+  }
+
+  .contact_card--secondary .contact_name {
+    font-size: 0.55rem;
+  }
+
+  .cv_section {
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    border-radius: 10px;
+  }
+
+  .cv_container {
+    width: 100%;
+  }
+
+  .cv_header {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cv_header h3 {
+    font-size: 0.9rem;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .cv_subtitle {
+    font-size: 0.75rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .cv-button {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.75rem;
+    min-width: 130px;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .cv_button_content {
+    gap: 0.3rem;
+  }
+
+  .cv_icon_container {
+    width: 17px;
+    height: 17px;
+  }
+
+  .cv_download_icon {
+    font-size: 0.85rem;
+  }
+
+  .cv_button_text {
+    font-size: 0.7rem;
+  }
+
+  .cv_info {
+    margin-top: var(--spacing-xs);
+  }
+
+  .cv_details {
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+  }
+
+  .cv_detail {
+    min-width: 52px;
+    padding: 0.3rem 0.2rem;
+  }
+
+  .detail_label {
+    font-size: 0.6rem;
+  }
+
+  .detail_value {
+    font-size: 0.65rem;
+  }
+
+  .copy_notification {
+    bottom: 0.75rem;
+    right: 0.75rem;
+    padding: 0.5rem 0.65rem;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .notification_icon {
+    font-size: 0.8rem;
+  }
+
+  .notification_text {
+    font-size: 0.65rem;
+  }
+
+  .copy_button {
+    width: 22px;
+    height: 22px;
+  }
+
+  .copy_icon {
+    font-size: 0.6rem;
+  }
+
+  .copy_button_small {
+    width: 19px;
+    height: 19px;
+  }
+
+  .copy_button_small svg {
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container_contacto {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .contact_header {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .tech_main_icon {
+    font-size: 1.8rem;
+  }
+
+  .icon_glow {
+    width: 45px;
+    height: 45px;
+  }
+
+  .tech_title {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .contact_description {
+    font-size: 0.75rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .arsenal_stats {
+    gap: 0.3rem;
+  }
+
+  .stat_box {
+    min-width: 60px;
+    padding: 0.25rem;
+  }
+
+  .stat_number {
+    font-size: 0.9rem;
+  }
+
+  .stat_label {
+    font-size: 0.55rem;
+  }
+
+  .contact_grid {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .contact_card {
+    padding: 0.3rem 0.4rem;
+  }
+
+  .icon_wrapper {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact_icon {
+    font-size: 0.8rem;
+  }
+
+  .contact_name {
+    font-size: 0.55rem;
+  }
+
+  .contact_value {
+    font-size: 0.55rem;
+  }
+
+  .cv-button {
+    width: 100%;
+    min-width: unset;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .cv_button_text {
+    font-size: 0.65rem;
+  }
+
+  .cv_details {
+    gap: var(--spacing-xs);
+  }
+
+  .cv_detail {
+    min-width: 50px;
+    padding: 0.25rem;
+  }
+
+  .copy_notification {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* ==========================================
+   OPTIMIZACIONES DE RENDIMIENTO
+=========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .tech_main_icon,
+  .icon_glow,
+  .stat_box,
+  .contact_card,
+  .icon_pulse,
+  .card_glow,
+  .cv-button,
+  .copy_button,
+  .loading_spinner {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .contact_card {
+    background: var(--bg-secondary);
   }
 }

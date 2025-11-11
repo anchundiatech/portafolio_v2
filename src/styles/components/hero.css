@@ -1,5 +1,4 @@
-﻿
-.hero_Container {
+﻿.hero_Container {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -19,11 +18,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image:
-    linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px),
+  background-image: linear-gradient(rgba(139, 92, 246, 0.15) 1px, transparent 1px),
     linear-gradient(90deg, rgba(139, 92, 246, 0.15) 1px, transparent 1px);
   background-size: 60px 60px;
   animation: purpleGridMove 25s linear infinite;
+  will-change: transform;
   z-index: 0;
 }
 
@@ -34,12 +33,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.6) 2px, transparent 2px),
+  background-image: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.6) 2px, transparent 2px),
     radial-gradient(circle at 80% 80%, rgba(168, 139, 250, 0.4) 1px, transparent 1px),
     radial-gradient(circle at 40% 40%, rgba(192, 132, 252, 0.3) 1px, transparent 1px);
   background-size: 200px 200px, 150px 150px, 100px 100px;
   animation: floatingParticles 20s ease-in-out infinite;
+  will-change: transform;
   z-index: 0;
 }
 
@@ -84,6 +83,7 @@
   border-radius: 2px;
   box-shadow: var(--shadow-purple);
   animation: pulseGlow 2s ease-in-out infinite;
+  will-change: opacity;
 }
 
 .wave {
@@ -92,6 +92,7 @@
   transform-origin: 70% 70%;
   font-size: 0.8em;
   filter: drop-shadow(0 0 8px var(--neon-purple));
+  will-change: transform;
 }
 
 @keyframes wave {
@@ -121,6 +122,7 @@
   letter-spacing: 2px;
   text-shadow: 0 0 20px var(--neon-purple);
   animation: purpleGlowPulse 3s ease-in-out infinite;
+  will-change: opacity;
 }
 
 .hero_description {
@@ -181,6 +183,7 @@
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s ease;
+  will-change: left;
 }
 
 .btn_primary:hover::before,
@@ -192,6 +195,7 @@
   transform: translateY(-3px);
   box-shadow: var(--shadow-purple-intense);
   background: var(--gradient-accent);
+  will-change: transform;
 }
 
 .btn_secondary:hover {
@@ -199,6 +203,7 @@
   background: rgba(139, 92, 246, 0.2);
   box-shadow: var(--shadow-purple-intense);
   color: var(--electric-purple);
+  will-change: transform;
 }
 
 
@@ -232,6 +237,7 @@
   border-radius: 20px;
   z-index: -1;
   animation: rotatePurpleBorder 5s linear infinite;
+  will-change: transform;
 }
 
 @keyframes rotatePurpleBorder {
@@ -250,13 +256,13 @@
   object-fit: cover;
   filter: contrast(1.2) brightness(1.05) saturate(1.1);
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .image_decoration:hover img {
   filter: contrast(1.3) brightness(1.1) saturate(1.2);
   transform: scale(1.03);
 }
-
 
 .image_decoration::after {
   content: '';
@@ -268,6 +274,7 @@
   background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   animation: epicAura 6s ease-in-out infinite;
+  will-change: transform, opacity;
   z-index: -2;
 }
 
@@ -308,5 +315,326 @@
 
   .hero_cta {
     justify-content: center;
+  }
+}
+
+/* Estilos para el sistema orbital del Hero */
+
+.orbital_container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+/* Órbitas visuales */
+.orbit {
+  position: absolute;
+  border: 1px solid;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  transition: all 0.3s ease;
+  will-change: opacity;
+}
+
+.orbit-1 {
+  width: 180px;
+  height: 180px;
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+.orbit-2 {
+  width: 260px;
+  height: 260px;
+  border-color: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.15);
+}
+
+.orbit-3 {
+  width: 340px;
+  height: 340px;
+  border-color: rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.1);
+}
+
+/* Imagen central */
+.image_decoration {
+  position: relative;
+  z-index: 10;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.4),
+    inset 0 0 20px rgba(139, 92, 246, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.image_decoration img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.image_decoration:hover img {
+  transform: scale(1.05);
+}
+
+.image_glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+  animation: pulseGlow 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+/* Wrapper orbital - rota continuamente */
+.orbital_wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-out;
+  will-change: transform;
+}
+
+/* Iconos orbitales */
+.orbital_tech {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  left: 50%;
+  margin-left: -30px;
+  margin-top: -30px;
+}
+
+.tech_orbital_icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.1);
+  border: 2px solid rgba(139, 92, 246, 0.4);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+}
+
+.orbital_tech:hover .tech_orbital_icon {
+  background: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.8);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.5), inset 0 0 10px rgba(139, 92, 246, 0.2);
+  transform: scale(1.1);
+}
+
+.tech_orbital_icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(139, 92, 246, 0.3));
+  transition: filter 0.3s ease, transform 0.3s ease;
+  will-change: transform, filter;
+}
+
+.orbital_tech:hover .tech_orbital_icon img {
+  filter: drop-shadow(0 4px 10px rgba(139, 92, 246, 0.6));
+  transform: scale(1.15);
+}
+
+.tech_orbital_glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: opacity, transform;
+}
+
+.orbital_tech:hover .tech_orbital_glow {
+  opacity: 1;
+  animation: orbitGlow 0.6s ease-in-out;
+}
+
+@keyframes orbitGlow {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.orbital_center_glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+  animation: centerPulse 4s ease-in-out infinite;
+  will-change: transform, opacity;
+  z-index: 1;
+}
+
+@keyframes centerPulse {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 0.6;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orbital_container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orbit-1 {
+    width: 140px;
+    height: 140px;
+  }
+
+  .orbit-2 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .orbit-3 {
+    width: 260px;
+    height: 260px;
+  }
+
+  .image_decoration {
+    width: 150px;
+    height: 150px;
+  }
+
+  .orbital_tech {
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+  }
+
+  .tech_orbital_icon {
+    border-width: 1.5px;
+  }
+
+  .orbital_center_glow {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 480px) {
+  .orbital_container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .orbit-1 {
+    width: 110px;
+    height: 110px;
+  }
+
+  .orbit-2 {
+    width: 160px;
+    height: 160px;
+  }
+
+  .orbit-3 {
+    width: 210px;
+    height: 210px;
+  }
+
+  .image_decoration {
+    width: 120px;
+    height: 120px;
+  }
+
+  .orbital_tech {
+    width: 45px;
+    height: 45px;
+    margin-left: -22.5px;
+    margin-top: -22.5px;
+  }
+
+  .tech_orbital_icon {
+    border-width: 1px;
+  }
+
+  .orbital_center_glow {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero_text h1::after,
+  .wave,
+  .hero_subtitle,
+  .btn_primary::before,
+  .btn_secondary::before,
+  .image_decoration::before,
+  .image_decoration::after,
+  .image_glow,
+  .orbital_wrapper,
+  .tech_orbital_glow,
+  .orbital_center_glow,
+  .tech_orbital_icon,
+  .tech_orbital_icon img {
+    animation: none !important;
+    transition: none !important;
   }
 }

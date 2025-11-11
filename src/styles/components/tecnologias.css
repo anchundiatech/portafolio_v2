@@ -1,6 +1,4 @@
-﻿
-
-.gaming-tech-galaxy {
+﻿.gaming-tech-galaxy {
   padding: var(--spacing-lg) var(--spacing-lg);
   min-height: 90vh;
   position: relative;
@@ -23,8 +21,13 @@
 }
 
 @keyframes galaxyParticlesDrift {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(50px, 30px) rotate(360deg); }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(50px, 30px) rotate(360deg);
+  }
 }
 
 
@@ -176,13 +179,27 @@
 }
 
 @keyframes coreRotation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes corePulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.5); opacity: 0.8; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
 }
 
 
@@ -195,8 +212,13 @@
 }
 
 @keyframes galaxyRotation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 
@@ -208,10 +230,7 @@
   height: 72px;
   transform-origin: center;
   transform:
-    translate(-50%, -50%)
-    rotate(var(--start-angle))
-    translateX(var(--orbit-radius))
-    rotate(calc(-1 * var(--start-angle)));
+    translate(-50%, -50%) rotate(var(--start-angle)) translateX(var(--orbit-radius)) rotate(calc(-1 * var(--start-angle)));
   animation: planetOrbit 15s linear infinite reverse;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -224,17 +243,14 @@
 }
 
 @keyframes planetOrbit {
-  from { transform:
-    translate(-50%, -50%)
-    rotate(calc(var(--start-angle) + 0deg))
-    translateX(var(--orbit-radius))
-    rotate(calc(-1 * (var(--start-angle) + 0deg)));
+  from {
+    transform:
+      translate(-50%, -50%) rotate(calc(var(--start-angle) + 0deg)) translateX(var(--orbit-radius)) rotate(calc(-1 * (var(--start-angle) + 0deg)));
   }
-  to { transform:
-    translate(-50%, -50%)
-    rotate(calc(var(--start-angle) + 360deg))
-    translateX(var(--orbit-radius))
-    rotate(calc(-1 * (var(--start-angle) + 360deg)));
+
+  to {
+    transform:
+      translate(-50%, -50%) rotate(calc(var(--start-angle) + 360deg)) translateX(var(--orbit-radius)) rotate(calc(-1 * (var(--start-angle) + 360deg)));
   }
 }
 
@@ -299,8 +315,13 @@
 }
 
 @keyframes ringRotation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 
@@ -385,8 +406,13 @@
 }
 
 @keyframes particleOrbit {
-  0% { transform: rotate(0deg) translateX(35px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(35px) rotate(-360deg); }
+  0% {
+    transform: rotate(0deg) translateX(35px) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(35px) rotate(-360deg);
+  }
 }
 
 
@@ -501,8 +527,13 @@
 }
 
 @keyframes powerGlowGalaxy {
-  0% { left: -100%; }
-  100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 
@@ -612,10 +643,16 @@
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
 }
 
+/* ——————— RESPONSIVE ——————— */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .gaming-tech-galaxy {
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+
   .galaxy-carousel-container {
-    height: 400px;
+    height: 420px;
+    margin: var(--spacing-lg) 0;
   }
 
   .tech-planet {
@@ -623,33 +660,129 @@
     height: 60px;
   }
 
-  .tech-icon-orbit {
-    width: 30px;
-    height: 30px;
-  }
-
   .center-core {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
   }
 
   .core-icon {
     font-size: 1.5rem;
   }
 
-  .galaxy-controls {
-    flex-direction: column;
-    gap: var(--spacing-md);
-  }
-
   .tech-tooltip-galaxy {
-    width: 250px;
+    width: 240px;
   }
 
   .focused-tech-panel {
-    bottom: 1rem;
-    width: 95%;
+    width: 85%;
+    max-width: 550px;
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gaming-tech-galaxy {
+    padding: var(--spacing-md) var(--spacing-sm);
+    min-height: auto;
+  }
+
+  .galaxy-controls {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: 12px;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .control-group {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .control-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+
+  .control-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .speed-controls {
+    gap: 0.25rem;
+  }
+
+  .speed-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .category-filters-mini {
+    gap: 0.25rem;
+  }
+
+  .filter-btn-mini {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.75rem;
+    border-radius: 10px;
+  }
+
+  .galaxy-carousel-container {
+    height: 340px;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .tech-planet {
+    width: 52px;
+    height: 52px;
+  }
+
+  .tech-icon-orbit {
+    width: 28px;
+    height: 28px;
+  }
+
+  .center-core {
+    width: 48px;
+    height: 48px;
+  }
+
+  .core-icon {
+    font-size: 1.2rem;
+  }
+
+  .core-pulse {
+    inset: -8px;
+  }
+
+  .tech-tooltip-galaxy {
+    width: 220px;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    margin-top: 12px;
+  }
+
+  .tooltip-header-galaxy h4 {
+    font-size: 1rem;
+  }
+
+  .stat-row {
+    font-size: 0.8rem;
+  }
+
+  .tooltip-description-galaxy {
+    font-size: 0.8rem;
+  }
+
+  .focused-tech-panel {
+    width: 90%;
+    max-width: 500px;
+    padding: 1.2rem;
+    bottom: 1.5rem;
   }
 
   .focused-tech-header {
@@ -659,76 +792,432 @@
   }
 
   .focused-tech-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .focused-tech-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .focused-tech-info p {
+    font-size: 0.9rem;
+  }
+
+  .focused-tech-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .stat-item {
+    padding: 0.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  .stat-value {
+    font-size: 1rem;
+  }
+
+  .close-focus-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  .tecnologias_subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .gaming-tech-galaxy {
+    padding: var(--spacing-sm) var(--spacing-sm);
+  }
+
+  .galaxy-controls {
+    padding: var(--spacing-xs);
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+
+  .control-group {
+    flex-direction: row;
+  }
+
+  .control-btn {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  .speed-btn,
+  .filter-btn-mini {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .galaxy-carousel-container {
+    height: 300px;
+  }
+
+  .tech-planet {
+    width: 48px;
+    height: 48px;
+  }
+
+  .tech-icon-orbit {
+    width: 26px;
+    height: 26px;
+  }
+
+  .center-core {
+    width: 44px;
+    height: 44px;
+  }
+
+  .core-icon {
+    font-size: 1.1rem;
+  }
+
+  .core-pulse {
+    inset: -7px;
+  }
+
+  .tech-tooltip-galaxy {
+    width: 200px;
+    padding: 0.7rem;
+    margin-top: 10px;
+  }
+
+  .tooltip-header-galaxy {
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .tooltip-header-galaxy h4 {
+    font-size: 0.95rem;
+  }
+
+  .stat-row {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .tooltip-description-galaxy {
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .power-bar-galaxy {
+    height: 5px;
+  }
+
+  .focused-tech-panel {
+    width: 95%;
+    max-width: 100%;
+    padding: 1rem;
+    bottom: 1rem;
+  }
+
+  .focused-tech-header {
+    gap: 0.8rem;
+  }
+
+  .focused-tech-icon {
     width: 60px;
     height: 60px;
   }
 
+  .focused-tech-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .focused-tech-info p {
+    font-size: 0.85rem;
+  }
+
   .focused-tech-stats {
     grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .stat-item {
+    padding: 0.6rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  .stat-value {
+    font-size: 0.9rem;
+  }
+
+  .close-focus-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .tecnologias_subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
+  .gaming-tech-galaxy {
+    padding: var(--spacing-xs) var(--spacing-xs);
+    min-height: auto;
+  }
+
+  .galaxy-controls {
+    padding: 0.5rem;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .control-group {
+    flex: 1;
+    min-width: calc(50% - 0.25rem);
+  }
+
+  .control-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3px;
+  }
+
+  .control-btn {
+    width: 100%;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.65rem;
+    border-radius: 10px;
+    justify-content: center;
+  }
+
+  .speed-btn,
+  .filter-btn-mini {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+  }
+
   .galaxy-carousel-container {
-    height: 350px;
+    height: 260px;
+    margin: var(--spacing-sm) 0;
   }
 
   .tech-planet {
+    width: 44px;
+    height: 44px;
+  }
+
+  .tech-icon-orbit {
+    width: 24px;
+    height: 24px;
+  }
+
+  .center-core {
+    width: 40px;
+    height: 40px;
+  }
+
+  .core-icon {
+    font-size: 1rem;
+  }
+
+  .core-pulse {
+    inset: -6px;
+  }
+
+  .tech-info-orbit {
+    bottom: -25px;
+  }
+
+  .tech-name-orbit {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .tech-level-badge-orbit {
+    font-size: 0.55rem;
+    padding: 0.15rem 0.3rem;
+  }
+
+  .tech-tooltip-galaxy {
+    width: 180px;
+    padding: 0.6rem;
+    margin-top: 8px;
+  }
+
+  .tooltip-header-galaxy {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+  }
+
+  .tooltip-header-galaxy h4 {
+    font-size: 0.9rem;
+  }
+
+  .rarity-gem {
+    width: 10px;
+    height: 10px;
+  }
+
+  .stat-row {
+    font-size: 0.7rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .tooltip-description-galaxy {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .power-bar-galaxy {
+    height: 4px;
+  }
+
+  .focused-tech-panel {
+    width: 98%;
+    padding: 0.8rem;
+    bottom: 0.75rem;
+    border-radius: 15px;
+  }
+
+  .focused-tech-header {
+    gap: 0.6rem;
+  }
+
+  .focused-tech-icon {
     width: 50px;
     height: 50px;
   }
 
-  .tech-icon-orbit {
-    width: 25px;
-    height: 25px;
+  .focused-tech-content {
+    width: 100%;
+  }
+
+  .focused-tech-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .focused-tech-info p {
+    font-size: 0.8rem;
+  }
+
+  .focused-tech-stats {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .stat-item {
+    padding: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+
+  .stat-value {
+    font-size: 0.85rem;
+  }
+
+  .close-focus-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    top: -8px;
+    right: -8px;
+  }
+
+  .tecnologias_subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .gaming-tech-galaxy {
+    padding: var(--spacing-xs);
   }
 
   .galaxy-controls {
-    padding: var(--spacing-sm);
+    flex-direction: column;
+    padding: 0.4rem;
+    gap: 0.3rem;
   }
 
   .control-group {
-    flex-direction: column;
-    text-align: center;
+    flex: none;
+    width: 100%;
   }
-}
 
+  .control-btn {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.5rem;
+  }
 
-.galaxy-carousel.loading {
-  opacity: 0.7;
-  pointer-events: none;
-}
+  .speed-btn,
+  .filter-btn-mini {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
 
-.tech-planet.loading {
-  animation: planetLoading 1.5s ease-in-out infinite;
-}
+  .galaxy-carousel-container {
+    height: 220px;
+    margin: var(--spacing-xs) 0;
+  }
 
-@keyframes planetLoading {
-  0%, 100% { opacity: 0.5; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
+  .tech-planet {
+    width: 40px;
+    height: 40px;
+  }
 
+  .tech-icon-orbit {
+    width: 22px;
+    height: 22px;
+  }
 
-.tech-planet[data-rarity="Epic"] .planet-core {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(168, 139, 250, 0.1) 100%);
-  border: 2px solid #8b5cf6;
-}
+  .center-core {
+    width: 36px;
+    height: 36px;
+  }
 
-.tech-planet[data-rarity="Rare"] .planet-core {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.3) 0%, rgba(244, 114, 182, 0.1) 100%);
-  border: 2px solid #ec4899;
-}
+  .core-icon {
+    font-size: 0.9rem;
+  }
 
-.tech-planet[data-rarity="Common"] .planet-core {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(96, 165, 250, 0.1) 100%);
-  border: 2px solid #3b82f6;
-}
+  .tech-tooltip-galaxy {
+    width: 160px;
+    padding: 0.5rem;
+  }
 
-.tecnologias_subtitle{
-  text-align: center;
-  color: var(--neon-purple);
-  font-size: 1.7rem;
-  margin-bottom: 2rem;
-  font-family: 'Orbitron', sans-serif;
-  
+  .tooltip-header-galaxy h4 {
+    font-size: 0.85rem;
+  }
+
+  .stat-row {
+    font-size: 0.65rem;
+  }
+
+  .focused-tech-panel {
+    padding: 0.6rem;
+  }
+
+  .focused-tech-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .focused-tech-info h3 {
+    font-size: 1rem;
+  }
+
+  .tecnologias_subtitle {
+    font-size: 1rem;
+  }
 }
