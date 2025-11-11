@@ -1,24 +1,39 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portafolio de Alejandro Anchundia, desarrollador frontend especializado en React, JavaScript y CSS moderno. Interfaces web responsivas, accesibles y atractivas." />
-  <meta name="keywords" content="Alejandro Anchundia, frontend, React, JavaScript, CSS, portafolio, desarrollador web" />
-  <meta name="author" content="Alejandro Anchundia" />
-  <meta property="og:title" content="Alejandro Anchundia | Desarrollador Frontend" />
-  <meta property="og:description" content="Explora el portafolio de Alejandro: proyectos web modernos, accesibles y responsivos." />
-  <meta property="og:image" content="/src/assets/me.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="" />
-   <link rel="icon" href="public/logo.svg" type="image/svg+xml" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="description" content="Portafolio de Alejandro Anchundia - Frontend Developer especializado en React" />
 
-  <title>Alejandro Anchundia | Desarrollador Frontend</title>
-</head>
+    <!-- Preconnect a recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
-<body>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Manifest para PWA -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <title>Alejandro Anchundia - Frontend Developer</title>
+  </head>
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
 
-  </html>
+    <!-- Skip to main content (accesibilidad) -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const skipLink = document.createElement('a');
+        skipLink.href = '#main-content';
+        skipLink.className = 'skip-link';
+        skipLink.textContent = 'Saltar al contenido principal';
+        document.body.prepend(skipLink);
+      });
+    </script>
+  </body>
+</html>
