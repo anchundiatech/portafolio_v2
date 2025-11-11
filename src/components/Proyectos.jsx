@@ -78,7 +78,7 @@ function ProyectoCard({title, description,  image,  link,  repository,  tecnolog
     <div className="proyecto_card">
       <h3>{title}</h3>
       <details ref={detailsRef}>
-        <summary style={{ display: "none" }}></summary> 
+        <summary style={{ display: "none" }}></summary>
         <p>{description}</p>
       </details>
 
@@ -134,7 +134,7 @@ function ProyectoCard({title, description,  image,  link,  repository,  tecnolog
 
 export default function Proyectos() {
   return (
-    <section className="proyectos_section" id="#proyects">
+    <section className="proyectos_section" id="proyectos">
       <div className="proyectos_content">
         <div className="proyectos_text">
           <h2 className="title_proyectos">Mis Proyectos</h2>
@@ -148,7 +148,7 @@ export default function Proyectos() {
 
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.25rem' }}>
           <a
-            href="#/proyectos"
+            href="https://github.com/anchundiatech"
             className="btn_secondary"
             aria-label="Ver todos los proyectos"
           >
@@ -159,6 +159,3 @@ export default function Proyectos() {
     </section>
   );
 }
-
-
-

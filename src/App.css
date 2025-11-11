@@ -1,1 +1,70 @@
 @import './styles/main.css';
+
+/* Skip Link - Accesibilidad */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--neon-purple);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus visible para mejor accesibilidad */
+*:focus-visible {
+  outline: 2px solid var(--neon-purple);
+  outline-offset: 2px;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reducir animaciones para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Optimización para pantallas pequeñas */
+@media (max-width: 480px) {
+  .skip-link {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  *:focus-visible {
+    outline-offset: 1px;
+  }
+}
+
+/* Soporte para tema oscuro */
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+  }
+}
+
+/* Soporte para tema claro */
+@media (prefers-color-scheme: light) {
+  body {
+    color-scheme: light;
+  }
+}

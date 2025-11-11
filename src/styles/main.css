@@ -13,15 +13,17 @@
 /* Componentes */
 @import './components/header.css';
 @import './components/hero.css';
-@import './components/sobremi.css';
+
 @import './components/tecnologias.css';
 @import './components/proyectos.css';
-@import './components/projects_timeline.css';
 @import './components/footer.css';
 @import './components/contact.css';
 
 /* Layouts */
 @import './layouts/main.css';
+
+/* Páginas */
+@import './pages/aboutme-detailed.css';
 
 /* Utilidades */
 @import './utils/utilities.css';

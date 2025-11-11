@@ -1,26 +1,22 @@
 ﻿import React, { useState, useEffect, useCallback } from "react";
-//import { Globe, icons } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
-//import Select from "react-select";
 import "../App.css";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
-//import esFlags from "@/assets/flags/icons8-espaÃ±a-48.png";
-//import enFlags from "@/assets/flags/icons8-estados-unidos-48.png";
 
 function Header() {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const { t } = useTranslation();
   const { language, setLanguage } = useLanguage();
 
   // Debounced scroll handler para mejor performance
   const handleScroll = useCallback(() => {
-    // Cambiar el estado del header cuando se hace scroll
     setIsScrolled(window.scrollY > 50);
-
 
     const sections = [
       "inicio",
@@ -33,7 +29,6 @@ function Header() {
       const element = document.getElementById(section);
       if (element) {
         const rect = element.getBoundingClientRect();
-        // Mejor detecciÃ³n: centro de la ventana
         return (
           rect.top <= window.innerHeight / 2 &&
           rect.bottom >= window.innerHeight / 2
@@ -61,7 +56,6 @@ function Header() {
     };
   }, [handleScroll]);
 
-
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape" && isMobileMenuOpen) {
@@ -71,7 +65,6 @@ function Header() {
 
     if (isMobileMenuOpen) {
       document.addEventListener("keydown", handleKeyDown);
-      // Prevenir scroll del body cuando menÃº estÃ¡ abierto
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -84,27 +77,34 @@ function Header() {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { href: "#inicio", text: t("Inicio") },
-    //{ href: "#about-mi", text: t("Sobre Mi") },
-    { href: "#proyects", text: t("Proyectos") },
-    { href: "#tecnologias", text: t("Tecnologías") },
-    { href: "#contact", text: t("Contacto") },
+    { href: "/", text: t("Inicio"), isNavigation: false },
+    { href: "/sobremi-detallado", text: t("Sobre Mi"), isNavigation: true },
+    { href: "#proyectos", text: t("Proyectos"), isNavigation: false },
+    { href: "#tecnologias", text: t("Tecnologías"), isNavigation: false },
+    { href: "#contact", text: t("Contacto"), isNavigation: false },
   ];
 
-  //const OptionsLanguage = [
-  //  { value: "es", label: "Español", flag: esFlags },
-  //  { value: "en", label: "English", flag: enFlags },
-  //];
 
-  const handleNavClick = (href) => {
-    const sectionId = href.slice(1);
-    setActiveSection(sectionId);
+
+  const handleLanguageChange = (langCode) => {
+    setLanguage(langCode);
+    i18n.changeLanguage(langCode);
+  };
+
+  const handleNavClick = (item) => {
     setIsMobileMenuOpen(false);
 
-    // Scroll suave programÃ¡tico (fallback si CSS no funciona)
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (item.isNavigation) {
+      // Navegar a otra página
+      navigate(item.href);
+    } else {
+      // Scroll a sección
+      const sectionId = item.href.slice(1);
+      setActiveSection(sectionId);
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -115,37 +115,43 @@ function Header() {
         role="navigation"
         aria-label="Navegación principal">
 
-
-
         <div className="menu_container">
           <ul className="list_nav">
             {navItems.map((item) => (
               <li key={item.href} className="nav_item">
-                <a
-                  href={item.href}
-                  className={
-                    activeSection === item.href.slice(1) ? "active" : ""
-                  }
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
-                  aria-current={
-                    activeSection === item.href.slice(1) ? "page" : undefined
-                  }>
-                  {item.text}
-                </a>
+                {item.isNavigation ? (
+                  <button
+                    onClick={() => handleNavClick(item)}
+                    className="nav-link-button"
+                    style={{
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      color: "inherit",
+                      font: "inherit",
+                      padding: "0",
+                    }}>
+                    {item.text}
+                  </button>
+                ) : (
+                  <a
+                    href={item.href}
+                    className={
+                      activeSection === item.href.slice(1) ? "active" : ""
+                    }
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item);
+                    }}>
+                    {item.text}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="header_right_info">
-
-
-
-        </div>
-
+       
 
         <button
           className="mobile-menu-button"
@@ -169,7 +175,6 @@ function Header() {
             }`}></span>
         </button>
 
-
         {isMobileMenuOpen && (
           <div
             className="mobile-menu-overlay"
@@ -183,23 +188,44 @@ function Header() {
           className={`mobile-menu ${
             isMobileMenuOpen ? "mobile-menu--open" : ""
           }`}>
+          <button
+            className="mobile-menu-close"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Cerrar menú">
+            ×
+          </button>
           <ul>
             {navItems.map((item) => (
               <li key={`mobile-${item.href}`}>
-                <a
-                  href={item.href}
-                  className={
-                    activeSection === item.href.slice(1) ? "active" : ""
-                  }
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
-                  aria-current={
-                    activeSection === item.href.slice(1) ? "page" : undefined
-                  }>
-                  {item.text}
-                </a>
+                {item.isNavigation ? (
+                  <button
+                    onClick={() => handleNavClick(item)}
+                    className="mobile-menu-link"
+                    style={{
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      color: "inherit",
+                      font: "inherit",
+                      padding: "0",
+                      width: "100%",
+                      textAlign: "center",
+                    }}>
+                    {item.text}
+                  </button>
+                ) : (
+                  <a
+                    href={item.href}
+                    className={`mobile-menu-link ${
+                      activeSection === item.href.slice(1) ? "active" : ""
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item);
+                    }}>
+                    {item.text}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -210,7 +236,3 @@ function Header() {
 }
 
 export default Header;
-
-
-
-
