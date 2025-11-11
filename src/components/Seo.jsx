@@ -1,58 +1,51 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 
- function SEO({
-  title = 'Alejandro Anchundia - Desarrollador Frontend',
-  description = 'Portafolio de Alejandro Anchundia. Desarrollador Frontend especializado en React, JavaScript y diseño responsivo.',
-  image = 'https://portafolio-v2-peach.vercel.app/og-image.jpg',
-  url = 'https://portafolio-v2-peach.vercel.app/',
-  type = 'website'
-}) {
-  return (
-    <Helmet>
-      {/* Básicos */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta charset="utf-8" />
+const SEO = ({
+  title = "Alejandro Anchundia - Desarrollador Frontend",
+  description = "Portafolio de Alejandro Anchundia. Desarrollador Frontend especializado en React, JavaScript y diseño responsivo.",
+  url = "https://portafolio-v2-peach.vercel.app",
+  image = "https://portafolio-v2-peach.vercel.app/og-image.jpg"
+} = {}) => {
+  React.useEffect(() => {
+    document.title = title;
 
-      {/* Palabras clave */}
-      <meta name="keywords" content="Frontend, React, JavaScript, CSS, Developer, Portafolio, Web Development" />
-      <meta name="author" content="Alejandro Anchundia" />
+    // Meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content = description;
 
-      {/* Open Graph */}
-      <meta property="og:type" content={type} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="og:url" content={url} />
-      <meta property="og:site_name" content="Alejandro Anchundia" />
+    // Open Graph
+    const updateMeta = (property, content) => {
+      let meta = document.querySelector(`meta[property="${property}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        document.head.appendChild(meta);
+      }
+      meta.content = content;
+    };
 
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+    updateMeta('og:title', title);
+    updateMeta('og:description', description);
+    updateMeta('og:url', url);
+    updateMeta('og:image', image);
+    updateMeta('og:type', 'website');
 
-      {/* Canonical URL */}
-      <link rel="canonical" href={url} />
+    // Canonical
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = url;
+  }, [title, description, url, image]);
 
-      {/* Favicon */}
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-      <link rel="shortcut icon" href="/favicon.ico" />
-
-      {/* Preconnect */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-
-      {/* Preload críticos */}
-      <link rel="preload" as="image" href="/src/assets/me.jpg" />
-
-      {/* Robots */}
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow" />
-    </Helmet>
-  );
-}
+  return null;
+};
 
 export default SEO;
