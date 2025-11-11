@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import SEO from "./components/SEO";
+// import SEO from "./components/SEO";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Tecnologias from "./components/Tecnologias/index.jsx";
@@ -14,7 +14,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <SEO />
+      {/* <SEO /> */}
 
         <Header />
         <Routes>
@@ -36,11 +36,11 @@ function App() {
             path="/sobremi-detallado"
             element={
               <>
-                <SEO
+                {/* <SEO
                   title="Sobre Mí - Alejandro Anchundia"
                   description="Conoce mi viaje profesional, fortalezas y valores como desarrollador frontend."
                   url="https://portafolio-v2-peach.vercel.app/sobremi-detallado"
-                />
+                /> */}
                 <main id="main-content">
                   <AboutMeDetailed />
                 </main>
