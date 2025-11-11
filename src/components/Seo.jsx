@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-export default function SEO({
+ function SEO({
   title = 'Alejandro Anchundia - Desarrollador Frontend',
   description = 'Portafolio de Alejandro Anchundia. Desarrollador Frontend especializado en React, JavaScript y diseño responsivo.',
   image = 'https://portafolio-v2-peach.vercel.app/og-image.jpg',
@@ -54,3 +54,5 @@ export default function SEO({
     </Helmet>
   );
 }
+
+export default SEO;
