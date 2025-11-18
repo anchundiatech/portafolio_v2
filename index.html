@@ -1,52 +1,76 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <meta name="description" content="Portafolio de Alejandro Anchundia - Frontend Developer especializado en React" />
-    <meta property="twitter:image" content="Twitter link preview image URL">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Twitter link preview title">
-    <meta property="twitter:description" content="Portafolio de Alejandro Anchundia - Frontend Developer">
-    <meta property="og:image" content="Link preview image URL">
-    <meta property="og:site_name" content="Link preview site name">
-    <meta property="og:title" content="Link preview title">
-    <meta property="og:description" content="Portafolio de Alejandro Anchundia - Frontend Developer">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://portafolio-v2-peach.vercel.app/">
-    <link rel="icon" type="image/x-icon" href="/public/logo.svg" />
 
-    <!-- Preconnect a recursos externos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description"
+    content="Alejandro Anchundia - Desarrollador Frontend especializado en React, JavaScript y tecnologías modernas. Portafolio con proyectos innovadores y experiencia en desarrollo web." />
+  <meta name="keywords"
+    content="Alejandro Anchundia, Frontend Developer, React, JavaScript, Desarrollador Web, Portafolio, HTML, CSS, Vite" />
+  <meta name="author" content="Alejandro Anchundia" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://portafolio-v2-peach.vercel.app/" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    
-    <!--Ti-->
+  <meta property="og:title" content="Alejandro Anchundia - Desarrollador Frontend | Portafolio" />
+  <meta property="og:description"
+    content="Desarrollador Frontend especializado en React y JavaScript. Descubre mis proyectos y experiencia en desarrollo web moderno." />
+  <meta property="og:image"
+    content="https://via.placeholder.com/1200x630/0a0a0a/ffffff?text=Alejandro+Anchundia+-+Frontend+Developer" />
+  <meta property="og:site_name" content="Alejandro Anchundia - Portafolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://portafolio-v2-peach.vercel.app/" />
+  <meta property="og:locale" content="es_ES" />
 
-    <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alejandro Anchundia - Desarrollador Frontend" />
+  <meta name="twitter:description"
+    content="Portafolio de Alejandro Anchundia - Desarrollador Frontend especializado en React" />
+  <meta name="twitter:image"
+    content="https://via.placeholder.com/1200x630/0a0a0a/ffffff?text=Alejandro+Anchundia+-+Frontend+Developer" />
+  <meta name="twitter:creator" content="@tu_usuario" />
 
-    <!-- Manifest para PWA -->
-    <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
 
-    <title>Alejandro Anchundia - Frontend Developer</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
-    <!-- Skip to main content (accesibilidad) -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const skipLink = document.createElement('a');
-        skipLink.href = '#main-content';
-        skipLink.className = 'skip-link';
-        skipLink.textContent = 'Saltar al contenido principal';
-        document.body.prepend(skipLink);
-      });
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alejandro Anchundia",
+      "jobTitle": "Desarrollador Frontend",
+      "url": "https://portafolio-v2-peach.vercel.app",
+      "sameAs": [
+        "https://github.com/anchundiatech",
+        "https://linkedin.com/in/alejandro-anchundia"
+      ],
+      "knowsAbout": ["React", "JavaScript", "HTML", "CSS", "Frontend Development"],
+      "description": "Desarrollador Frontend especializado en React y tecnologías web modernas"
+    }
     </script>
-  </body>
+
+  <title>Alejandro Anchundia - Desarrollador Frontend | Portafolio</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const skipLink = document.createElement('a');
+      skipLink.href = '#main-content';
+      skipLink.className = 'skip-link';
+      skipLink.textContent = 'Saltar al contenido principal';
+      document.body.prepend(skipLink);
+    });
+  </script>
+</body>
+
 </html>
