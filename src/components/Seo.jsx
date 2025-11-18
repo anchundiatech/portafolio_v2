@@ -1,41 +1,43 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 const SEO = ({
   title = "Alejandro Anchundia - Desarrollador Frontend",
-  description = "Portafolio de Alejandro Anchundia. Desarrollador Frontend especializado en React, JavaScript y diseño responsivo.",
+  description = "Desarrollador Frontend especializado en React, JavaScript y tecnologías modernas. Portafolio con proyectos innovadores.",
   url = "https://portafolio-v2-peach.vercel.app",
-  image = "https://portafolio-v2-peach.vercel.app/og-image.jpg"
-} = {}) => {
-  React.useEffect(() => {
+  image = "https://portafolio-v2-peach.vercel.app/og-image.jpg",
+  keywords = "Alejandro Anchundia, Frontend Developer, React, JavaScript, Desarrollador Web",
+  type = "website"
+}) => {
+  useEffect(() => {
     document.title = title;
 
-    // Meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = 'description';
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.content = description;
-
-    // Open Graph
-    const updateMeta = (property, content) => {
-      let meta = document.querySelector(`meta[property="${property}"]`);
+    const updateOrCreateMeta = (name, content, isProperty = false) => {
+      const attribute = isProperty ? 'property' : 'name';
+      let meta = document.querySelector(`meta[${attribute}="${name}"]`);
       if (!meta) {
         meta = document.createElement('meta');
-        meta.setAttribute('property', property);
+        meta.setAttribute(attribute, name);
         document.head.appendChild(meta);
       }
       meta.content = content;
     };
 
-    updateMeta('og:title', title);
-    updateMeta('og:description', description);
-    updateMeta('og:url', url);
-    updateMeta('og:image', image);
-    updateMeta('og:type', 'website');
+    updateOrCreateMeta('description', description);
+    updateOrCreateMeta('keywords', keywords);
+    updateOrCreateMeta('robots', 'index, follow');
 
-    // Canonical
+    updateOrCreateMeta('og:title', title, true);
+    updateOrCreateMeta('og:description', description, true);
+    updateOrCreateMeta('og:url', url, true);
+    updateOrCreateMeta('og:image', image, true);
+    updateOrCreateMeta('og:type', type, true);
+    updateOrCreateMeta('og:locale', 'es_ES', true);
+
+    updateOrCreateMeta('twitter:card', 'summary_large_image', true);
+    updateOrCreateMeta('twitter:title', title, true);
+    updateOrCreateMeta('twitter:description', description, true);
+    updateOrCreateMeta('twitter:image', image, true);
+
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
@@ -43,7 +45,8 @@ const SEO = ({
       document.head.appendChild(canonical);
     }
     canonical.href = url;
-  }, [title, description, url, image]);
+
+  }, [title, description, url, image, keywords, type]);
 
   return null;
 };
