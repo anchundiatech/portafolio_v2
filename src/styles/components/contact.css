@@ -1,8 +1,4 @@
-﻿/* ==========================================
-   SECCIÓN DE CONTACTO - ESTILOS PRINCIPALES
-=========================================== */
-
-.container_contacto {
+﻿.container_contacto {
   padding: var(--spacing-lg) var(--spacing-md);
   min-height: 100vh;
   display: flex;
