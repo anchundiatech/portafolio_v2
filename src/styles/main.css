@@ -1,7 +1,5 @@
-/* ======================
-   ARCHIVO PRINCIPAL CSS
-   PORTAFOLIO
-====================== */
+/* Sistema de Diseño */
+@import './design-system.css';
 
 /* Base */
 @import './base/variables.css';
@@ -10,10 +8,13 @@
 /* Efectos */
 @import './effects/gaming-effects.css';
 
-/* Componentes */
+/* Componentes Reutilizables */
+@import './components/buttons.css';
+@import './components/cards.css';
+
+/* Componentes Específicos */
 @import './components/header.css';
 @import './components/hero.css';
-
 @import './components/tecnologias.css';
 @import './components/proyectos.css';
 @import './components/footer.css';
@@ -27,3 +28,4 @@
 
 /* Utilidades */
 @import './utils/utilities.css';
+@import './utils/mobile-optimizations.css';
