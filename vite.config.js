@@ -24,11 +24,9 @@ export default defineConfig({
   },
 
   build: {
-    // Usar esbuild en lugar de terser para mejor compatibilidad
-    minify: 'esbuild',
-    esbuild: {
-      drop: ['console', 'debugger'],
-    },
+    // Minification causes issues with React internals - keeping disabled for stability
+    // Trade-off: slightly larger bundles but fully stable and working application
+    minify: false,
     // Tree-shaking configuration (conservative to avoid breaking dependencies)
     treeshake: {
       moduleSideEffects: true, // Keep this true to avoid breaking dependencies
