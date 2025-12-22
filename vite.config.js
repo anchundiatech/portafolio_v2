@@ -24,19 +24,12 @@ export default defineConfig({
   },
 
   build: {
-    // Optimizaciones de minificación
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-      mangle: true,
-      format: {
-        comments: false,
-      }
+    // Usar esbuild en lugar de terser para mejor compatibilidad
+    minify: 'esbuild',
+    esbuild: {
+      drop: ['console', 'debugger'],
     },
-    // Aggressive tree-shaking configuration
+    // Tree-shaking configuration (conservative to avoid breaking dependencies)
     treeshake: {
       moduleSideEffects: true, // Keep this true to avoid breaking dependencies
     },
