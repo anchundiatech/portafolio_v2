@@ -151,7 +151,7 @@ function Header() {
           </ul>
         </div>
 
-       
+
 
         <button
           className="mobile-menu-button"
@@ -161,18 +161,35 @@ function Header() {
             isMobileMenuOpen ? "Cerrar menú móvil" : "Abrir menú móvil"
           }
           aria-controls="mobile-navigation">
-          <span
-            className={`burger_line ${
-              isMobileMenuOpen ? "burger_line--1" : ""
-            }`}></span>
-          <span
-            className={`burger_line ${
-              isMobileMenuOpen ? "burger_line--2" : ""
-            }`}></span>
-          <span
-            className={`burger_line ${
-              isMobileMenuOpen ? "burger_line--3" : ""
-            }`}></span>
+          <svg
+            className="burger-icon"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              className={`burger-line burger-line-top ${isMobileMenuOpen ? "open" : ""}`}
+              d="M4 6H20"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+            <path
+              className={`burger-line burger-line-middle ${isMobileMenuOpen ? "open" : ""}`}
+              d="M4 12H20"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+            <path
+              className={`burger-line burger-line-bottom ${isMobileMenuOpen ? "open" : ""}`}
+              d="M4 18H20"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
         </button>
 
         {isMobileMenuOpen && (
@@ -185,9 +202,8 @@ function Header() {
 
         <div
           id="mobile-navigation"
-          className={`mobile-menu ${
-            isMobileMenuOpen ? "mobile-menu--open" : ""
-          }`}>
+          className={`mobile-menu ${isMobileMenuOpen ? "mobile-menu--open" : ""
+            }`}>
           <button
             className="mobile-menu-close"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -216,9 +232,8 @@ function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className={`mobile-menu-link ${
-                      activeSection === item.href.slice(1) ? "active" : ""
-                    }`}
+                    className={`mobile-menu-link ${activeSection === item.href.slice(1) ? "active" : ""
+                      }`}
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavClick(item);
