@@ -1,6 +1,7 @@
 ﻿import React from "react";
 
 import "@/App.css";
+import "@/styles/components/proyectos.css";
 import skilllinkImage from "@/assets/proyects/722shots_so.png";
 
 import AluraGeek from "@/assets/proyects/aluraGeek.png";
@@ -52,6 +53,13 @@ const name_proyects = [
     repository: "https://github.com/anchundiatech/profile-card.git",
     tecnologies: ["HTML", "CSS"],
   },
+  {
+    title: "Eduvoice CMS",
+    description: "",
+    link: "",
+    repository: "",
+    tecnologies: ["NestJs", "TypeScript", "PostgreSql", "TailwindCss", "React", "NodeJs"],
+  },
 ];
 
 const TechColors = {
@@ -63,8 +71,9 @@ const TechColors = {
   NodeJS: { bg: "#68a063", color: "#fff", icon: <FaNodeJs /> },
   Tailwind: { bg: "#38bdf8", color: "#000", icon: <SiTailwindcss /> },
   PosgreSql: { bg: "#336791", color: "#fff", icon: <SiPostgresql /> },
+
 };
-function ProyectoCard({title, description,  image,  link,  repository,  tecnologies = [],}) {
+function ProyectoCard({ title, description, image, link, repository, tecnologies = [], }) {
   const detailsRef = React.useRef(null)
 
   const toggleDetails = () => {
@@ -83,10 +92,10 @@ function ProyectoCard({title, description,  image,  link,  repository,  tecnolog
       </details>
 
       <img
-      src={image}
-      onClick={toggleDetails}
-      style={{ cursor: "pointer"  }}
-      alt={title}
+        src={image}
+        onClick={toggleDetails}
+        style={{ cursor: "pointer" }}
+        alt={title}
       />
       <div className="technologies">
         {tecnologies.map((tech, index) => {
