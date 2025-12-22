@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+﻿import React, { useEffect, useState, useRef } from "react";
 import Me from "@/assets/me.jpg";
 import js from "@/assets/tecnologias/javascript.svg";
 import react from "@/assets/tecnologias/react-svgrepo-com.svg";
@@ -10,27 +10,38 @@ import "../App.css";
 
 function Hero() {
   const [rotation, setRotation] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const mouseThrottleRef = useRef(null);
 
   useEffect(() => {
-    // Rotación continua de los iconos
+    // Optimización: usar CSS animation en lugar de state updates
+    // Los iconos ya rotan con CSS, solo mantener estado sincronizado cada 200ms
     const interval = setInterval(() => {
-      setRotation((prev) => (prev + 1) % 360);
-    }, 50);
+      setRotation((prev) => (prev + 7.2) % 360); // 1 vuelta cada 5 segundos (200ms * 25 = 5s)
+    }, 200);
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     const wrapper = document.querySelector(".orbital_wrapper");
+    if (!wrapper) return;
 
     const handleMouseMove = (e) => {
-      if (!wrapper) return;
+      const now = Date.now();
+      if (mouseThrottleRef.current && now - mouseThrottleRef.current < 16) {
+        return; // Throttle a ~60fps
+      }
+      mouseThrottleRef.current = now;
 
       const { innerWidth, innerHeight } = window;
       const x = (e.clientX / innerWidth - 0.5) * 20;
       const y = (e.clientY / innerHeight - 0.5) * -20;
 
-      wrapper.style.transform = `rotateZ(${rotation}deg) rotateX(${y}deg) rotateY(${x}deg)`;
+      // Usar requestAnimationFrame para mejor performance
+      requestAnimationFrame(() => {
+        wrapper.style.transform = `rotateZ(${rotation}deg) rotateX(${y}deg) rotateY(${x}deg)`;
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -42,39 +53,34 @@ function Hero() {
       className="hero_Container"
       id="hero"
       aria-label="Sección de presentación"
-      role="region"
-    >
+      role="region">
       <div className="hero_content">
         {/* TEXT */}
         <article className="hero_text">
-          <h1 itemProp="name">
-            Hola, soy Alejandro
-          </h1>
+          <h1 itemProp="name">Hola, soy Alejandro</h1>
 
           <h2 className="hero_subtitle" itemProp="jobTitle">
             Frontend Developer
           </h2>
 
           <p className="hero_description" itemProp="description">
-            Llevo <strong>2+ años</strong> creando interfaces modernas y fluidas.
-            Me especializo en transformar ideas en experiencias web visuales,
-            rápidas y centradas en el usuario.
-            El código es mi forma de construir cosas que importan.
+            Llevo <strong>2+ años</strong> creando interfaces modernas y
+            fluidas. Me especializo en transformar ideas en experiencias web
+            visuales, rápidas y centradas en el usuario. El código es mi forma
+            de construir cosas que importan.
           </p>
 
           <nav className="hero_cta" aria-label="Acciones principales">
             <a
               href="#proyectos"
               className="btn_primary"
-              aria-label="Ver mis proyectos destacados"
-            >
+              aria-label="Ver mis proyectos destacados">
               Ver Proyectos
             </a>
             <a
               href="#contact"
               className="btn_secondary"
-              aria-label="Contactar conmigo"
-            >
+              aria-label="Contactar conmigo">
               Hablemos
             </a>
           </nav>
@@ -82,7 +88,10 @@ function Hero() {
 
         {/* IMAGE + ORBITAL DECORATION */}
         <aside className="hero_image" aria-label="Visualización de tecnologías">
-          <div className="orbital_container" role="img" aria-label="Sistema orbital de tecnologías">
+          <div
+            className="orbital_container"
+            role="img"
+            aria-label="Sistema orbital de tecnologías">
             <div className="orbit orbit-1" aria-hidden="true"></div>
             <div className="orbit orbit-2" aria-hidden="true"></div>
             <div className="orbit orbit-3" aria-hidden="true"></div>
@@ -106,10 +115,13 @@ function Hero() {
             <div
               className="orbital_wrapper"
               style={{ transform: `rotateZ(${rotation}deg)` }}
-              aria-hidden="true"
-            >
-              <div className="orbital_tech" style={{ transform: "rotate(0deg) translateY(-130px)" }}>
-                <div className="tech_orbital_icon" title="React - Librería JavaScript">
+              aria-hidden="true">
+              <div
+                className="orbital_tech"
+                style={{ transform: "rotate(0deg) translateY(-130px)" }}>
+                <div
+                  className="tech_orbital_icon"
+                  title="React - Librería JavaScript">
                   <img
                     src={react}
                     alt="Logo de React"
@@ -121,8 +133,12 @@ function Hero() {
                 <div className="tech_orbital_glow"></div>
               </div>
 
-              <div className="orbital_tech" style={{ transform: "rotate(120deg) translateY(-130px)" }}>
-                <div className="tech_orbital_icon" title="JavaScript - Lenguaje de programación">
+              <div
+                className="orbital_tech"
+                style={{ transform: "rotate(120deg) translateY(-130px)" }}>
+                <div
+                  className="tech_orbital_icon"
+                  title="JavaScript - Lenguaje de programación">
                   <img
                     src={js}
                     alt="Logo de JavaScript"
@@ -134,8 +150,12 @@ function Hero() {
                 <div className="tech_orbital_glow"></div>
               </div>
 
-              <div className="orbital_tech" style={{ transform: "rotate(240deg) translateY(-130px)" }}>
-                <div className="tech_orbital_icon" title="Tailwind CSS - Framework de CSS">
+              <div
+                className="orbital_tech"
+                style={{ transform: "rotate(240deg) translateY(-130px)" }}>
+                <div
+                  className="tech_orbital_icon"
+                  title="Tailwind CSS - Framework de CSS">
                   <img
                     src={tailwind}
                     alt="Logo de Tailwind CSS"
@@ -147,8 +167,12 @@ function Hero() {
                 <div className="tech_orbital_glow"></div>
               </div>
 
-              <div className="orbital_tech" style={{ transform: "rotate(60deg) translateY(-130px)" }}>
-                <div className="tech_orbital_icon" title="HTML5 - Lenguaje de marcado">
+              <div
+                className="orbital_tech"
+                style={{ transform: "rotate(60deg) translateY(-130px)" }}>
+                <div
+                  className="tech_orbital_icon"
+                  title="HTML5 - Lenguaje de marcado">
                   <img
                     src={html}
                     alt="Logo de HTML5"
@@ -160,8 +184,12 @@ function Hero() {
                 <div className="tech_orbital_glow"></div>
               </div>
 
-              <div className="orbital_tech" style={{ transform: "rotate(180deg) translateY(-130px)" }}>
-                <div className="tech_orbital_icon" title="CSS3 - Hojas de estilo">
+              <div
+                className="orbital_tech"
+                style={{ transform: "rotate(180deg) translateY(-130px)" }}>
+                <div
+                  className="tech_orbital_icon"
+                  title="CSS3 - Hojas de estilo">
                   <img
                     src={css}
                     alt="Logo de CSS3"
@@ -173,8 +201,12 @@ function Hero() {
                 <div className="tech_orbital_glow"></div>
               </div>
 
-              <div className="orbital_tech" style={{ transform: "rotate(300deg) translateY(-130px)" }}>
-                <div className="tech_orbital_icon" title="Git - Control de versiones">
+              <div
+                className="orbital_tech"
+                style={{ transform: "rotate(300deg) translateY(-130px)" }}>
+                <div
+                  className="tech_orbital_icon"
+                  title="Git - Control de versiones">
                   <img
                     src={git}
                     alt="Logo de Git"
