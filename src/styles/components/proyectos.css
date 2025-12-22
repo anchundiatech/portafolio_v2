@@ -1,17 +1,29 @@
-﻿/* ========== SECCIÓN PRINCIPAL ========== */
-.proyectos_section {
+﻿.proyectos_section {
   padding: var(--space-24) var(--space-6);
   position: relative;
-  background: var(--bg-primary);
+  background: radial-gradient(circle at 50% 100%, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   overflow: hidden;
+}
+
+.proyectos_section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 80% 20%, rgba(12, 158, 173, 0.15), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .proyectos_content {
   max-width: var(--container-xl);
   margin: 0 auto;
+  position: relative;
+  z-index: 5;
 }
 
-/* ========== ENCABEZADO ========== */
 .proyectos_text {
   text-align: center;
   margin-bottom: var(--space-16);
@@ -22,8 +34,8 @@
   font-weight: var(--font-black);
   margin-bottom: var(--space-4);
 
-  /* Gradiente de texto */
-  background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-600) 100%);
+  /* Gradiente de texto Neon Ice / Ocean */
+  background: linear-gradient(135deg, #ffffff 0%, var(--neon-ice) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -32,11 +44,9 @@
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
 
-  /* Sombra sutil */
-  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.3));
+  filter: drop-shadow(0 0 25px rgba(52, 235, 235, 0.4));
 }
 
-/* ========== GRID DE PROYECTOS ========== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -44,47 +54,58 @@
   margin-bottom: var(--space-12);
 }
 
-/* ========== CARD DE PROYECTO ========== */
 .proyecto_card {
-  /* Usar sistema de cards */
-  background: var(--glass-bg);
+  background: rgba(0, 34, 51, 0.4);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+
+  border: 1px solid rgba(52, 235, 235, 0.15);
   border-radius: var(--radius-2xl);
 
-  /* Layout */
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
 
-  /* Sombra */
-  box-shadow: var(--shadow-primary-sm);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
-  /* Transición */
   transition: all var(--duration-300) var(--ease-out);
 
-  /* Altura mínima */
-  min-height: 450px;
+  min-height: 480px;
 }
 
 .proyecto_card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-primary-lg);
-  border-color: var(--glass-border-strong);
-  background: var(--glass-bg-strong);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(52, 235, 235, 0.2);
+  border-color: var(--neon-ice);
+  background: rgba(0, 34, 51, 0.6);
 }
 
-/* ========== TÍTULO DEL PROYECTO ========== */
+.proyecto_card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-ice), transparent);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.proyecto_card:hover::before {
+  opacity: 1;
+}
+
 .proyecto_card h3 {
   font-size: var(--text-xl);
   font-weight: var(--font-bold);
-  color: white;
-  margin: var(--space-4) 0;
+  color: #ffffff;
+  margin: var(--space-6) 0 var(--space-4);
   padding: 0 var(--space-6);
   line-height: var(--leading-tight);
   text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* ========== DESCRIPCIÓN (DETAILS) ========== */
@@ -99,29 +120,34 @@
   line-height: var(--leading-relaxed);
   text-align: center;
   margin-top: var(--space-2);
-  padding: var(--space-3);
-  background: rgba(168, 85, 247, 0.05);
+  padding: var(--space-4);
+
+  /* Fondo sutil para el texto desplegado */
+  background: rgba(0, 20, 30, 0.6);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(52, 235, 235, 0.1);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 
 /* ========== IMAGEN DEL PROYECTO ========== */
 .proyecto_card img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(168, 85, 247, 0.2);
-  margin: var(--space-6) var(--space-6) 0;
+  object-position: top;
+  border-bottom: 1px solid rgba(52, 235, 235, 0.2);
+  margin: 0;
+
   cursor: pointer;
   transition: all var(--duration-300) var(--ease-out);
   position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .proyecto_card img:hover {
-  transform: scale(1.02);
-  border-color: rgba(168, 85, 247, 0.4);
-  box-shadow: var(--shadow-primary-md);
+  transform: scale(1.03);
+  filter: brightness(1.1);
 }
 
 /* ========== TECNOLOGÍAS ========== */
@@ -131,7 +157,7 @@
   gap: var(--space-2);
   flex-wrap: wrap;
   padding: 0 var(--space-6);
-  margin: var(--space-4) 0;
+  margin: var(--space-6) 0 var(--space-4);
 }
 
 .technology {
@@ -142,19 +168,21 @@
   font-weight: var(--font-semibold);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-
-  /* Estilos personalizados por tecnología (heredados del componente) */
   display: flex;
   align-items: center;
   gap: var(--space-1);
 
   transition: all var(--duration-200) var(--ease-out);
-  border: 1px solid currentColor;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
 }
 
 .technology:hover {
   transform: translateY(-2px);
   filter: brightness(1.2);
+  border-color: currentColor;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* ========== BOTONES ========== */
@@ -167,35 +195,33 @@
 }
 
 .buttons_container button {
-  /* Usar sistema de botones */
   flex: 1;
-  max-width: 150px;
+  max-width: 160px;
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
-  border: 2px solid var(--primary-600);
+  background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--pacific-blue) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
   font-size: var(--text-sm);
   font-weight: var(--font-semibold);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-
   cursor: pointer;
   transition: all var(--duration-300) var(--ease-out);
-  box-shadow: var(--shadow-primary-sm);
-
-  min-height: 44px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  min-height: 48px;
 }
 
 .buttons_container button:hover {
   transform: translateY(-3px);
-  background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-600) 100%);
-  box-shadow: var(--shadow-primary-md);
+  background: linear-gradient(135deg, var(--pacific-blue) 0%, var(--neon-ice) 100%);
+  color: #002233;
+  box-shadow: 0 0 20px rgba(52, 235, 235, 0.4);
+  border-color: white;
 }
 
 .buttons_container button:active {
@@ -209,37 +235,32 @@
 
 /* ========== BOTÓN "VER TODOS" ========== */
 .btn_secondary {
-  /* Usar sistema de botones secondary */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-
   padding: var(--space-4) var(--space-8);
   border-radius: var(--radius-xl);
-
-  background: transparent;
-  border: 2px solid var(--primary-500);
-  color: var(--primary-400);
-
+  background: rgba(0, 34, 51, 0.5);
+  border: 1px solid var(--neon-ice);
+  color: var(--neon-ice);
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-
-  box-shadow: var(--shadow-primary-sm);
+  box-shadow: 0 0 10px rgba(52, 235, 235, 0.1);
   transition: all var(--duration-300) var(--ease-out);
-
   min-height: 52px;
 }
 
 .btn_secondary:hover {
-  background: rgba(168, 85, 247, 0.1);
-  border-color: var(--primary-400);
-  color: var(--primary-300);
+  background: rgba(52, 235, 235, 0.1);
+  border-color: white;
+  color: white;
+  text-shadow: 0 0 8px var(--neon-ice);
   transform: translateY(-3px);
-  box-shadow: var(--shadow-primary-md);
+  box-shadow: 0 0 20px rgba(52, 235, 235, 0.3);
 }
 
 .btn_secondary:active {
@@ -259,11 +280,12 @@
   }
 
   .proyecto_card {
-    min-height: 420px;
+    min-height: 450px;
   }
 
+  /* Image height adjustment for tablets */
   .proyecto_card img {
-    height: 180px;
+    height: 260px;
   }
 }
 
@@ -294,9 +316,9 @@
     padding: 0 var(--space-4);
   }
 
+  /* Full width image on mobile too */
   .proyecto_card img {
-    height: 160px;
-    margin: var(--space-4) var(--space-4) 0;
+    height: 240px;
   }
 
   .proyecto_card details {
@@ -343,7 +365,7 @@
   }
 
   .proyecto_card img {
-    height: 140px;
+    height: 220px;
   }
 
   .proyecto_card details p {
@@ -387,7 +409,6 @@
   }
 }
 
-/* High Contrast Mode */
 @media (prefers-contrast: high) {
   .title_proyectos {
     filter: none;
