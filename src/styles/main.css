@@ -15,16 +15,12 @@
 /* Componentes Específicos */
 @import './components/header.css';
 @import './components/hero.css';
-@import './components/tecnologias.css';
-@import './components/proyectos.css';
-@import './components/footer.css';
-@import './components/contact.css';
 
 /* Layouts */
 @import './layouts/main.css';
 
 /* Páginas */
-@import './pages/aboutme-detailed.css';
+/* @import './pages/aboutme-detailed.css';  */
 
 /* Utilidades */
 @import './utils/utilities.css';
