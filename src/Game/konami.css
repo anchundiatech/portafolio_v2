@@ -1,6 +1,65 @@
 /* ======================
-   COMPACT MUSIC PLAYER
+   CURSOR DE VIDEOJUEGO
 ====================== */
+:root {
+  --cursor-x: 0px;
+  --cursor-y: 0px;
+  --cursor-size: 32px;
+  --cursor-color: #8b5cf6;
+}
+
+/* Cursor personalizado */
+body {
+  cursor: none;
+  overflow-x: hidden;
+}
+
+.cursor {
+  position: fixed;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border: 2px solid var(--cursor-color);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+  box-shadow: 0 0 10px var(--cursor-color), 0 0 20px var(--cursor-color), 0 0 30px var(--cursor-color);
+  background: rgba(139, 92, 246, 0.1);
+  backdrop-filter: blur(2px);
+}
+
+.cursor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: var(--cursor-color);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--cursor-color), 0 0 10px var(--cursor-color);
+}
+
+/* Efecto al hacer clic */
+.cursor.click {
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(139, 92, 246, 0.3);
+}
+
+/* Efecto hover en enlaces y botones */
+a, button, .control-btn, .play-pause-btn, .close-btn {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+a:hover, button:hover, .control-btn:hover, .play-pause-btn:hover, .close-btn:hover {
+  color: var(--cursor-color) !important;
+  text-shadow: 0 0 10px var(--cursor-color);
+}
+
+
 
 .music-player {
   position: fixed;
