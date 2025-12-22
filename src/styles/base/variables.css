@@ -1,11 +1,7 @@
 
 :root {
 
-  --neon-purple: #8b5cf6;
-  --deep-purple: #7c3aed;
-  --dark-purple: #6d28d9;
-  --light-purple: #a78bfa;
-  --electric-purple: #c084fc;
+ 
 
   --neon-pink: #ec4899;
   --electric-blue: #3b82f6;
@@ -34,7 +30,7 @@
   --gradient-accent: linear-gradient(135deg, var(--electric-purple) 0%, var(--neon-pink) 100%);
   --gradient-dark: linear-gradient(135deg, var(--deep-black) 0%, var(--charcoal) 100%);
 
-  
+
   --shadow-purple: 0 0 20px rgba(139, 92, 246, 0.4);
   --shadow-purple-intense: 0 0 40px rgba(139, 92, 246, 0.6);
   --shadow-purple-glow: 0 0 60px rgba(139, 92, 246, 0.3);
