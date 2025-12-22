@@ -19,8 +19,8 @@ export default defineConfig({
 
   // Optimizaciones de dependencias
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'react-icons/fa', 'motion'],
-    exclude: ['lucide-react']
+    include: ['react', 'react-dom', 'react-router-dom', 'motion'],
+    exclude: ['lucide-react', 'react-icons']
   },
 
   build: {
@@ -30,7 +30,19 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
+        unused: true,
+        dead_code: true,
       },
+      mangle: true,
+      format: {
+        comments: false,
+      },
+    },
+    // Aggressive tree-shaking configuration
+    treeshake: {
+      moduleSideEffects: false,
+      propertyReadSideEffects: false,
+      tryCatchDeoptimization: false,
     },
 
     // Aumentar límite de assets inline para reducir requests

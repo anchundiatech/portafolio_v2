@@ -14,7 +14,7 @@ import {
   FaGlobe,
   FaFile,
   FaSpinner,
-} from "@/icons";
+} from "react-icons/fa";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "react-i18next";
 import "@/styles/components/contact.css";
