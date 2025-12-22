@@ -2,6 +2,7 @@ import { Coffee } from "lucide-react";
 import { CoffeeIcon } from "lucide-react";
 import React, { useState } from "react";
 import { FaArrowUp, FaHeart } from "react-icons/fa";
+import "@/styles/components/footer.css";
 
 export default function Footer() {
   const [isScrollingToTop, setIsScrollingToTop] = useState(false);
