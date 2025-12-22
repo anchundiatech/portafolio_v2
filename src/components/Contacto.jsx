@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useMemo, memo } from "react";
 import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub, FaCopy, FaCheck } from "react-icons/fa";
-import { Mailbox, Download, Zap, Clock, Star } from "lucide-react";
+import { Mailbox, Download, Zap, Clock, Star, Globe, FileText, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "react-i18next";
+import "@/styles/components/contact.css";
 
 const Cv = "cv/CV_Alejandro_Anchundia_frontend.pdf";
 
@@ -12,7 +13,10 @@ const PrimaryContactCard = memo(({ method, isCopying, isCopied, onCopy }) => {
   return (
     <motion.article
       className="contact_card contact_card--primary"
-      whileHover={{ y: -5, scale: 1.02, boxShadow: "0 20px 40px rgba(139, 92, 246, 0.4)" }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -5, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
       <div className="card_glow" aria-hidden="true" />
@@ -65,6 +69,9 @@ const SecondaryContactCard = memo(({ method, isCopied, onCopy }) => {
   return (
     <motion.article
       className="contact_card contact_card--secondary"
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
       whileHover={{
         y: -5,
         scale: 1.05,
@@ -108,13 +115,13 @@ const SecondaryContactCard = memo(({ method, isCopied, onCopy }) => {
 
 SecondaryContactCard.displayName = "SecondaryContactCard";
 
-// Componente para estadísticas
+// Componente para estadísticas con carrusel
 const StatsSection = memo(() => {
   const stats = useMemo(
     () => [
-      { icon: Clock, label: "Respuesta\n24h" },
-      { icon: Star, label: "Proyectos\nExitosos" },
-      { icon: Zap, label: "Disponible\nAhora" }
+      { icon: Clock, label: "Respuesta\n24h", value: "24h" },
+      { icon: Star, label: "Proyectos\nExitosos", value: "15+" },
+      { icon: Zap, label: "Disponible\nAhora", value: "100%" }
     ],
     []
   );
@@ -122,12 +129,22 @@ const StatsSection = memo(() => {
   return (
     <div className="arsenal_stats" role="list">
       {stats.map((stat, index) => (
-        <div key={index} className="stat_box" role="listitem">
-          <div className="stat_number" aria-hidden="true">
-            <stat.icon size={20} />
+        <motion.div 
+          key={index} 
+          className="stat_box" 
+          role="listitem"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          whileHover={{ y: -5, scale: 1.05 }}
+        >
+          <div className="stat_icon_wrapper" aria-hidden="true">
+            <stat.icon size={24} className="stat_icon" />
           </div>
+          <div className="stat_value">{stat.value}</div>
           <div className="stat_label">{stat.label}</div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
@@ -252,17 +269,6 @@ export default function Contacto() {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // Animaciones memorizadas
-  const fadeInUp = useMemo(
-    () => ({
-      initial: { opacity: 0, y: 30 },
-      whileInView: { opacity: 1, y: 0 },
-      transition: { duration: 0.8 },
-      viewport: { once: true, margin: "-100px" }
-    }),
-    []
-  );
-
   return (
     <section id="contact" className="contact-section">
       {/* Efectos de fondo */}
@@ -277,21 +283,36 @@ export default function Contacto() {
           {/* Cabecera */}
           <motion.header
             className="contact_header"
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             <div className="tech_header_wrapper">
-              <div className="tech_icon_container">
+              <motion.div 
+                className="tech_icon_container"
+                initial={{ scale: 0, rotate: -180 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+              >
                 <Mailbox className="tech_main_icon" aria-hidden="true" />
                 <div className="icon_glow" aria-hidden="true" />
-              </div>
+              </motion.div>
               <h2 className="tech_title">
                 {t("contact.title", "¡Trabajemos juntos!")}
               </h2>
             </div>
 
-            <p className="contact_description">
+            <motion.p 
+              className="contact_description"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
               {t("contact.description", "¿Tienes un proyecto web en mente? Me especializo en crear experiencias frontend modernas y funcionales. ¡Estaré encantado de responderte!")}
-            </p>
+            </motion.p>
 
             <StatsSection />
           </motion.header>
@@ -302,45 +323,69 @@ export default function Contacto() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true }}
           >
             {/* Contacto principal */}
             <div className="primary_contact_section">
-              <div className="section_header">
+              <motion.div 
+                className="section_header"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
                 <h3>
-                  <span className="section_icon" aria-hidden="true">⚡</span>
+                  <Zap className="section_icon" aria-hidden="true" size={20} />
                   {t("contact.preferred", "Contacto Preferido")}
                 </h3>
-              </div>
+              </motion.div>
 
-              {primaryContacts.map(method => (
-                <PrimaryContactCard
+              {primaryContacts.map((method, index) => (
+                <motion.div
                   key={method.name}
-                  method={method}
-                  isCopying={copyingItem === method.name}
-                  isCopied={copiedItem === method.name}
-                  onCopy={copyToClipboard}
-                />
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <PrimaryContactCard
+                    method={method}
+                    isCopying={copyingItem === method.name}
+                    isCopied={copiedItem === method.name}
+                    onCopy={copyToClipboard}
+                  />
+                </motion.div>
               ))}
             </div>
 
             {/* Contactos secundarios */}
             <div className="secondary_contacts_section">
-              <div className="section_header">
+              <motion.div 
+                className="section_header"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
                 <h3>
-                  <span className="section_icon" aria-hidden="true">🌐</span>
+                  <Globe className="section_icon" aria-hidden="true" size={20} />
                   {t("contact.other_methods", "Otras Formas de Contacto")}
                 </h3>
-              </div>
+              </motion.div>
 
               <div className="contact_grid">
-                {secondaryContacts.map(method => (
-                  <SecondaryContactCard
+                {secondaryContacts.map((method, index) => (
+                  <motion.div
                     key={method.name}
-                    method={method}
-                    isCopied={copiedItem === method.name}
-                    onCopy={copyToClipboard}
-                  />
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <SecondaryContactCard
+                      method={method}
+                      isCopied={copiedItem === method.name}
+                      onCopy={copyToClipboard}
+                    />
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -352,12 +397,12 @@ export default function Contacto() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true }}
           >
             <div className="cv_container">
               <div className="cv_header">
                 <h3>
-                  <span className="cv_icon" aria-hidden="true">📄</span>
+                  <FileText className="cv_icon" aria-hidden="true" size={24} />
                   {t("contact.cv_title", "Curriculum Vitae")}
                 </h3>
                 <p className="cv_subtitle">
@@ -373,8 +418,7 @@ export default function Contacto() {
                 aria-label="Descargar CV de Alejandro Anchundia en formato PDF"
                 whileHover={{
                   y: -3,
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(139, 92, 246, 0.5)"
+                  scale: 1.05
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -387,7 +431,7 @@ export default function Contacto() {
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                         aria-label="Descargando"
                       >
-                        ⏳
+                        <Loader2 size={20} />
                       </motion.div>
                     ) : (
                       <Download className="cv_download_icon" aria-hidden="true" />
@@ -405,18 +449,27 @@ export default function Contacto() {
 
               <div className="cv_info">
                 <div className="cv_details">
-                  <span className="cv_detail">
+                  <motion.span 
+                    className="cv_detail"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     <span className="detail_label">Formato:</span>
                     <span className="detail_value">PDF</span>
-                  </span>
-                  <span className="cv_detail">
+                  </motion.span>
+                  <motion.span 
+                    className="cv_detail"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     <span className="detail_label">Tamaño:</span>
                     <span className="detail_value">250KB</span>
-                  </span>
-                  <span className="cv_detail">
+                  </motion.span>
+                  <motion.span 
+                    className="cv_detail"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     <span className="detail_label">Actualizado:</span>
-                    <span className="detail_value">Nov 2025</span>
-                  </span>
+                    <span className="detail_value">Dic 2024</span>
+                  </motion.span>
                 </div>
               </div>
             </div>
@@ -437,7 +490,7 @@ export default function Contacto() {
                 <div className="notification_content">
                   <FaCheck className="notification_icon" aria-hidden="true" />
                   <span className="notification_text">
-                    ¡{copiedItem} copiado al portapapeles!
+                    ¡{copiedItem} copiado!
                   </span>
                 </div>
                 <div className="notification_glow" aria-hidden="true" />
