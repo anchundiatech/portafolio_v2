@@ -309,7 +309,7 @@
 
 /* Estados de hover */
 .hover-glow:hover {
-  box-shadow: var(--shadow-purple);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--neon-ice) 40%, transparent);
   transform: translateY(-2px);
 }
 
@@ -335,7 +335,7 @@
   width: 20px;
   height: 20px;
   margin: -10px 0 0 -10px;
-  border: 2px solid var(--neon-purple);
+  border: 2px solid var(--neon-ice);
   border-top: 2px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -383,7 +383,7 @@
 
 /* Focus states para accesibilidad */
 .focusable:focus {
-  outline: 2px solid var(--neon-purple);
+  outline: 2px solid var(--neon-ice);
   outline-offset: 2px;
 }
 
@@ -395,7 +395,7 @@
   gap: 0.5rem;
   padding: 0.8rem 1.5rem;
   background: var(--gradient-primary);
-  border: 2px solid var(--neon-purple);
+  border: 2px solid var(--neon-ice);
   border-radius: 10px;
   color: var(--text-primary);
   text-decoration: none;
@@ -403,7 +403,7 @@
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  transition: all var(--duration-300) var(--ease-out);
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -411,8 +411,9 @@
 
 .btn- :hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-purple-intense);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--neon-ice) 40%, transparent), 0 8px 25px rgba(0, 0, 0, 0.3);
   background: var(--gradient-accent);
+  border-color: var(--neon-ice);
 }
 
 .btn- :active {
@@ -428,18 +429,18 @@
 /* Cards   generales */
 .card- {
   background: var(--bg-secondary);
-  border: 2px solid rgba(139, 92, 246, 0.3);
+  border: 2px solid color-mix(in srgb, var(--neon-ice) 30%, transparent);
   border-radius: 15px;
   padding: var(--spacing-md);
   backdrop-filter: blur(15px);
-  transition: all 0.3s ease;
+  transition: all var(--duration-300) var(--ease-out);
   position: relative;
   overflow: hidden;
 }
 
 .card- :hover {
-  border-color: var(--neon-purple);
-  box-shadow: var(--shadow-purple);
+  border-color: var(--neon-ice);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--neon-ice) 30%, transparent), 0 8px 25px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px);
 }
 
@@ -450,7 +451,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--neon-ice) 10%, transparent), transparent);
   transition: left 0.6s ease;
 }
 
