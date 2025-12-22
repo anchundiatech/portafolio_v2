@@ -10,17 +10,17 @@ export function initGameCursor() {
       position: fixed;
       width: 32px;
       height: 32px;
-      border: 2px solid #8b5cf6;
+      border: 2px solid var(--neon-ice);
       border-radius: 50%;
       pointer-events: none;
       z-index: 99999;
       transform: translate(-50%, -50%);
       transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
-      box-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6;
-      background: rgba(139, 92, 246, 0.1);
+      box-shadow: var(--glow-lg);
+      background: color-mix(in srgb, var(--neon-ice) 10%, transparent);
       backdrop-filter: blur(2px);
     }
-    
+
     .game-cursor::before {
       content: '';
       position: absolute;
@@ -29,20 +29,20 @@ export function initGameCursor() {
       transform: translate(-50%, -50%);
       width: 8px;
       height: 8px;
-      background: #8b5cf6;
+      background: var(--neon-ice);
       border-radius: 50%;
-      box-shadow: 0 0 5px #8b5cf6, 0 0 10px #8b5cf6;
+      box-shadow: var(--glow-sm), var(--glow-md);
     }
-    
+
     .game-cursor.click {
       transform: translate(-50%, -50%) scale(0.8);
-      background: rgba(139, 92, 246, 0.3);
+      background: color-mix(in srgb, var(--neon-ice) 30%, transparent);
     }
-    
+
     body.game-cursor-active {
       cursor: none !important;
     }
-    
+
     body.game-cursor-active a,
     body.game-cursor-active button,
     body.game-cursor-active .control-btn,
@@ -53,15 +53,15 @@ export function initGameCursor() {
   `;
     document.head.appendChild(style);
 
-  
+
     const cursor = document.createElement('div');
     cursor.className = 'game-cursor';
     document.body.appendChild(cursor);
 
-    
+
     document.body.classList.add('game-cursor-active');
 
-    
+
     const updateCursorPosition = (e) => {
         cursor.style.left = `${e.clientX}px`;
         cursor.style.top = `${e.clientY}px`;
@@ -69,7 +69,7 @@ export function initGameCursor() {
 
     document.addEventListener('mousemove', updateCursorPosition);
 
-    
+
     document.addEventListener('mousedown', () => {
         cursor.classList.add('click');
     });
@@ -81,17 +81,17 @@ export function initGameCursor() {
 
     const handleHover = (e) => {
         cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-        cursor.style.borderColor = '#ff00ff';
-        cursor.style.boxShadow = '0 0 15px #ff00ff, 0 0 30px #ff00ff, 0 0 45px #ff00ff';
+        cursor.style.borderColor = 'var(--pacific-blue)';
+        cursor.style.boxShadow = 'var(--glow-xl)';
     };
 
     const handleHoverLeave = (e) => {
         cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursor.style.borderColor = '#8b5cf6';
-        cursor.style.boxShadow = '0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6';
+        cursor.style.borderColor = 'var(--neon-ice)';
+        cursor.style.boxShadow = 'var(--glow-lg)';
     };
 
-    
+
     const applyHoverEffects = () => {
         const interactiveElements = document.querySelectorAll(
             'a, button, .control-btn, .play-pause-btn, .close-btn, [role="button"], [tabindex="0"]'
@@ -103,16 +103,16 @@ export function initGameCursor() {
         });
     };
 
-    
+
     applyHoverEffects();
 
-    
+
     const observer = new MutationObserver((mutations) => {
         applyHoverEffects();
     });
 
-    
-      observer.observe(document.body, {
+
+    observer.observe(document.body, {
         childList: true,
         subtree: true
     });
@@ -133,12 +133,12 @@ export function initGameCursor() {
     };
 }
 
-    
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initGameCursor();
     });
 } else {
-    
+
     setTimeout(initGameCursor, 0);
 }
