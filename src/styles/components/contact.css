@@ -41,8 +41,8 @@
 
 .tech_main_icon {
   font-size: 2.5rem;
-  color: var(--neon-purple);
-  text-shadow: 0 0 30px var(--neon-purple);
+  color: var(--neon-ice);
+  text-shadow: 0 0 30px var(--neon-ice);
   animation: iconPulse 3s ease-in-out infinite;
   z-index: 2;
   position: relative;
@@ -66,7 +66,7 @@
   left: 50%;
   width: 60px;
   height: 60px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--neon-ice) 40%, transparent) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   animation: glowRotate 4s linear infinite;
   z-index: 1;
@@ -83,15 +83,21 @@
 }
 
 .tech_title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 900;
-  background: var(--gradient-primary);
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  font-weight: var(--font-black);
+  margin-bottom: var(--space-4);
+
+  /* Gradiente de texto Neon Ice / Ocean */
+  background: linear-gradient(135deg, #ffffff 0%, var(--neon-ice) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: var(--spacing-sm);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+
+  filter: drop-shadow(0 0 25px rgba(52, 235, 235, 0.4));
 }
 
 .contact_description {
@@ -121,8 +127,8 @@
   flex-direction: column;
   align-items: center;
   padding: var(--spacing-xs);
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: color-mix(in srgb, var(--neon-ice) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon-ice) 30%, transparent);
   border-radius: 8px;
   backdrop-filter: blur(10px);
   min-width: 85px;
@@ -130,17 +136,17 @@
 }
 
 .stat_box:hover {
-  background: rgba(139, 92, 246, 0.2);
-  border-color: var(--neon-purple);
+  background: color-mix(in srgb, var(--neon-ice) 20%, transparent);
+  border-color: var(--neon-ice);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--neon-ice) 30%, transparent);
 }
 
 .stat_number {
   font-size: 1.4rem;
   font-weight: 900;
-  color: var(--neon-purple);
-  text-shadow: 0 0 15px var(--neon-purple);
+  color: var(--neon-ice);
+  text-shadow: 0 0 15px var(--neon-ice);
   line-height: 1;
 }
 
@@ -174,7 +180,7 @@
   align-items: center;
   gap: var(--spacing-sm);
   font-size: 1.1rem;
-  color: var(--neon-purple);
+  color: var(--neon-ice);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -182,7 +188,7 @@
 
 .section_icon {
   font-size: 1em;
-  filter: drop-shadow(0 0 8px var(--neon-purple));
+  filter: drop-shadow(0 0 8px var(--neon-ice));
 }
 
 /* ==========================================
@@ -192,25 +198,40 @@
 .contact_card {
   position: relative;
   background: var(--bg-secondary);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 10px;
-  padding: 0.5rem 0.75rem;
-  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--neon-ice) 30%, transparent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-2);
+  transition: all var(--duration-300) var(--ease-out);
   backdrop-filter: blur(10px);
   overflow: hidden;
   cursor: pointer;
 }
 
 .contact_card--primary {
-  border-color: var(--neon-purple);
-  background: rgba(139, 92, 246, 0.12);
-  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
-  margin-bottom: 0.5rem;
+  border-color: var(--neon-ice);
+  background: color-mix(in srgb, var(--neon-ice) 12%, transparent);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--neon-ice) 20%, transparent);
+  margin-bottom: var(--space-2);
+  transition: all var(--duration-300) var(--ease-out);
+}
+
+.contact_card--primary:hover {
+  background: color-mix(in srgb, var(--neon-ice) 18%, transparent);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--neon-ice) 30%, transparent);
+  transform: translateY(-2px);
 }
 
 .contact_card--secondary {
-  background: rgba(139, 92, 246, 0.06);
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  background: color-mix(in srgb, var(--neon-ice) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon-ice) 25%, transparent);
+  transition: all var(--duration-300) var(--ease-out);
+}
+
+.contact_card--secondary:hover {
+  background: color-mix(in srgb, var(--neon-ice) 12%, transparent);
+  border-color: var(--neon-ice);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--neon-ice) 20%, transparent);
+  transform: translateY(-2px);
 }
 
 /* Efectos de brillo en tarjetas */
@@ -220,7 +241,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--neon-ice) 15%, transparent), transparent);
   transition: left 0.5s ease;
   pointer-events: none;
 }
@@ -262,16 +283,18 @@
   color: var(--text-primary);
   text-decoration: none;
   flex: 1;
-  transition: all 0.3s ease;
+  transition: all var(--duration-300) var(--ease-out);
 }
 
 .contact_link:hover {
-  color: var(--neon-purple);
+  color: var(--neon-ice);
+  transform: translateX(4px);
 }
 
 .contact_link:focus-visible {
-  outline: 2px solid var(--neon-purple);
+  outline: 2px solid var(--neon-ice);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ==========================================
@@ -285,35 +308,35 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: rgba(139, 92, 246, 0.15);
-  border: 1px solid rgba(139, 92, 246, 0.4);
+  background: color-mix(in srgb, var(--neon-ice) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon-ice) 40%, transparent);
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all var(--duration-300) var(--ease-out);
   flex-shrink: 0;
 }
 
 .contact_card:hover .icon_wrapper {
-  background: rgba(139, 92, 246, 0.3);
-  border-color: var(--neon-purple);
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
-  transform: scale(1.08);
+  background: color-mix(in srgb, var(--neon-ice) 30%, transparent);
+  border-color: var(--neon-ice);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--neon-ice) 30%, transparent);
+  transform: scale(1.15);
 }
 
 .contact_icon {
   font-size: 1.1rem;
-  color: var(--neon-purple);
+  color: var(--neon-ice);
   transition: all 0.3s ease;
 }
 
 .contact_card:hover .contact_icon {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 6px var(--neon-purple));
+  filter: drop-shadow(0 0 6px var(--neon-ice));
 }
 
 .icon_pulse {
   position: absolute;
   inset: -1px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--neon-ice) 30%, transparent) 0%, transparent 70%);
   border-radius: 8px;
   animation: iconPulseAnim 2s ease-in-out infinite;
   opacity: 0;
@@ -408,8 +431,8 @@
 .cv_section {
   text-align: center;
   padding: var(--spacing-lg) var(--spacing-md);
-  background: rgba(139, 92, 246, 0.05);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: color-mix(in srgb, var(--neon-ice) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon-ice) 20%, transparent);
   border-radius: 15px;
   backdrop-filter: blur(10px);
   position: relative;
@@ -432,7 +455,7 @@
   justify-content: center;
   gap: var(--spacing-sm);
   font-size: 1.3rem;
-  color: var(--neon-purple);
+  color: var(--neon-ice);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -441,7 +464,7 @@
 
 .cv_icon {
   font-size: 1.1em;
-  filter: drop-shadow(0 0 8px var(--neon-purple));
+  filter: drop-shadow(0 0 8px var(--neon-ice));
 }
 
 .cv_subtitle {
@@ -469,8 +492,8 @@
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border: 1px solid var(--neon-purple);
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  border: 1px solid var(--neon-ice);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--neon-ice) 30%, transparent);
   transition: all 0.3s ease;
   overflow: hidden;
   min-width: 180px;
@@ -480,7 +503,7 @@
 
 .cv-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--neon-ice) 50%, transparent);
   background: var(--gradient-accent);
 }
 
@@ -569,8 +592,8 @@
   flex-direction: column;
   align-items: center;
   padding: 0.5rem;
-  background: rgba(139, 92, 246, 0.08);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: color-mix(in srgb, var(--neon-ice) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon-ice) 20%, transparent);
   border-radius: 6px;
   min-width: 70px;
 }
@@ -585,7 +608,7 @@
 
 .detail_value {
   font-size: 0.8rem;
-  color: var(--neon-purple);
+  color: var(--neon-ice);
   font-weight: 600;
 }
 
@@ -598,10 +621,10 @@
   bottom: 1.5rem;
   right: 1.5rem;
   background: var(--bg-secondary);
-  border: 1px solid var(--neon-purple);
+  border: 1px solid var(--neon-ice);
   border-radius: 10px;
   padding: 0.75rem 1rem;
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--neon-ice) 40%, transparent);
   z-index: 1000;
   backdrop-filter: blur(10px);
   overflow: hidden;
@@ -620,7 +643,7 @@
 }
 
 .notification_icon {
-  color: var(--neon-purple);
+  color: var(--neon-ice);
   font-size: 0.95rem;
 }
 
@@ -645,9 +668,9 @@
 
 .copy_button {
   position: relative;
-  background: rgba(139, 92, 246, 0.2);
-  border: 1px solid rgba(139, 92, 246, 0.4);
-  color: var(--neon-purple);
+  background: color-mix(in srgb, var(--neon-ice) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon-ice) 40%, transparent);
+  color: var(--neon-ice);
   width: 26px;
   height: 26px;
   border-radius: 6px;
@@ -661,9 +684,9 @@
 }
 
 .copy_button:hover {
-  background: rgba(139, 92, 246, 0.3);
-  border-color: var(--neon-purple);
-  box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
+  background: color-mix(in srgb, var(--neon-ice) 30%, transparent);
+  border-color: var(--neon-ice);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--neon-ice) 30%, transparent);
 }
 
 .copy_button:disabled {
@@ -679,9 +702,9 @@
   position: absolute;
   top: 0.3rem;
   right: 0.3rem;
-  background: rgba(139, 92, 246, 0.2);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  color: var(--neon-purple);
+  background: color-mix(in srgb, var(--neon-ice) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--neon-ice) 30%, transparent);
+  color: var(--neon-ice);
   width: 22px;
   height: 22px;
   border-radius: 5px;
@@ -694,9 +717,9 @@
 }
 
 .copy_button_small:hover {
-  background: rgba(139, 92, 246, 0.3);
-  border-color: var(--neon-purple);
-  box-shadow: 0 0 6px rgba(139, 92, 246, 0.3);
+  background: color-mix(in srgb, var(--neon-ice) 30%, transparent);
+  border-color: var(--neon-ice);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--neon-ice) 30%, transparent);
 }
 
 .copy_button_small svg {
@@ -1261,7 +1284,7 @@
 }
 
 /* ==========================================
-   OPTIMIZACIONES DE RENDIMIENTO
+   OPTIMIZACIONES DE RENDIMIENTO Y ACCESIBILIDAD
 =========================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1277,6 +1300,57 @@
   .loading_spinner {
     animation: none !important;
     transition: none !important;
+  }
+
+  .contact_card--primary:hover,
+  .contact_card--secondary:hover,
+  .contact_link:hover,
+  .contact_card:hover .icon_wrapper,
+  .copy_button:hover,
+  .cv-button:hover {
+    transform: none;
+  }
+}
+
+/* Mejorar contraste en modo high contrast */
+@media (prefers-contrast: high) {
+  .contact_card {
+    border-width: 2px;
+  }
+
+  .contact_name {
+    font-weight: 800;
+  }
+
+  .section_header h3 {
+    font-weight: 900;
+    text-shadow: 0 0 10px var(--neon-ice);
+  }
+}
+
+/* Optimizaciones para touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .contact_card {
+    min-height: 56px;
+  }
+
+  .copy_button,
+  .copy_button_small {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Reducir hover effects en touch */
+  .contact_card--primary:hover,
+  .contact_card--secondary:hover {
+    transform: none;
   }
 }
 
