@@ -23,9 +23,9 @@
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.3) 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, rgba(168, 139, 250, 0.2) 1px, transparent 1px),
-    radial-gradient(circle at 40% 40%, rgba(192, 132, 252, 0.25) 1px, transparent 1px);
+    radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--neon-ice) 30%, transparent) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, color-mix(in srgb, var(--neon-ice) 20%, transparent) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, color-mix(in srgb, var(--neon-ice) 25%, transparent) 1px, transparent 1px);
   background-size: 200px 200px, 150px 150px, 100px 100px;
   animation: digitalRain 15s linear infinite;
 }
@@ -45,8 +45,8 @@
   width: 100%;
   height: 100%;
   background-image:
-    linear-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--neon-ice) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--neon-ice) 8%, transparent) 1px, transparent 1px);
   background-size: 80px 80px;
   animation: circuitPulse 6s ease-in-out infinite;
 }
@@ -55,11 +55,11 @@
 
   0%,
   100% {
-    opacity: 0.3;
+    opacity: 0.15;
   }
 
   50% {
-    opacity: 0.7;
+    opacity: 0.25;
   }
 }
 
@@ -69,7 +69,7 @@
   left: 50%;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--neon-ice) 10%, transparent) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   animation: energyPulse 8s ease-in-out infinite;
 }
@@ -79,12 +79,12 @@
   0%,
   100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.3;
+    opacity: 0.15;
   }
 
   50% {
     transform: translate(-50%, -50%) scale(1.5);
-    opacity: 0.6;
+    opacity: 0.3;
   }
 }
 
@@ -94,8 +94,8 @@
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(circle at 10% 80%, rgba(139, 92, 246, 0.2) 1px, transparent 1px),
-    radial-gradient(circle at 90% 20%, rgba(192, 132, 252, 0.15) 1px, transparent 1px);
+    radial-gradient(circle at 10% 80%, color-mix(in srgb, var(--neon-ice) 20%, transparent) 1px, transparent 1px),
+    radial-gradient(circle at 90% 20%, color-mix(in srgb, var(--neon-ice) 15%, transparent) 1px, transparent 1px);
   background-size: 200px 200px, 250px 250px;
   animation: particlesFloat 15s ease-in-out infinite;
 }
@@ -105,12 +105,12 @@
   0%,
   100% {
     transform: translateY(0px);
-    opacity: 0.5;
+    opacity: 0.2;
   }
 
   50% {
     transform: translateY(-20px);
-    opacity: 0.8;
+    opacity: 0.35;
   }
 }
 
@@ -120,8 +120,8 @@
   width: 100%;
   height: 100%;
   background-image:
-    linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--neon-ice) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--neon-ice) 10%, transparent) 1px, transparent 1px);
   background-size: 100px 100px;
   animation: gridShift 8s ease-in-out infinite;
 }
@@ -146,8 +146,8 @@
   width: 100%;
   height: 100%;
   background-image:
-    radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.15) 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, rgba(168, 139, 250, 0.1) 1px, transparent 1px);
+    radial-gradient(circle at 25% 25%, color-mix(in srgb, var(--neon-ice) 15%, transparent) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, color-mix(in srgb, var(--neon-ice) 10%, transparent) 1px, transparent 1px);
   background-size: 100px 100px, 150px 150px;
   animation: matrixFloat 20s linear infinite;
 }
@@ -169,7 +169,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--neon-ice) 20%, transparent), transparent);
   transition: left 0.6s ease;
 }
 
@@ -206,7 +206,7 @@
   }
 
   50% {
-    filter: brightness(1.3) drop-shadow(0 0 20px var(--neon-purple));
+    filter: brightness(1.3) drop-shadow(0 0 20px var(--neon-ice));
   }
 }
 
@@ -217,11 +217,11 @@
 
 @keyframes textGlow {
   from {
-    text-shadow: 0 0 10px var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-ice);
   }
 
   to {
-    text-shadow: 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple);
+    text-shadow: 0 0 20px var(--neon-ice), 0 0 30px var(--neon-ice);
   }
 }
 
@@ -281,7 +281,7 @@
   left: 50%;
   width: 80px;
   height: 80px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--neon-ice) 40%, transparent) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   animation: glowRotate 4s linear infinite;
   z-index: 1;
@@ -300,7 +300,7 @@
 .icon_pulse {
   position: absolute;
   inset: -2px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, color-mix(in srgb, var(--neon-ice) 30%, transparent) 0%, transparent 70%);
   border-radius: 12px;
   animation: iconPulseAnim 2s ease-in-out infinite;
   opacity: 0;
@@ -325,11 +325,11 @@
 
   0%,
   100% {
-    box-shadow: var(--shadow-purple);
+    box-shadow: var(--glow-lg);
   }
 
   50% {
-    box-shadow: var(--shadow-purple-intense);
+    box-shadow: var(--glow-xl);
   }
 }
 
@@ -337,12 +337,12 @@
 
   0%,
   100% {
-    text-shadow: 0 0 20px var(--neon-purple);
+    text-shadow: 0 0 20px var(--neon-ice);
     filter: brightness(1);
   }
 
   50% {
-    text-shadow: 0 0 30px var(--neon-purple), 0 0 40px var(--neon-purple);
+    text-shadow: 0 0 30px var(--neon-ice), 0 0 40px var(--neon-ice);
     filter: brightness(1.1);
   }
 }
