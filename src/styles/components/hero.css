@@ -17,8 +17,9 @@
   width: 100%;
   height: 100%;
   background: radial-gradient(circle at 80% 20%, rgba(12, 158, 173, 0.15), transparent 50%);
-  animation: gridMove 30s linear infinite;
+  animation: gridMove 40s linear infinite;
   z-index: 0;
+  will-change: transform;
 }
 
 @keyframes gridMove {
@@ -36,9 +37,10 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 80% 20%, rgba(12, 158, 173, 0.15), transparent 50%);
-  animation: floatingParticles 25s ease-in-out infinite;
+  animation: floatingParticles 30s ease-in-out infinite;
   z-index: 0;
   opacity: 0.6;
+  will-change: transform;
 }
 
 @keyframes floatingParticles {
@@ -88,7 +90,8 @@
   text-transform: uppercase;
 
   filter: drop-shadow(0 0 25px rgba(52, 235, 235, 0.4));
-  animation: titleGlow 3s ease-in-out infinite;
+  animation: titleGlow 4s ease-in-out infinite;
+  will-change: filter;
 }
 
 @keyframes titleGlow {
@@ -99,7 +102,7 @@
   }
 
   50% {
-    filter: drop-shadow(0 0 35px rgba(52, 235, 235, 0.6));
+    filter: drop-shadow(0 0 30px rgba(52, 235, 235, 0.5));
   }
 }
 
@@ -248,6 +251,7 @@
   transform: translate(-50%, -50%);
   opacity: 0.2;
   transition: opacity var(--duration-300) var(--ease-out);
+  will-change: opacity, transform;
 }
 
 .orbit-1 {
@@ -255,7 +259,7 @@
   height: 180px;
   border-color: rgba(52, 235, 235, 0.3);
   box-shadow: 0 0 15px rgba(52, 235, 235, 0.2);
-  animation: orbitPulse1 4s ease-in-out infinite;
+  animation: orbitPulse1 4.5s ease-in-out infinite;
 }
 
 .orbit-2 {
@@ -263,7 +267,7 @@
   height: 260px;
   border-color: rgba(12, 158, 173, 0.25);
   box-shadow: 0 0 12px rgba(12, 158, 173, 0.15);
-  animation: orbitPulse2 5s ease-in-out infinite;
+  animation: orbitPulse2 5.5s ease-in-out infinite;
 }
 
 .orbit-3 {
@@ -271,9 +275,10 @@
   height: 340px;
   border-color: rgba(3, 142, 190, 0.2);
   box-shadow: 0 0 10px rgba(3, 142, 190, 0.1);
-  animation: orbitPulse3 6s ease-in-out infinite;
+  animation: orbitPulse3 6.5s ease-in-out infinite;
 }
 
+/* Optimizar keyframes para menos repaints */
 @keyframes orbitPulse1 {
 
   0%,
@@ -283,8 +288,8 @@
   }
 
   50% {
-    opacity: 0.4;
-    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(1.04);
   }
 }
 
@@ -292,13 +297,13 @@
 
   0%,
   100% {
-    opacity: 0.2;
+    opacity: 0.15;
     transform: translate(-50%, -50%) scale(1);
   }
 
   50% {
-    opacity: 0.35;
-    transform: translate(-50%, -50%) scale(1.03);
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.02);
   }
 }
 
@@ -306,13 +311,13 @@
 
   0%,
   100% {
-    opacity: 0.2;
+    opacity: 0.1;
     transform: translate(-50%, -50%) scale(1);
   }
 
   50% {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1.02);
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.01);
   }
 }
 
@@ -328,20 +333,22 @@
   box-shadow: 0 0 30px rgba(52, 235, 235, 0.4), var(--shadow-primary-lg);
   backdrop-filter: blur(5px);
   transition: all var(--duration-300) var(--ease-out);
-  animation: imageBorderGlow 3s ease-in-out infinite;
+  will-change: transform, box-shadow, border-color;
+  animation: imageBorderGlow 3.5s ease-in-out infinite;
 }
 
+/* Optimizar glow de imagen - menos intenso */
 @keyframes imageBorderGlow {
 
   0%,
   100% {
     border-color: var(--neon-ice);
-    box-shadow: 0 0 30px rgba(52, 235, 235, 0.4), var(--shadow-primary-lg);
+    box-shadow: 0 0 25px rgba(52, 235, 235, 0.35), var(--shadow-primary-lg);
   }
 
   50% {
     border-color: var(--tropical-teal);
-    box-shadow: 0 0 40px rgba(52, 235, 235, 0.6), var(--shadow-primary-xl);
+    box-shadow: 0 0 35px rgba(52, 235, 235, 0.5), var(--shadow-primary-xl);
   }
 }
 
@@ -371,21 +378,23 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(52, 235, 235, 0.2) 0%, rgba(12, 158, 173, 0.1) 50%, transparent 70%);
-  animation: centerPulse 4s ease-in-out infinite;
+  animation: centerPulse 4.5s ease-in-out infinite;
   z-index: 1;
+  will-change: transform, opacity;
 }
 
+/* Optimizar animación central - menos extrema */
 @keyframes centerPulse {
 
   0%,
   100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.4;
+    opacity: 0.35;
   }
 
   50% {
-    transform: translate(-50%, -50%) scale(1.15);
-    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 0.55;
   }
 }
 
@@ -397,6 +406,7 @@
   top: 0;
   left: 0;
   transform-style: preserve-3d;
+  will-change: transform;
   transition: transform var(--duration-700) var(--ease-out);
 }
 
@@ -409,6 +419,7 @@
   left: 50%;
   margin-left: -30px;
   margin-top: -30px;
+  will-change: transform;
 }
 
 .tech_orbital_icon {
@@ -425,26 +436,33 @@
   transition: all var(--duration-300) var(--ease-out);
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(52, 235, 235, 0.2);
-  animation: iconFloat 3s ease-in-out infinite;
+  will-change: transform, box-shadow, border-color, background;
 }
 
+/* Optimizar animación de flotación - más suave */
 @keyframes iconFloat {
 
   0%,
   100% {
     transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+}
+
+.tech_orbital_icon {
+  animation: iconFloat 3s ease-in-out infinite;
 }
 
 .orbital_tech:hover .tech_orbital_icon {
   background: rgba(52, 235, 235, 0.15);
   border-color: var(--neon-ice);
   box-shadow: 0 8px 25px rgba(52, 235, 235, 0.4);
-  transform: scale(1.2) translateY(-5px);
+  transform: scale(1.2) translateY(-8px);
   animation: none;
 }
 
@@ -454,6 +472,7 @@
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(52, 235, 235, 0.4));
   transition: all var(--duration-300) var(--ease-out);
+  will-change: transform, filter;
 }
 
 .orbital_tech:hover .tech_orbital_icon img {
@@ -468,9 +487,10 @@
   background: radial-gradient(circle, rgba(52, 235, 235, 0.5) 0%, transparent 70%);
   opacity: 0;
   transition: opacity var(--duration-300) var(--ease-out);
-  animation: glowPulse 2s ease-in-out infinite;
+  will-change: opacity, transform;
 }
 
+/* Reducir keyframes - animación más eficiente */
 @keyframes glowPulse {
 
   0%,
@@ -483,9 +503,12 @@
   }
 }
 
+.tech_orbital_glow {
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
 .orbital_tech:hover .tech_orbital_glow {
   opacity: 1;
-  animation: glowPulseHover 1s ease-in-out infinite;
 }
 
 @keyframes glowPulseHover {
@@ -498,9 +521,14 @@
 
   50% {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 }
+
+.orbital_tech:hover .tech_orbital_glow {
+  animation: glowPulseHover 1.2s ease-in-out infinite;
+}
+
 
 /* ========== RESPONSIVE ========== */
 
