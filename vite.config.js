@@ -32,11 +32,15 @@ export default defineConfig({
         drop_debugger: true,
         unused: true,
         dead_code: true,
+        passes: 2,
+        pure_getters: true,
       },
-      mangle: true,
+      mangle: {
+        toplevel: true,
+      },
       format: {
         comments: false,
-      },
+      }
     },
     // Aggressive tree-shaking configuration
     treeshake: {
@@ -57,18 +61,10 @@ export default defineConfig({
             if (id.includes('react/') || id.includes('react-dom')) {
               return 'react-vendor';
             }
-            // Separar diferentes partes de react-icons para tree-shaking
-            if (id.includes('react-icons/fa')) {
-              return 'icons-fa';
-            }
-            if (id.includes('react-icons/si')) {
-              return 'icons-si';
-            }
-            if (id.includes('react-icons/ri')) {
-              return 'icons-ri';
-            }
+            // NO separar react-icons - dejamos que vaya con el componente que lo usa
+            // Esto hace que los chunks de iconos se carguen SOLO cuando el componente los necesita
             if (id.includes('react-icons')) {
-              return 'icons-other';
+              return null;
             }
             if (id.includes('react-router-dom')) {
               return 'router-vendor';
