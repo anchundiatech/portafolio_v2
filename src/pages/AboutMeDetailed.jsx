@@ -14,81 +14,80 @@ function AboutMeDetailed() {
   }, []);
 
   const miViaje = [
-  {
-    year: "2020",
-    title: "El comienzo",
-    description:
-      "Inicié mi camino en el desarrollo de software en el Instituto Superior Tecnológico Limón, donde aprendí los fundamentos de la programación y el análisis de sistemas. Fue la etapa que encendió mi curiosidad por el mundo tecnológico.",
-    icon: "🌱"
-  },
-  {
-    year: "2023",
-    title: "Graduación y una nueva visión",
-    description:
-      "Me gradué como Tecnólogo Superior en Desarrollo de Software, marcando un antes y un después en mi vida profesional. Ese mismo año conocí el programa Oracle Next Education (ONE), donde descubrí mi verdadera pasión: el desarrollo frontend.",
-    icon: "🎓"
-  },
-  {
-    year: "2024",
-    title: "Formación avanzada en Alura Latam",
-    description:
-      "Fui aceptado en Alura Latam para especializarme en desarrollo frontend. Durante esta etapa conocí el mundo de JavaScript moderno y React, trabajé en proyectos reales y aprendí la importancia del diseño, la accesibilidad y la experiencia de usuario.",
-    icon: "🚀"
-  },
-  {
-    year: "2024",
-    title: "Pausa para reflexionar",
-    description:
-      "Después de finalizar la especialización, decidí tomarme un tiempo para pensar hacia dónde quería dirigir mi carrera. Aunque estuve un periodo sin programar, ese descanso renovó mi motivación y enfoque.",
-    icon: "💡"
-  },
-  {
-    year: "Enero - Junio 2025",
-    title: "Freelance Comercial",
-    description:
-      "Trabajé como asesor comercial freelance, donde mejoré mis habilidades de comunicación, negociación, gestión del tiempo y disciplina. Estas habilidades fortalecieron mi perfil como profesional integral.",
-    icon: "🤝"
-  },
-  {
-    year: "Abril - Julio 2025",
-    title: "Rumbo a la certificación Oracle",
-    description:
-      "Tras participar en un hackathon, fui seleccionado para el programa Beta Tech Advanced de Alura Latam, orientado a la certificación Oracle Cloud Infrastructure (OCI). Este proceso reforzó mi capacidad para aprender tecnologías complejas y trabajar con entornos cloud.",
-    icon: "🏅"
-  },
-  {
-    year: "Junio 2025",
-    title: "Hackathon AlumniThon 2025",
-    description:
-      "Participé en mi primer gran hackathon: tres semanas intensas construyendo SkillLink, una plataforma de aprendizaje colaborativo. Aunque no ganamos, esta experiencia me enseñó a trabajar en equipo, liderar ideas y entregar soluciones reales bajo presión.",
-    icon: "🌟"
-  },
-  {
-    year: "Agosto - Septiembre 2025",
-    title: "Hackathon One + No Country",
-    description:
-      "Tras obtener la certificación OCI, participé en un proyecto real con un equipo multidisciplinario durante un mes. La comunicación, la organización y la colaboración fueron claves para finalmente ganar el primer lugar en el hackathon.",
-    icon: "📚"
-  },
-  {
-    year: "Octubre 2025",
-    title: "Simulaciones laborales",
-    description:
-      "Actualmente continúo en las simulaciones laborales de No Country, enfrentándome a dinámicas reales de desarrollo, aprendiendo a trabajar con metodologías ágiles y preparándome para los retos del entorno profesional.",
-    icon: "🚀"
-  },
-  {
-    year: "2025 y más allá",
-    title: "Mirando hacia el futuro",
-    description:
-      "Mi objetivo es seguir creciendo como desarrollador frontend, crear experiencias digitales significativas y contribuir a proyectos que tengan impacto real. El viaje continúa.",
-    icon: "🌍"
-  }
-];
+    {
+      year: "2020",
+      title: "El comienzo",
+      description:
+        "Inicié mi camino en el desarrollo de software en el Instituto Superior Tecnológico Limón, donde aprendí los fundamentos de la programación y el análisis de sistemas. Fue la etapa que encendió mi curiosidad por el mundo tecnológico.",
+      icon: "🌱"
+    },
+    {
+      year: "2023",
+      title: "Graduación y una nueva visión",
+      description:
+        "Me gradué como Tecnólogo Superior en Desarrollo de Software, marcando un antes y un después en mi vida profesional. Ese mismo año conocí el programa Oracle Next Education (ONE), donde descubrí mi verdadera pasión: el desarrollo frontend.",
+      icon: "🎓"
+    },
+    {
+      year: "2024",
+      title: "Formación avanzada en Alura Latam",
+      description:
+        "Fui aceptado en Alura Latam para especializarme en desarrollo frontend. Durante esta etapa conocí el mundo de JavaScript moderno y React, trabajé en proyectos reales y aprendí la importancia del diseño, la accesibilidad y la experiencia de usuario.",
+      icon: "🚀"
+    },
+    {
+      year: "2024",
+      title: "Pausa para reflexionar",
+      description:
+        "Después de finalizar la especialización, decidí tomarme un tiempo para pensar hacia dónde quería dirigir mi carrera. Aunque estuve un periodo sin programar, ese descanso renovó mi motivación y enfoque.",
+      icon: "💡"
+    },
+    {
+      year: "Enero - Junio 2025",
+      title: "Freelance Comercial",
+      description:
+        "Trabajé como asesor comercial freelance, donde mejoré mis habilidades de comunicación, negociación, gestión del tiempo y disciplina. Estas habilidades fortalecieron mi perfil como profesional integral.",
+      icon: "🤝"
+    },
+    {
+      year: "Abril - Julio 2025",
+      title: "Rumbo a la certificación Oracle",
+      description:
+        "Tras participar en un hackathon, fui seleccionado para el programa Beta Tech Advanced de Alura Latam, orientado a la certificación Oracle Cloud Infrastructure (OCI). Este proceso reforzó mi capacidad para aprender tecnologías complejas y trabajar con entornos cloud.",
+      icon: "🏅"
+    },
+    {
+      year: "Junio 2025",
+      title: "Hackathon AlumniThon 2025",
+      description:
+        "Participé en mi primer gran hackathon: tres semanas intensas construyendo SkillLink, una plataforma de aprendizaje colaborativo. Aunque no ganamos, esta experiencia me enseñó a trabajar en equipo, liderar ideas y entregar soluciones reales bajo presión.",
+      icon: "🌟"
+    },
+    {
+      year: "Agosto - Septiembre 2025",
+      title: "Hackathon One + No Country",
+      description:
+        "Tras obtener la certificación OCI, participé en un proyecto real con un equipo multidisciplinario durante un mes. La comunicación, la organización y la colaboración fueron claves para finalmente ganar el primer lugar en el hackathon.",
+      icon: "📚"
+    },
+    {
+      year: "Octubre 2025",
+      title: "Simulaciones laborales",
+      description:
+        "Actualmente continúo en las simulaciones laborales de No Country, enfrentándome a dinámicas reales de desarrollo, aprendiendo a trabajar con metodologías ágiles y preparándome para los retos del entorno profesional.",
+      icon: "🚀"
+    },
+    {
+      year: "2025 y más allá",
+      title: "Mirando hacia el futuro",
+      description:
+        "Mi objetivo es seguir creciendo como desarrollador frontend, crear experiencias digitales significativas y contribuir a proyectos que tengan impacto real. El viaje continúa.",
+      icon: "🌍"
+    }
+  ];
 
   const fortalezas = [
     { titulo: "Frontend Development", icon: "💻", descripcion: "Experto en React, JavaScript moderno, CSS avanzado y diseño responsivo." },
-    { titulo: "UI/UX Design", icon: "🎨", descripcion: "Creo experiencias visuales atractivas con animaciones suaves y accesibilidad." },
     { titulo: "Optimización", icon: "⚡", descripcion: "Enfocado en rendimiento. Aplicaciones rápidas y eficientes con excelentes scores." },
     { titulo: "Innovación", icon: "🔥", descripcion: "Siempre buscando nuevas tecnologías y mejores formas de resolver problemas." },
     { titulo: "Problemática Solving", icon: "🧩", descripcion: "Analítico y metódico. Encuentro soluciones creativas a desafíos complejos." },
@@ -128,7 +127,7 @@ function AboutMeDetailed() {
             transition={{ duration: 0.8 }}
           >
             <h2>Hola, soy Alejandro Anchundia</h2>
-            <p className="subtitle">Frontend Developer | Creative Coder | Tech Enthusiast</p>
+            <p className="subtitle">Frontend Developer |</p>
             <p className="description">
               Soy un desarrollador frontend apasionado por crear experiencias web inmersivas
               y visualmente impactantes. Con más de 2 años de experiencia profesional,
