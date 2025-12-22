@@ -61,8 +61,9 @@ export default defineConfig({
             if (id.includes('react-router-dom')) {
               return 'router-vendor';
             }
+            // Keep react-helmet-async in vendor to ensure proper initialization with React
             if (id.includes('react-helmet-async')) {
-              return 'helmet-vendor';
+              return null;
             }
             if (id.includes('motion')) {
               return 'motion-vendor';
