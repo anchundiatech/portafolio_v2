@@ -120,7 +120,7 @@ const StatsSection = memo(() => {
   const stats = useMemo(
     () => [
       { icon: Clock, label: "Respuesta\n24h", value: "24h" },
-      { icon: Star, label: "Proyectos\nExitosos", value: "15+" },
+      
       { icon: Zap, label: "Disponible\nAhora", value: "100%" }
     ],
     []
@@ -129,9 +129,9 @@ const StatsSection = memo(() => {
   return (
     <div className="arsenal_stats" role="list">
       {stats.map((stat, index) => (
-        <motion.div 
-          key={index} 
-          className="stat_box" 
+        <motion.div
+          key={index}
+          className="stat_box"
           role="listitem"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -289,7 +289,7 @@ export default function Contacto() {
             transition={{ duration: 0.8 }}
           >
             <div className="tech_header_wrapper">
-              <motion.div 
+              <motion.div
                 className="tech_icon_container"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
@@ -304,7 +304,7 @@ export default function Contacto() {
               </h2>
             </div>
 
-            <motion.p 
+            <motion.p
               className="contact_description"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -327,7 +327,7 @@ export default function Contacto() {
           >
             {/* Contacto principal */}
             <div className="primary_contact_section">
-              <motion.div 
+              <motion.div
                 className="section_header"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -359,7 +359,7 @@ export default function Contacto() {
 
             {/* Contactos secundarios */}
             <div className="secondary_contacts_section">
-              <motion.div 
+              <motion.div
                 className="section_header"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -449,21 +449,21 @@ export default function Contacto() {
 
               <div className="cv_info">
                 <div className="cv_details">
-                  <motion.span 
+                  <motion.span
                     className="cv_detail"
                     whileHover={{ scale: 1.05 }}
                   >
                     <span className="detail_label">Formato:</span>
                     <span className="detail_value">PDF</span>
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="cv_detail"
                     whileHover={{ scale: 1.05 }}
                   >
                     <span className="detail_label">Tamaño:</span>
                     <span className="detail_value">250KB</span>
                   </motion.span>
-                  <motion.span 
+                  <motion.span
                     className="cv_detail"
                     whileHover={{ scale: 1.05 }}
                   >
