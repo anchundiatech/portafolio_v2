@@ -77,7 +77,7 @@ function Header() {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { href: "/", text: t("Inicio"), isNavigation: false },
+    { href: "#hero", text: t("Inicio"), isNavigation: false },
     { href: "/sobremi-detallado", text: t("Sobre Mi"), isNavigation: true },
     { href: "#proyectos", text: t("Proyectos"), isNavigation: false },
     { href: "#tecnologias", text: t("Tecnologías"), isNavigation: false },
