@@ -6,7 +6,7 @@ import Hero from "./components/Hero"; // Keep Hero eager for LCP
 import "./App.css";
 
 // Lazy load below-the-fold components and other routes
-const Tecnologias = lazy(() => import("./components/Tecnologias/index.jsx"));
+const Tecnologias = lazy(() => import("./components/Tecnologias"));
 const Proyectos = lazy(() => import("./components/Proyectos"));
 const CardContacto = lazy(() => import("./components/Contacto"));
 const Footer = lazy(() => import("./components/Footer"));
