@@ -30,8 +30,6 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
-        unused: true,
-        dead_code: true,
       },
       mangle: true,
       format: {
@@ -40,9 +38,7 @@ export default defineConfig({
     },
     // Aggressive tree-shaking configuration
     treeshake: {
-      moduleSideEffects: false,
-      propertyReadSideEffects: false,
-      tryCatchDeoptimization: false,
+      moduleSideEffects: true, // Keep this true to avoid breaking dependencies
     },
 
     // Aumentar límite de assets inline para reducir requests
