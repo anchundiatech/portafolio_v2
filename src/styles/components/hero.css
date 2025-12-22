@@ -1,31 +1,24 @@
 ﻿/* ========== CONTENEDOR PRINCIPAL ========== */
 .hero_Container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+
+
   padding: var(--space-20) var(--space-6);
   position: relative;
   overflow: hidden;
-
-  /* Fondo sutil con gradientes */
-  background:
-    radial-gradient(circle at 30% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(126, 34, 206, 0.05) 0%, transparent 50%);
+  background: radial-gradient(circle at 50% 100%, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
-/* Grid de fondo - Más sutil */
 .hero_Container::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(168, 85, 247, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 85, 247, 0.08) 1px, transparent 1px);
-  background-size: 80px 80px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 80% 20%, rgba(12, 158, 173, 0.15), transparent 50%);
   animation: gridMove 30s linear infinite;
   z-index: 0;
-  opacity: 0.5;
 }
 
 @keyframes gridMove {
@@ -38,16 +31,11 @@
   }
 }
 
-/* Partículas flotantes - Más sutiles */
 .hero_Container::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(168, 85, 247, 0.3) 2px, transparent 2px),
-    radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.2) 1px, transparent 1px),
-    radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.15) 1px, transparent 1px);
-  background-size: 250px 250px, 180px 180px, 120px 120px;
+  background: radial-gradient(circle at 80% 20%, rgba(12, 158, 173, 0.15), transparent 50%);
   animation: floatingParticles 25s ease-in-out infinite;
   z-index: 0;
   opacity: 0.6;
@@ -69,7 +57,6 @@
   }
 }
 
-/* ========== CONTENIDO ========== */
 .hero_content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -81,7 +68,6 @@
   z-index: 2;
 }
 
-/* ========== TEXTO ========== */
 .hero_text {
   order: 1;
 }
@@ -93,8 +79,7 @@
   line-height: var(--leading-none);
   letter-spacing: var(--tracking-tight);
 
-  /* Gradiente de texto */
-  background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-600) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--neon-ice) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,11 +87,22 @@
   position: relative;
   text-transform: uppercase;
 
-  /* Sombra sutil */
-  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.3));
+  filter: drop-shadow(0 0 25px rgba(52, 235, 235, 0.4));
+  animation: titleGlow 3s ease-in-out infinite;
 }
 
-/* Línea decorativa debajo del h1 */
+@keyframes titleGlow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 25px rgba(52, 235, 235, 0.4));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 35px rgba(52, 235, 235, 0.6));
+  }
+}
+
 .hero_text h1::after {
   content: '';
   position: absolute;
@@ -121,14 +117,13 @@
 
 .hero_subtitle {
   font-size: clamp(var(--text-lg), 3vw, var(--text-2xl));
-  color: var(--primary-400);
+  color: var(--neon-ice);
   margin-bottom: var(--space-6);
   font-weight: var(--font-bold);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
 
-  /* Glow sutil */
-  text-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+  text-shadow: 0 0 20px rgba(52, 235, 235, 0.5);
 }
 
 .hero_description {
@@ -145,16 +140,13 @@
   font-weight: var(--font-bold);
 }
 
-/* ========== BOTONES CTA ========== */
 .hero_cta {
   display: flex;
   gap: var(--space-4);
   flex-wrap: wrap;
 }
 
-/* Usar las clases del sistema de botones */
 .hero_cta .btn_primary {
-  /* Extender del sistema de botones */
   background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
   color: white;
   padding: var(--space-4) var(--space-8);
@@ -261,22 +253,67 @@
 .orbit-1 {
   width: 180px;
   height: 180px;
-  border-color: rgba(168, 85, 247, 0.3);
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.1);
+  border-color: rgba(52, 235, 235, 0.3);
+  box-shadow: 0 0 15px rgba(52, 235, 235, 0.2);
+  animation: orbitPulse1 4s ease-in-out infinite;
 }
 
 .orbit-2 {
   width: 260px;
   height: 260px;
-  border-color: rgba(168, 85, 247, 0.2);
-  box-shadow: 0 0 8px rgba(168, 85, 247, 0.08);
+  border-color: rgba(12, 158, 173, 0.25);
+  box-shadow: 0 0 12px rgba(12, 158, 173, 0.15);
+  animation: orbitPulse2 5s ease-in-out infinite;
 }
 
 .orbit-3 {
   width: 340px;
   height: 340px;
-  border-color: rgba(168, 85, 247, 0.15);
-  box-shadow: 0 0 6px rgba(168, 85, 247, 0.05);
+  border-color: rgba(3, 142, 190, 0.2);
+  box-shadow: 0 0 10px rgba(3, 142, 190, 0.1);
+  animation: orbitPulse3 6s ease-in-out infinite;
+}
+
+@keyframes orbitPulse1 {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes orbitPulse2 {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+}
+
+@keyframes orbitPulse3 {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.02);
+  }
 }
 
 /* Imagen central */
@@ -287,10 +324,25 @@
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid rgba(168, 85, 247, 0.4);
-  box-shadow: var(--shadow-primary-lg);
+  border: 3px solid var(--neon-ice);
+  box-shadow: 0 0 30px rgba(52, 235, 235, 0.4), var(--shadow-primary-lg);
   backdrop-filter: blur(5px);
   transition: all var(--duration-300) var(--ease-out);
+  animation: imageBorderGlow 3s ease-in-out infinite;
+}
+
+@keyframes imageBorderGlow {
+
+  0%,
+  100% {
+    border-color: var(--neon-ice);
+    box-shadow: 0 0 30px rgba(52, 235, 235, 0.4), var(--shadow-primary-lg);
+  }
+
+  50% {
+    border-color: var(--tropical-teal);
+    box-shadow: 0 0 40px rgba(52, 235, 235, 0.6), var(--shadow-primary-xl);
+  }
 }
 
 .image_decoration img {
@@ -318,7 +370,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(52, 235, 235, 0.2) 0%, rgba(12, 158, 173, 0.1) 50%, transparent 70%);
   animation: centerPulse 4s ease-in-out infinite;
   z-index: 1;
 }
@@ -328,12 +380,12 @@
   0%,
   100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.3;
+    opacity: 0.4;
   }
 
   50% {
-    transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 0.6;
   }
 }
 
@@ -366,46 +418,88 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(168, 85, 247, 0.08);
-  border: 2px solid rgba(168, 85, 247, 0.3);
+  background: rgba(0, 51, 72, 0.4);
+  border: 2px solid rgba(52, 235, 235, 0.3);
   border-radius: 50%;
   backdrop-filter: blur(10px);
   transition: all var(--duration-300) var(--ease-out);
   cursor: pointer;
-  box-shadow: var(--shadow-primary-sm);
+  box-shadow: 0 4px 15px rgba(52, 235, 235, 0.2);
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .orbital_tech:hover .tech_orbital_icon {
-  background: rgba(168, 85, 247, 0.2);
-  border-color: rgba(168, 85, 247, 0.6);
-  box-shadow: var(--shadow-primary-md);
-  transform: scale(1.15);
+  background: rgba(52, 235, 235, 0.15);
+  border-color: var(--neon-ice);
+  box-shadow: 0 8px 25px rgba(52, 235, 235, 0.4);
+  transform: scale(1.2) translateY(-5px);
+  animation: none;
 }
 
 .tech_orbital_icon img {
   width: 70%;
   height: 70%;
   object-fit: contain;
-  filter: drop-shadow(0 2px 5px rgba(168, 85, 247, 0.3));
+  filter: drop-shadow(0 2px 8px rgba(52, 235, 235, 0.4));
   transition: all var(--duration-300) var(--ease-out);
 }
 
 .orbital_tech:hover .tech_orbital_icon img {
-  filter: drop-shadow(0 4px 10px rgba(168, 85, 247, 0.5));
-  transform: scale(1.1);
+  filter: drop-shadow(0 4px 15px rgba(52, 235, 235, 0.6)) brightness(1.2);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .tech_orbital_glow {
   position: absolute;
-  inset: -2px;
+  inset: -4px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(52, 235, 235, 0.5) 0%, transparent 70%);
   opacity: 0;
   transition: opacity var(--duration-300) var(--ease-out);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
 }
 
 .orbital_tech:hover .tech_orbital_glow {
   opacity: 1;
+  animation: glowPulseHover 1s ease-in-out infinite;
+}
+
+@keyframes glowPulseHover {
+
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 /* ========== RESPONSIVE ========== */
