@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaArrowUp, FaHeart, FaCoffee } from "react-icons/fa";
+import { FaArrowUp, FaHeart, FaCoffee } from "@/icons";
 import "@/styles/components/footer.css";
 
 export default function Footer() {

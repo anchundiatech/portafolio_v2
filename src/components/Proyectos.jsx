@@ -12,9 +12,12 @@ import {
   FaHtml5,
   FaNodeJs,
   FaGithub,
-} from "react-icons/fa";
-import { SiPostgresql, SiTypescript, SiGoogleclassroom } from "react-icons/si";
-import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
+  SiPostgresql,
+  SiTypescript,
+  SiGoogleclassroom,
+  RiNextjsFill,
+  RiTailwindCssFill,
+} from "@/icons";
 
 const name_proyects = [
   {
