@@ -1,12 +1,12 @@
 # 🚀 Portafolio de Alejandro Anchundia
 
-Bienvenido a mi portafolio como desarrollador frontend. Este proyecto muestra una selección de mis trabajos, habilidades técnicas y enfoque en la creación de interfaces web modernas, accesibles y responsivas.
+Bienvenido a mi portafolio como desarrollador frontend. Este proyecto muestra una selección de mis proyectos, habilidades técnicas y enfoque en la creación de interfaces web modernas, accesibles y responsivas.
 
 ---
 
 ## 🧑‍💻 Sobre mí
 
-Soy desarrollador frontend con 1+ año de experiencia especializado en **React**, **JavaScript**, **CSS moderno** y **HTML5**. Me apasiona transformar ideas en experiencias digitales interactivas, siempre buscando aplicar las mejores prácticas del desarrollo web.
+Soy desarrollador frontend con 2+ años de experiencia especializado en **React**, **JavaScript**, **CSS moderno** y **HTML5**. Me apasiona transformar ideas en experiencias digitales interactivas, siempre buscando aplicar las mejores prácticas del desarrollo web.
 
 ---
 
