@@ -26,9 +26,15 @@ export default defineConfig({
   },
 
   build: {
-    // Minification causes issues with React internals - keeping disabled for stability
-    // Trade-off: slightly larger bundles but fully stable and working application
-    minify: false,
+    // Use esbuild with conservative settings: only remove whitespace and comments
+    minify: 'esbuild',
+    esbuild: {
+      drop: ['console', 'debugger'],
+      pure: [],
+      keepNames: true, // Keep variable names to avoid breaking code
+      legalComments: 'none', // Remove all comments
+      format: 'esm',
+    },
     // Tree-shaking configuration (conservative to avoid breaking dependencies)
     treeshake: {
       moduleSideEffects: true, // Keep this true to avoid breaking dependencies
