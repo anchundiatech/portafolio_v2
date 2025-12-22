@@ -32,12 +32,8 @@ export default defineConfig({
         drop_debugger: true,
         unused: true,
         dead_code: true,
-        passes: 2,
-        pure_getters: true,
       },
-      mangle: {
-        toplevel: true,
-      },
+      mangle: true,
       format: {
         comments: false,
       }
