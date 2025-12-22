@@ -5,27 +5,34 @@
 
 /* Mejoras generales para touch devices */
 @media (hover: none) and (pointer: coarse) {
+
   /* Aumentar áreas táctiles para mejor UX en móviles */
-  a, button, .btn_primary, .btn_secondary {
+  a,
+  button,
+  .btn_primary,
+  .btn_secondary {
     min-height: 44px;
     min-width: 44px;
   }
 
   /* Mejorar el tap highlight en móviles */
   * {
-    -webkit-tap-highlight-color: rgba(139, 92, 246, 0.3);
+    -webkit-tap-highlight-color: color-mix(in srgb, var(--neon-ice) 20%, transparent);
   }
 
   /* Desactivar hover effects en touch devices */
   .proyecto_card:hover,
   .technology:hover,
-  .buttons_container button:hover {
+  .buttons_container button:hover,
+  .contact_card--primary:hover,
+  .contact_card--secondary:hover {
     transform: none;
   }
 }
 
 /* Optimizaciones para pantallas pequeñas */
 @media (max-width: 480px) {
+
   /* Mejorar padding general */
   body {
     padding: 0;
@@ -50,8 +57,11 @@
   }
 
   /* Mejorar formularios en móvil */
-  input, textarea, select {
-    font-size: 16px; /* Previene zoom en iOS */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    /* Previene zoom en iOS */
     max-width: 100%;
   }
 }
@@ -137,6 +147,7 @@
 
 /* Mejoras de performance para móviles */
 @media (max-width: 768px) {
+
   /* Reducir animaciones complejas en móvil */
   .orbital_wrapper {
     animation: none;
@@ -150,12 +161,13 @@
 
   /* Optimizar sombras */
   .proyecto_card {
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--neon-ice) 20%, transparent);
   }
 }
 
 /* Mejoras para accesibilidad en móvil */
 @media (max-width: 768px) {
+
   /* Mejorar contraste de textos */
   .hero_description,
   .proyectos_text,
@@ -207,7 +219,8 @@
 /* Optimización de scroll en móvil */
 @media (max-width: 768px) {
   html {
-    scroll-padding-top: 80px; /* Compensa el header fijo */
+    scroll-padding-top: 80px;
+    /* Compensa el header fijo */
   }
 
   /* Mejorar scroll suave en móvil */
