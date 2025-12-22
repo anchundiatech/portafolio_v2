@@ -1,1223 +1,312 @@
-﻿.gaming-tech-galaxy {
-  padding: var(--spacing-lg) var(--spacing-lg);
-  min-height: 90vh;
+﻿
+
+.gaming-tech-galaxy {
+  padding: 4rem 1rem;
+  min-height: 80vh;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-}
-
-
-.galaxy-particles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.4) 1px, transparent 1px),
-    radial-gradient(circle at 80% 70%, rgba(168, 139, 250, 0.3) 1px, transparent 1px),
-    radial-gradient(circle at 60% 20%, rgba(192, 132, 252, 0.2) 1px, transparent 1px),
-    radial-gradient(circle at 30% 80%, rgba(139, 92, 246, 0.5) 1px, transparent 1px);
-  background-size: 300px 300px, 250px 250px, 400px 400px, 200px 200px;
-  animation: galaxyParticlesDrift 30s linear infinite;
-}
-
-@keyframes galaxyParticlesDrift {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(50px, 30px) rotate(360deg);
-  }
-}
-
-
-.galaxy-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
-  flex-wrap: wrap;
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: rgba(139, 92, 246, 0.05);
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
-}
-
-.control-group {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-}
-
-.control-label {
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.control-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(139, 92, 246, 0.15);
-  border: 2px solid rgba(139, 92, 246, 0.35);
-  border-radius: 15px;
-  color: var(--text-primary);
-  padding: 0.6rem 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.control-btn:hover,
-.control-btn.active {
-  background: rgba(139, 92, 246, 0.4);
-  border-color: var(--neon-purple);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
-}
-
-.speed-controls {
-  display: flex;
-  gap: 0.3rem;
-}
-
-.speed-btn {
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 8px;
-  color: var(--text-primary);
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.speed-btn:hover,
-.speed-btn.active {
-  background: rgba(139, 92, 246, 0.3);
-  border-color: var(--neon-purple);
-  transform: scale(1.05);
-}
-
-.category-filters-mini {
-  display: flex;
-  gap: 0.3rem;
-}
-
-.filter-btn-mini {
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.35);
-  border-radius: 12px;
-  color: var(--text-primary);
-  padding: 0.35rem 0.75rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.filter-btn-mini:hover,
-.filter-btn-mini.active {
-  background: rgba(139, 92, 246, 0.3);
-  border-color: var(--neon-purple);
-}
-
-
-.galaxy-carousel-container {
-  position: relative;
-  width: 100%;
-  height: 520px;
+  background: radial-gradient(circle at 50% 100%, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: var(--spacing-lg) 0;
-  perspective: 1000px;
 }
 
-
-.galaxy-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 50;
-}
-
-.center-core {
-  position: relative;
-  width: 70px;
-  height: 70px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, rgba(139, 92, 246, 0.3) 70%, transparent 100%);
-  border: 3px solid var(--neon-purple);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: coreRotation 10s linear infinite;
-}
-
-.core-icon {
-  font-size: 2rem;
-  filter: drop-shadow(0 0 20px var(--neon-purple));
-}
-
-.core-pulse {
-  position: absolute;
-  inset: -10px;
-  background: radial-gradient(circle, transparent 0%, rgba(139, 92, 246, 0.3) 50%, transparent 100%);
-  border-radius: 50%;
-  animation: corePulse 3s ease-in-out infinite;
-}
-
-@keyframes coreRotation {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes corePulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-
-  50% {
-    transform: scale(1.5);
-    opacity: 0.8;
-  }
-}
-
-
-.galaxy-carousel {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  animation: galaxyRotation 20s linear infinite;
-  transform-style: preserve-3d;
-}
-
-@keyframes galaxyRotation {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-.tech-planet {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 72px;
-  height: 72px;
-  transform-origin: center;
-  transform:
-    translate(-50%, -50%) rotate(var(--start-angle)) translateX(var(--orbit-radius)) rotate(calc(-1 * var(--start-angle)));
-  animation: planetOrbit 15s linear infinite reverse;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.tech-planet.focused {
-  z-index: 100;
-  filter: drop-shadow(0 0 30px var(--tech-color));
-}
-
-@keyframes planetOrbit {
-  from {
-    transform:
-      translate(-50%, -50%) rotate(calc(var(--start-angle) + 0deg)) translateX(var(--orbit-radius)) rotate(calc(-1 * (var(--start-angle) + 0deg)));
-  }
-
-  to {
-    transform:
-      translate(-50%, -50%) rotate(calc(var(--start-angle) + 360deg)) translateX(var(--orbit-radius)) rotate(calc(-1 * (var(--start-angle) + 360deg)));
-  }
-}
-
-.planet-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-}
-
-.planet-core {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-secondary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.tech-planet:hover .planet-core {
-  transform: scale(1.2);
-  box-shadow:
-    0 0 30px var(--tech-color),
-    inset 0 0 20px rgba(139, 92, 246, 0.3);
-}
-
-.tech-icon-orbit {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  transition: all 0.3s ease;
-  z-index: 2;
-  position: relative;
-  filter: drop-shadow(0 0 10px var(--tech-color));
-}
-
-.tech-planet:hover .tech-icon-orbit {
-  transform: scale(1.1) rotate(10deg);
-  filter: drop-shadow(0 0 20px var(--tech-color));
-}
-
-
-.orbital-ring {
-  position: absolute;
-  inset: -10px;
-  border: 2px solid rgba(139, 92, 246, 0.3);
-  border-radius: 50%;
-  animation: ringRotation 8s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.tech-planet:hover .orbital-ring {
-  opacity: 1;
-  border-color: var(--tech-color);
-  box-shadow: 0 0 20px var(--tech-color);
-}
-
-@keyframes ringRotation {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-.tech-info-orbit {
-  position: absolute;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.tech-planet:hover .tech-info-orbit {
-  opacity: 1;
-}
-
-.tech-name-orbit {
-  display: block;
-  color: var(--text-primary);
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.3rem;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 0.2rem 0.5rem;
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
-}
-
-.tech-level-badge-orbit {
-  padding: 0.2rem 0.4rem;
-  border-radius: 8px;
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-
-.orbital-particles {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: var(--tech-color);
-  border-radius: 50%;
-  animation: particleOrbit 4s linear infinite;
-  opacity: 0;
-}
-
-.tech-planet:hover .particle {
-  opacity: 1;
-}
-
-.particle:nth-child(1) {
-  top: 10%;
-  left: 50%;
-  animation-delay: 0s;
-}
-
-.particle:nth-child(2) {
-  top: 50%;
-  right: 10%;
-  animation-delay: 1.3s;
-}
-
-.particle:nth-child(3) {
-  bottom: 10%;
-  left: 30%;
-  animation-delay: 2.6s;
-}
-
-@keyframes particleOrbit {
-  0% {
-    transform: rotate(0deg) translateX(35px) rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg) translateX(35px) rotate(-360deg);
-  }
-}
-
-
-.tech-tooltip-galaxy {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 280px;
-  background: rgba(0, 0, 0, 0.95);
-  border: 2px solid var(--neon-purple);
-  border-radius: 15px;
-  padding: 1rem;
-  z-index: 200;
-  backdrop-filter: blur(20px);
-  box-shadow:
-    0 0 30px rgba(139, 92, 246, 0.6),
-    inset 0 0 20px rgba(139, 92, 246, 0.1);
-  margin-top: 15px;
-}
-
-.tooltip-header-galaxy {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.8rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
-}
-
-.tooltip-header-galaxy h4 {
-  color: var(--text-primary);
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.rarity-gem {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.rarity-gem.rarity_epic {
-  background: var(--neon-purple);
-  box-shadow: 0 0 15px var(--neon-purple);
-}
-
-.rarity-gem.rarity_rare {
-  background: #ec4899;
-  box-shadow: 0 0 15px #ec4899;
-}
-
-.rarity-gem.rarity_common {
-  background: #3b82f6;
-  box-shadow: 0 0 15px #3b82f6;
-}
-
-.tooltip-stats-galaxy {
-  margin-bottom: 0.8rem;
-}
-
-.stat-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.3rem;
-  font-size: 0.85rem;
-}
-
-.stat-row span:first-child {
-  color: var(--text-secondary);
-}
-
-.stat-row span:last-child {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-.tooltip-description-galaxy {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  line-height: 1.4;
-  margin-bottom: 0.8rem;
-}
-
-.power-bar-galaxy {
-  width: 100%;
-  height: 6px;
-  background: rgba(139, 92, 246, 0.2);
-  border-radius: 3px;
-  overflow: hidden;
-  border: 1px solid rgba(139, 92, 246, 0.3);
-}
-
-.power-fill-galaxy {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.8s ease;
-  position: relative;
-}
-
-.power-fill-galaxy::after {
+.gaming-tech-galaxy::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  animation: powerGlowGalaxy 2s ease-in-out infinite;
+  background: radial-gradient(circle at 80% 20%, rgba(12, 158, 173, 0.15), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-@keyframes powerGlowGalaxy {
-  0% {
-    left: -100%;
-  }
-
-  100% {
-    left: 100%;
-  }
-}
-
-
-.focused-tech-panel {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 600px;
-  background: rgba(0, 0, 0, 0.95);
-  border: 2px solid var(--neon-purple);
-  border-radius: 20px;
-  padding: 2rem;
-  z-index: 1000;
-  backdrop-filter: blur(25px);
-  box-shadow:
-    0 0 50px rgba(139, 92, 246, 0.8),
-    inset 0 0 30px rgba(139, 92, 246, 0.1);
-}
-
-.focused-tech-content {
+.tecnologias_container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
   position: relative;
+  z-index: 2;
 }
 
-.focused-tech-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+/* ==========================================
+   TÍTULO
+=========================================== */
+
+.title_tecnologias {
+  text-align: center;
+  margin-bottom: 4rem; 
 }
 
-.focused-tech-icon {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 20px var(--neon-purple));
-}
 
-.focused-tech-info h3 {
-  color: var(--text-primary);
-  font-size: 1.8rem;
+
+.tech_title {
+  font-size: 2.5rem;
+  color: var(--gray-200);
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  background: linear-gradient(to right, var(--primary-300), var(--primary-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(52, 235, 235, 0.2);
+  margin-bottom: 1rem;
 }
 
-.focused-tech-info p {
-  color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.5;
+
+
+.code_bracket {
+  color: var(--gray-400);
+  -webkit-text-fill-color: var(--gray-400);
 }
 
-.focused-tech-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+/* ==========================================
+   CARRUSEL
+=========================================== */
+
+.tech-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
 }
 
-.stat-item {
+/* Gradientes en los bordes para efecto fade */
+.tech-carousel::before,
+.tech-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tech-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.tech-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+/* Track del carrusel */
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  will-change: transform;
+}
+
+/* ==========================================
+   TARJETAS DE TECNOLOGÍA
+=========================================== */
+
+.tech-card {
+  flex-shrink: 0;
+  width: 140px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: 12px;
-  text-align: center;
-}
-
-.stat-label {
-  color: var(--text-secondary);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-}
-
-.stat-value {
-  color: var(--text-primary);
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.close-focus-btn {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 40px;
-  height: 40px;
-  background: rgba(139, 92, 246, 0.8);
-  border: 2px solid var(--neon-purple);
-  border-radius: 50%;
-  color: white;
+  justify-content: center;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(52, 235, 235, 0.1) 0%, rgba(12, 158, 173, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(52, 235, 235, 0.3);
+  border-color: var(--primary-300);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+}
+
+/* ==========================================
+   ICONOS Y NOMBRES
+=========================================== */
+
+.tech-icon-wrapper {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  transition: all 0.3s ease;
 }
 
-.close-focus-btn:hover {
-  background: rgba(139, 92, 246, 1);
+.tech-card:hover .tech-icon-wrapper {
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
 }
 
-/* ——————— RESPONSIVE ——————— */
-
-@media (max-width: 1024px) {
-  .gaming-tech-galaxy {
-    padding: var(--spacing-md) var(--spacing-md);
-  }
-
-  .galaxy-carousel-container {
-    height: 420px;
-    margin: var(--spacing-lg) 0;
-  }
-
-  .tech-planet {
-    width: 60px;
-    height: 60px;
-  }
-
-  .center-core {
-    width: 55px;
-    height: 55px;
-  }
-
-  .core-icon {
-    font-size: 1.5rem;
-  }
-
-  .tech-tooltip-galaxy {
-    width: 240px;
-  }
-
-  .focused-tech-panel {
-    width: 85%;
-    max-width: 550px;
-    padding: 1.5rem;
-  }
+.tech-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
+
+.tech-name {
+  position: relative;
+  z-index: 1;
+  font-size: 0.875rem;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ==========================================
+   INDICADOR DE PAUSA
+=========================================== */
+
+.pause-indicator {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--gray-400);
+  font-size: 0.875rem;
+  min-height: 20px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.gaming-tech-galaxy:hover .pause-indicator {
+  opacity: 1;
+}
+
+/* ==========================================
+   RESPONSIVE
+=========================================== */
 
 @media (max-width: 768px) {
   .gaming-tech-galaxy {
-    padding: var(--spacing-md) var(--spacing-sm);
-    min-height: auto;
+    padding: 3rem 1rem;
+    min-height: 60vh;
   }
 
-  .galaxy-controls {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm);
-    border-radius: 12px;
-    margin-bottom: var(--spacing-md);
+  .title_tecnologias {
+    margin-bottom: 3rem;
   }
 
-  .control-group {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
+  .tech_title {
+    font-size: 2rem;
   }
 
-  .control-label {
-    font-size: 0.8rem;
-    letter-spacing: 0.5px;
+  .tech-card {
+    width: 120px;
+    height: 140px;
+    padding: 1rem 0.75rem;
   }
 
-  .control-btn {
-    padding: 0.5rem 0.9rem;
-    font-size: 0.8rem;
-    border-radius: 12px;
+  .tech-icon {
+    width: 40px;
+    height: 40px;
   }
 
-  .speed-controls {
-    gap: 0.25rem;
+  .tech-carousel::before,
+  .tech-carousel::after {
+    width: 80px;
   }
 
-  .speed-btn {
-    padding: 0.35rem 0.7rem;
-    font-size: 0.75rem;
-  }
-
-  .category-filters-mini {
-    gap: 0.25rem;
-  }
-
-  .filter-btn-mini {
-    padding: 0.3rem 0.65rem;
-    font-size: 0.75rem;
-    border-radius: 10px;
-  }
-
-  .galaxy-carousel-container {
-    height: 340px;
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .tech-planet {
-    width: 52px;
-    height: 52px;
-  }
-
-  .tech-icon-orbit {
-    width: 28px;
-    height: 28px;
-  }
-
-  .center-core {
-    width: 48px;
-    height: 48px;
-  }
-
-  .core-icon {
-    font-size: 1.2rem;
-  }
-
-  .core-pulse {
-    inset: -8px;
-  }
-
-  .tech-tooltip-galaxy {
-    width: 220px;
-    padding: 0.8rem;
-    font-size: 0.8rem;
-    margin-top: 12px;
-  }
-
-  .tooltip-header-galaxy h4 {
-    font-size: 1rem;
-  }
-
-  .stat-row {
-    font-size: 0.8rem;
-  }
-
-  .tooltip-description-galaxy {
-    font-size: 0.8rem;
-  }
-
-  .focused-tech-panel {
-    width: 90%;
-    max-width: 500px;
-    padding: 1.2rem;
-    bottom: 1.5rem;
-  }
-
-  .focused-tech-header {
-    flex-direction: column;
-    text-align: center;
+  .carousel-track {
     gap: 1rem;
-  }
-
-  .focused-tech-icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .focused-tech-info h3 {
-    font-size: 1.5rem;
-  }
-
-  .focused-tech-info p {
-    font-size: 0.9rem;
-  }
-
-  .focused-tech-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-  }
-
-  .stat-item {
-    padding: 0.8rem;
-  }
-
-  .stat-label {
-    font-size: 0.75rem;
-  }
-
-  .stat-value {
-    font-size: 1rem;
-  }
-
-  .close-focus-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 1.2rem;
-  }
-
-  .tecnologias_subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .gaming-tech-galaxy {
-    padding: var(--spacing-sm) var(--spacing-sm);
-  }
-
-  .galaxy-controls {
-    padding: var(--spacing-xs);
-    gap: var(--spacing-xs);
-    flex-wrap: wrap;
-  }
-
-  .control-group {
-    flex-direction: row;
-  }
-
-  .control-btn {
-    padding: 0.4rem 0.7rem;
-    font-size: 0.7rem;
-  }
-
-  .speed-btn,
-  .filter-btn-mini {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.7rem;
-  }
-
-  .galaxy-carousel-container {
-    height: 300px;
-  }
-
-  .tech-planet {
-    width: 48px;
-    height: 48px;
-  }
-
-  .tech-icon-orbit {
-    width: 26px;
-    height: 26px;
-  }
-
-  .center-core {
-    width: 44px;
-    height: 44px;
-  }
-
-  .core-icon {
-    font-size: 1.1rem;
-  }
-
-  .core-pulse {
-    inset: -7px;
-  }
-
-  .tech-tooltip-galaxy {
-    width: 200px;
-    padding: 0.7rem;
-    margin-top: 10px;
-  }
-
-  .tooltip-header-galaxy {
-    margin-bottom: 0.6rem;
-    padding-bottom: 0.4rem;
-  }
-
-  .tooltip-header-galaxy h4 {
-    font-size: 0.95rem;
-  }
-
-  .stat-row {
-    font-size: 0.75rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .tooltip-description-galaxy {
-    font-size: 0.75rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .power-bar-galaxy {
-    height: 5px;
-  }
-
-  .focused-tech-panel {
-    width: 95%;
-    max-width: 100%;
-    padding: 1rem;
-    bottom: 1rem;
-  }
-
-  .focused-tech-header {
-    gap: 0.8rem;
-  }
-
-  .focused-tech-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .focused-tech-info h3 {
-    font-size: 1.3rem;
-  }
-
-  .focused-tech-info p {
-    font-size: 0.85rem;
-  }
-
-  .focused-tech-stats {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-  }
-
-  .stat-item {
-    padding: 0.6rem;
-  }
-
-  .stat-label {
-    font-size: 0.7rem;
-  }
-
-  .stat-value {
-    font-size: 0.9rem;
-  }
-
-  .close-focus-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 1rem;
-  }
-
-  .tecnologias_subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
   .gaming-tech-galaxy {
-    padding: var(--spacing-xs) var(--spacing-xs);
-    min-height: auto;
+    padding: 2rem 0.5rem;
   }
 
-  .galaxy-controls {
-    padding: 0.5rem;
-    gap: 0.4rem;
-    flex-wrap: wrap;
+  .title_tecnologias {
+    margin-bottom: 2rem;
   }
 
-  .control-group {
-    flex: 1;
-    min-width: calc(50% - 0.25rem);
+  .tech_title {
+    font-size: 1.5rem;
   }
 
-  .control-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.3px;
+  .tech-card {
+    width: 100px;
+    height: 120px;
+    padding: 0.75rem 0.5rem;
   }
 
-  .control-btn {
-    width: 100%;
-    padding: 0.35rem 0.6rem;
-    font-size: 0.65rem;
-    border-radius: 10px;
-    justify-content: center;
+  .tech-icon {
+    width: 35px;
+    height: 35px;
   }
 
-  .speed-btn,
-  .filter-btn-mini {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.65rem;
+  .tech-name {
+    font-size: 0.75rem;
   }
 
-  .galaxy-carousel-container {
-    height: 260px;
-    margin: var(--spacing-sm) 0;
+  .carousel-track {
+    gap: 0.75rem;
   }
 
-  .tech-planet {
-    width: 44px;
-    height: 44px;
-  }
-
-  .tech-icon-orbit {
-    width: 24px;
-    height: 24px;
-  }
-
-  .center-core {
-    width: 40px;
-    height: 40px;
-  }
-
-  .core-icon {
-    font-size: 1rem;
-  }
-
-  .core-pulse {
-    inset: -6px;
-  }
-
-  .tech-info-orbit {
-    bottom: -25px;
-  }
-
-  .tech-name-orbit {
-    font-size: 0.7rem;
-    padding: 0.15rem 0.4rem;
-  }
-
-  .tech-level-badge-orbit {
-    font-size: 0.55rem;
-    padding: 0.15rem 0.3rem;
-  }
-
-  .tech-tooltip-galaxy {
-    width: 180px;
-    padding: 0.6rem;
-    margin-top: 8px;
-  }
-
-  .tooltip-header-galaxy {
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.3rem;
-  }
-
-  .tooltip-header-galaxy h4 {
-    font-size: 0.9rem;
-  }
-
-  .rarity-gem {
-    width: 10px;
-    height: 10px;
-  }
-
-  .stat-row {
-    font-size: 0.7rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .tooltip-description-galaxy {
-    font-size: 0.7rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .power-bar-galaxy {
-    height: 4px;
-  }
-
-  .focused-tech-panel {
-    width: 98%;
-    padding: 0.8rem;
-    bottom: 0.75rem;
-    border-radius: 15px;
-  }
-
-  .focused-tech-header {
-    gap: 0.6rem;
-  }
-
-  .focused-tech-icon {
+  .tech-carousel::before,
+  .tech-carousel::after {
     width: 50px;
-    height: 50px;
   }
 
-  .focused-tech-content {
-    width: 100%;
-  }
-
-  .focused-tech-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .focused-tech-info p {
-    font-size: 0.8rem;
-  }
-
-  .focused-tech-stats {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .stat-item {
-    padding: 0.5rem;
-  }
-
-  .stat-label {
-    font-size: 0.65rem;
-  }
-
-  .stat-value {
-    font-size: 0.85rem;
-  }
-
-  .close-focus-btn {
-    width: 30px;
-    height: 30px;
-    font-size: 0.9rem;
-    top: -8px;
-    right: -8px;
-  }
-
-  .tecnologias_subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+  .pause-indicator {
+    font-size: 0.75rem;
+    margin-top: 1.5rem;
   }
 }
 
-@media (max-width: 360px) {
-  .gaming-tech-galaxy {
-    padding: var(--spacing-xs);
-  }
+/* ==========================================
+   OPTIMIZACIONES DE RENDIMIENTO
+=========================================== */
 
-  .galaxy-controls {
-    flex-direction: column;
-    padding: 0.4rem;
-    gap: 0.3rem;
+@media (prefers-reduced-motion: reduce) {
+  .tech-card,
+  .tech-icon-wrapper {
+    transition: none;
   }
-
-  .control-group {
-    flex: none;
-    width: 100%;
+  
+  .carousel-track {
+    transition: none !important;
   }
+}
 
-  .control-btn {
-    font-size: 0.6rem;
-    padding: 0.3rem 0.5rem;
+
+@supports (backdrop-filter: blur(10px)) {
+  .tech-card {
+    backdrop-filter: blur(10px);
   }
+}
 
-  .speed-btn,
-  .filter-btn-mini {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.4rem;
-  }
-
-  .galaxy-carousel-container {
-    height: 220px;
-    margin: var(--spacing-xs) 0;
-  }
-
-  .tech-planet {
-    width: 40px;
-    height: 40px;
-  }
-
-  .tech-icon-orbit {
-    width: 22px;
-    height: 22px;
-  }
-
-  .center-core {
-    width: 36px;
-    height: 36px;
-  }
-
-  .core-icon {
-    font-size: 0.9rem;
-  }
-
-  .tech-tooltip-galaxy {
-    width: 160px;
-    padding: 0.5rem;
-  }
-
-  .tooltip-header-galaxy h4 {
-    font-size: 0.85rem;
-  }
-
-  .stat-row {
-    font-size: 0.65rem;
-  }
-
-  .focused-tech-panel {
-    padding: 0.6rem;
-  }
-
-  .focused-tech-icon {
-    width: 45px;
-    height: 45px;
-  }
-
-  .focused-tech-info h3 {
-    font-size: 1rem;
-  }
-
-  .tecnologias_subtitle {
-    font-size: 1rem;
+@supports not (backdrop-filter: blur(10px)) {
+  .tech-card {
+    background: rgba(255, 255, 255, 0.1);
   }
 }
