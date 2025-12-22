@@ -1,14 +1,12 @@
 ﻿/* ========== CONTENEDOR PRINCIPAL ========== */
 .hero_Container {
-
-
-
   padding: var(--space-20) var(--space-6);
   position: relative;
   overflow: hidden;
   background: radial-gradient(circle at 50% 100%, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
+/* Defer animations after first paint - use animation-delay or @supports */
 .hero_Container::before {
   content: '';
   position: absolute;
@@ -20,14 +18,24 @@
   animation: gridMove 40s linear infinite;
   z-index: 0;
   will-change: transform;
+  /* Delay animation start to not block LCP */
+  animation-delay: 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 
 @keyframes gridMove {
   0% {
+    opacity: 0.3;
     transform: translate(0, 0);
   }
 
+  10% {
+    opacity: 0.3;
+  }
+
   100% {
+    opacity: 0.3;
     transform: translate(80px, 80px);
   }
 }
@@ -39,22 +47,28 @@
   background: radial-gradient(circle at 80% 20%, rgba(12, 158, 173, 0.15), transparent 50%);
   animation: floatingParticles 30s ease-in-out infinite;
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0;
   will-change: transform;
+  /* Defer animation to reduce render blocking */
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes floatingParticles {
 
   0%,
   100% {
+    opacity: 0.3;
     transform: translate(0, 0);
   }
 
   33% {
+    opacity: 0.3;
     transform: translate(20px, -20px);
   }
 
   66% {
+    opacity: 0.3;
     transform: translate(-20px, 20px);
   }
 }
@@ -89,20 +103,25 @@
   position: relative;
   text-transform: uppercase;
 
-  filter: drop-shadow(0 0 25px rgba(52, 235, 235, 0.4));
+  /* Optimize for LCP - use simpler initial state */
+  filter: drop-shadow(0 0 15px rgba(52, 235, 235, 0.3));
   animation: titleGlow 4s ease-in-out infinite;
   will-change: filter;
+  /* Contain layout changes for faster rendering */
+  contain: layout style paint;
+  /* Defer glow animation to reduce paint overhead on initial render */
+  animation-delay: 0.5s;
 }
 
 @keyframes titleGlow {
 
   0%,
   100% {
-    filter: drop-shadow(0 0 25px rgba(52, 235, 235, 0.4));
+    filter: drop-shadow(0 0 15px rgba(52, 235, 235, 0.3));
   }
 
   50% {
-    filter: drop-shadow(0 0 30px rgba(52, 235, 235, 0.5));
+    filter: drop-shadow(0 0 20px rgba(52, 235, 235, 0.4));
   }
 }
 

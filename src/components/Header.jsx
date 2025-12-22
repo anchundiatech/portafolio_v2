@@ -15,32 +15,50 @@ function Header() {
   const { language, setLanguage } = useLanguage();
 
   // Debounced scroll handler para mejor performance
+  // Usar Intersection Observer en lugar de getBoundingClientRect para evitar forced reflows
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 50);
+  }, []);
 
-    const sections = [
-      "inicio",
-      "about-mi",
-      "proyects",
-      "Tecnologías",
-      "contacto",
-    ];
-    const current = sections.find((section) => {
-      const element = document.getElementById(section);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        return (
-          rect.top <= window.innerHeight / 2 &&
-          rect.bottom >= window.innerHeight / 2
-        );
-      }
-      return false;
-    });
+  // Usar Intersection Observer API para detectar sección activa - Deferred after hydration
+  useEffect(() => {
+    // Defer observer setup to avoid reflows during hydration
+    const timer = setTimeout(() => {
+      const sections = [
+        "inicio",
+        "about-mi",
+        "proyects",
+        "Tecnologías",
+        "contacto",
+      ];
 
-    if (current && current !== activeSection) {
-      setActiveSection(current);
-    }
-  }, [activeSection]);
+      const observerOptions = {
+        root: null,
+        rootMargin: "-50% 0px -50% 0px",
+        threshold: 0,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            setActiveSection(sectionId);
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          observer.observe(element);
+        }
+      });
+
+      return () => observer.disconnect();
+    }, 100); // Small delay after React hydration completes
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     let timeoutId = null;
@@ -84,8 +102,6 @@ function Header() {
     { href: "#contact", text: t("Contacto"), isNavigation: false },
   ];
 
-
-
   const handleLanguageChange = (langCode) => {
     setLanguage(langCode);
     i18n.changeLanguage(langCode);
@@ -114,7 +130,6 @@ function Header() {
         className="nav bg-grip"
         role="navigation"
         aria-label="Navegación principal">
-
         <div className="menu_container">
           <ul className="list_nav">
             {navItems.map((item) => (
@@ -151,8 +166,6 @@ function Header() {
           </ul>
         </div>
 
-
-
         <button
           className="mobile-menu-button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -169,21 +182,27 @@ function Header() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
-              className={`burger-line burger-line-top ${isMobileMenuOpen ? "open" : ""}`}
+              className={`burger-line burger-line-top ${
+                isMobileMenuOpen ? "open" : ""
+              }`}
               d="M4 6H20"
               stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"
             />
             <path
-              className={`burger-line burger-line-middle ${isMobileMenuOpen ? "open" : ""}`}
+              className={`burger-line burger-line-middle ${
+                isMobileMenuOpen ? "open" : ""
+              }`}
               d="M4 12H20"
               stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"
             />
             <path
-              className={`burger-line burger-line-bottom ${isMobileMenuOpen ? "open" : ""}`}
+              className={`burger-line burger-line-bottom ${
+                isMobileMenuOpen ? "open" : ""
+              }`}
               d="M4 18H20"
               stroke="currentColor"
               strokeWidth="1.5"
@@ -202,8 +221,9 @@ function Header() {
 
         <div
           id="mobile-navigation"
-          className={`mobile-menu ${isMobileMenuOpen ? "mobile-menu--open" : ""
-            }`}>
+          className={`mobile-menu ${
+            isMobileMenuOpen ? "mobile-menu--open" : ""
+          }`}>
           <button
             className="mobile-menu-close"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -232,8 +252,9 @@ function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className={`mobile-menu-link ${activeSection === item.href.slice(1) ? "active" : ""
-                      }`}
+                    className={`mobile-menu-link ${
+                      activeSection === item.href.slice(1) ? "active" : ""
+                    }`}
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavClick(item);

@@ -14,6 +14,22 @@ const KONAMI = [
   "KeyA",
 ];
 
+// Cache CSS variable to avoid repeated getComputedStyle calls
+let cachedNeonIceColor = "#34EBEB";
+
+function getCachedNeonColor() {
+  if (cachedNeonIceColor === "#34EBEB") {
+    try {
+      const rootStyles = getComputedStyle(document.documentElement);
+      cachedNeonIceColor =
+        rootStyles.getPropertyValue("--neon-ice").trim() || "#34EBEB";
+    } catch (e) {
+      console.warn("Failed to get neon color:", e);
+    }
+  }
+  return cachedNeonIceColor;
+}
+
 // --- Efecto: Matrix ---
 function startMatrixEffect(canvas, ctx, animationRef) {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()".split("");
@@ -21,9 +37,8 @@ function startMatrixEffect(canvas, ctx, animationRef) {
   const columns = Math.floor(canvas.width / fontSize);
   const drops = Array(columns).fill(1);
 
-  // Obtener color del root
-  const rootStyles = getComputedStyle(document.documentElement);
-  const neonIce = rootStyles.getPropertyValue("--neon-ice").trim();
+  // Cache the color once, not on every frame
+  const neonIce = getCachedNeonColor();
 
   function draw() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";

@@ -34,6 +34,10 @@ body {
   font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
   overflow-x: hidden;
   position: relative;
+  /* Optimize for fast text rendering */
+  font-display: swap;
+  /* Ensure system font renders immediately */
+  font-size-adjust: 0.5;
 }
 
 /* Efecto de aura neon-ice sutil de fondo */

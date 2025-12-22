@@ -30,6 +30,8 @@
 }
 
 .title_proyectos {
+  text-align: center;
+  margin-bottom: 4rem;
   font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
   font-weight: var(--font-black);
   margin-bottom: var(--space-4);
@@ -45,13 +47,7 @@
   line-height: var(--leading-tight);
 
   filter: drop-shadow(0 0 25px rgba(52, 235, 235, 0.4));
-}
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: var(--space-8);
-  margin-bottom: var(--space-12);
 }
 
 .proyecto_card {
@@ -71,7 +67,7 @@
 
   transition: all var(--duration-300) var(--ease-out);
 
-  min-height: 480px;
+  min-height: 380px;
 }
 
 .proyecto_card:hover {
@@ -98,11 +94,11 @@
 }
 
 .proyecto_card h3 {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-bold);
   color: #ffffff;
-  margin: var(--space-6) 0 var(--space-4);
-  padding: 0 var(--space-6);
+  margin: var(--space-4) 0 var(--space-2);
+  padding: 0 var(--space-4);
   line-height: var(--leading-tight);
   text-align: center;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -132,13 +128,12 @@
 
 /* ========== IMAGEN DEL PROYECTO ========== */
 .proyecto_card img {
-  width: 100%;
-  height: 300px;
+  width: 50%;
+  height: 200px;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
   border-bottom: 1px solid rgba(52, 235, 235, 0.2);
-  margin: 0;
-
+  margin: 0 auto;
   cursor: pointer;
   transition: all var(--duration-300) var(--ease-out);
   position: relative;
@@ -156,8 +151,8 @@
   justify-content: center;
   gap: var(--space-2);
   flex-wrap: wrap;
-  padding: 0 var(--space-6);
-  margin: var(--space-6) 0 var(--space-4);
+  padding: 0 var(--space-4);
+  margin: var(--space-3) 0 var(--space-2);
 }
 
 .technology {
@@ -441,6 +436,39 @@
   border-radius: inherit;
 }
 
+/* ========== CARRUSEL DE PROYECTOS ========== */
+
+.proyectos-carousel {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: var(--space-8);
+}
+
+.carousel-track-proyectos {
+  display: flex;
+  gap: var(--space-6);
+  transition: transform 0.02s linear;
+  width: fit-content;
+}
+
+.carousel-track-proyectos.paused {
+  transition: transform 0.3s ease-out;
+}
+
+.proyecto_card {
+  flex: 0 0 calc(380px);
+  min-width: 380px;
+  animation: none !important;
+}
+
+.pause-indicator-proyectos {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  margin-top: var(--space-4);
+  transition: all var(--duration-300) ease;
+}
+
 /* ========== ANIMACIONES DE ENTRADA ========== */
 
 @keyframes fadeInUp {
@@ -455,24 +483,295 @@
   }
 }
 
-.proyecto_card {
-  animation: fadeInUp 0.6s ease-out backwards;
-}
-
-.proyecto_card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.proyecto_card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.proyecto_card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .proyecto_card {
     animation: none;
+  }
+}
+
+/* ========== MODAL DEL PROYECTO ========== */
+
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-4);
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Ocultar header cuando el modal está abierto */
+.project-modal-overlay~header,
+header:has(+ * .project-modal-overlay) {
+  display: none;
+}
+
+/* Solución alternativa más confiable con CSS global */
+:root:has(.project-modal-overlay) header {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.project-modal {
+  background: linear-gradient(135deg, rgba(0, 34, 51, 0.95) 0%, rgba(0, 20, 30, 0.95) 100%);
+  border: 1px solid rgba(52, 235, 235, 0.2);
+  border-radius: var(--radius-3xl);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(52, 235, 235, 0.1);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(52, 235, 235, 0.1);
+  border: 1px solid rgba(52, 235, 235, 0.3);
+  color: var(--neon-ice);
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-300) ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: rgba(52, 235, 235, 0.2);
+  border-color: var(--neon-ice);
+  transform: rotate(90deg);
+}
+
+.modal-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  padding: var(--space-8);
+  align-items: start;
+}
+
+.modal-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(52, 235, 235, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.modal-info h2 {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+  color: #ffffff;
+  font-weight: var(--font-black);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  background: linear-gradient(135deg, #ffffff 0%, var(--neon-ice) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal-description {
+  color: var(--gray-300);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  text-align: justify;
+}
+
+.modal-technologies {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.modal-technologies h3 {
+  color: var(--neon-ice);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all var(--duration-200) ease;
+}
+
+.tech-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: currentColor;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.modal-btn {
+  flex: 1;
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-xl);
+  border: none;
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  transition: all var(--duration-300) ease;
+  min-height: 48px;
+}
+
+.btn-demo {
+  background: linear-gradient(135deg, var(--neon-ice) 0%, #0a9ba4 100%);
+  color: #002233;
+}
+
+.btn-demo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(52, 235, 235, 0.3);
+}
+
+.btn-repo {
+  background: linear-gradient(135deg, #333 0%, #555 100%);
+  color: white;
+  border: 1px solid rgba(52, 235, 235, 0.3);
+}
+
+.btn-repo:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #555 0%, #333 100%);
+  border-color: var(--neon-ice);
+  box-shadow: 0 10px 25px rgba(52, 235, 235, 0.2);
+}
+
+/* ========== RESPONSIVE MODAL ========== */
+
+@media (max-width: 768px) {
+  .modal-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding: var(--space-6);
+  }
+
+  .modal-image {
+    height: 300px;
+  }
+
+  .modal-info h2 {
+    font-size: var(--text-2xl);
+  }
+
+  .modal-description {
+    text-align: left;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+
+  .modal-btn {
+    min-height: 44px;
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-modal {
+    max-height: 95vh;
+  }
+
+  .modal-content {
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .modal-image {
+    height: 250px;
+  }
+
+  .modal-close {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .modal-info h2 {
+    font-size: var(--text-xl);
+  }
+
+  .modal-description {
+    font-size: var(--text-sm);
+  }
+
+  .tech-list {
+    gap: var(--space-2);
+  }
+
+  .tech-badge {
+    padding: var(--space-1) var(--space-3);
+    font-size: 10px;
   }
 }

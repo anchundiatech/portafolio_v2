@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useState, useRef } from "react";
-import Me from "@/assets/me.jpg";
+import Me from "@/assets/me.webp";
 import js from "@/assets/tecnologias/javascript.svg";
 import react from "@/assets/tecnologias/react-svgrepo-com.svg";
 import css from "@/assets/tecnologias/css3.svg";
@@ -13,39 +13,46 @@ function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const mouseThrottleRef = useRef(null);
 
+  // Defer rotation updates - use CSS animations instead for critical render path
   useEffect(() => {
-    // Optimización: usar CSS animation en lugar de state updates
-    // Los iconos ya rotan con CSS, solo mantener estado sincronizado cada 200ms
-    const interval = setInterval(() => {
-      setRotation((prev) => (prev + 7.2) % 360); // 1 vuelta cada 5 segundos (200ms * 25 = 5s)
-    }, 200);
+    // Don't start animation until after first paint
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setRotation((prev) => (prev + 7.2) % 360);
+      }, 200);
+      return () => clearInterval(interval);
+    }, 100); // Small delay after mount
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    const wrapper = document.querySelector(".orbital_wrapper");
-    if (!wrapper) return;
+    // Defer mouse tracking until after LCP
+    const timer = setTimeout(() => {
+      const wrapper = document.querySelector(".orbital_wrapper");
+      if (!wrapper) return;
 
-    const handleMouseMove = (e) => {
-      const now = Date.now();
-      if (mouseThrottleRef.current && now - mouseThrottleRef.current < 16) {
-        return; // Throttle a ~60fps
-      }
-      mouseThrottleRef.current = now;
+      const handleMouseMove = (e) => {
+        const now = Date.now();
+        if (mouseThrottleRef.current && now - mouseThrottleRef.current < 16) {
+          return;
+        }
+        mouseThrottleRef.current = now;
 
-      const { innerWidth, innerHeight } = window;
-      const x = (e.clientX / innerWidth - 0.5) * 20;
-      const y = (e.clientY / innerHeight - 0.5) * -20;
+        const { innerWidth, innerHeight } = window;
+        const x = (e.clientX / innerWidth - 0.5) * 20;
+        const y = (e.clientY / innerHeight - 0.5) * -20;
 
-      // Usar requestAnimationFrame para mejor performance
-      requestAnimationFrame(() => {
-        wrapper.style.transform = `rotateZ(${rotation}deg) rotateX(${y}deg) rotateY(${x}deg)`;
-      });
-    };
+        requestAnimationFrame(() => {
+          wrapper.style.transform = `rotateZ(${rotation}deg) rotateX(${y}deg) rotateY(${x}deg)`;
+        });
+      };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, 200); // Defer after LCP
+
+    return () => clearTimeout(timer);
   }, [rotation]);
 
   return (

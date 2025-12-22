@@ -1,6 +1,6 @@
-import React, { Suspense, lazy, useEffect } from "react";
-import { initGameCursor } from "./styles/effects/GameCursor";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { MotionConfig } from "motion/react";
 import Header from "./components/Header";
 import Hero from "./components/Hero"; // Keep Hero eager for LCP
 import "./App.css";
@@ -13,35 +13,46 @@ const Footer = lazy(() => import("./components/Footer"));
 const AboutMeDetailed = lazy(() => import("./pages/AboutMeDetailed"));
 const KonamiCode = lazy(() => import("./Game/KonnamiGame"));
 
+// Lazy load GameCursor to avoid blocking initial render
+const initGameCursorAsync = () =>
+  import("./styles/effects/GameCursor").then((m) => m.initGameCursor());
+
 // Simple loading fallback
 const LoadingFallback = () => (
-  <div style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '200px',
-    width: '100%',
-    color: 'var(--neon-ice)'
-  }}>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "200px",
+      width: "100%",
+      color: "var(--neon-ice)",
+    }}>
     Cargando...
   </div>
 );
 
 function App() {
-  useEffect(() => {
-    // Inicializar el cursor personalizado
-    const cleanup = initGameCursor();
+  const [gameCursorReady, setGameCursorReady] = useState(false);
 
-    // Limpiar al desmontar
+  useEffect(() => {
+    // Defer non-critical game cursor initialization
+    const timer = requestIdleCallback(
+      () => {
+        initGameCursorAsync()
+          .then(() => setGameCursorReady(true))
+          .catch((err) => console.error("Error loading game cursor:", err));
+      },
+      { timeout: 2000 }
+    );
+
     return () => {
-      if (cleanup && typeof cleanup === 'function') {
-        cleanup();
-      }
+      if (timer) cancelIdleCallback(timer);
     };
   }, []);
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <Header />
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
@@ -72,7 +83,7 @@ function App() {
         <KonamiCode />
         <Footer />
       </Suspense>
-    </>
+    </MotionConfig>
   );
 }
 

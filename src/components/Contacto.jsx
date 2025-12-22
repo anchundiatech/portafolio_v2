@@ -1,6 +1,20 @@
 import React, { useState, useCallback, useMemo, memo } from "react";
-import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub, FaCopy, FaCheck } from "react-icons/fa";
-import { Mailbox, Download, Zap, Clock, Star, Globe, FileText, Loader2 } from "lucide-react";
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaLinkedin,
+  FaGithub,
+  FaCopy,
+  FaCheck,
+  FaMailchimp,
+  FaDownload,
+  FaBolt,
+  FaClock,
+  FaStar,
+  FaGlobe,
+  FaFile,
+  FaSpinner,
+} from "react-icons/fa";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "react-i18next";
 import "@/styles/components/contact.css";
@@ -15,10 +29,9 @@ const PrimaryContactCard = memo(({ method, isCopying, isCopied, onCopy }) => {
       className="contact_card contact_card--primary"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
       whileHover={{ y: -5, scale: 1.02 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    >
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}>
       <div className="card_glow" aria-hidden="true" />
       <div className="contact_card_content">
         <a
@@ -26,8 +39,7 @@ const PrimaryContactCard = memo(({ method, isCopying, isCopied, onCopy }) => {
           aria-label={method.ariaLabel}
           rel="noopener noreferrer"
           target={method.name !== "Email" ? "_blank" : undefined}
-          className="contact_link"
-        >
+          className="contact_link">
           <div className="icon_wrapper">
             <IconComponent className="contact_icon" aria-hidden="true" />
             <div className="icon_pulse" aria-hidden="true" />
@@ -40,14 +52,15 @@ const PrimaryContactCard = memo(({ method, isCopying, isCopied, onCopy }) => {
 
         {method.copyable && (
           <motion.button
-            className={`copy_button ${isCopying ? 'copy_button--copying' : ''} ${isCopied ? 'copy_button--success' : ''}`}
+            className={`copy_button ${
+              isCopying ? "copy_button--copying" : ""
+            } ${isCopied ? "copy_button--success" : ""}`}
             onClick={() => onCopy(method.value, method.name)}
             aria-label={`Copiar ${method.name}: ${method.value}`}
             title={`Copiar ${method.value}`}
             disabled={isCopying}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
+            whileTap={{ scale: 0.95 }}>
             {isCopied ? (
               <FaCheck className="copy_icon" aria-hidden="true" />
             ) : (
@@ -71,22 +84,20 @@ const SecondaryContactCard = memo(({ method, isCopied, onCopy }) => {
       className="contact_card contact_card--secondary"
       initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
       whileHover={{
         y: -5,
         scale: 1.05,
-        rotateY: 5
+        rotateY: 5,
       }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    >
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}>
       <div className="card_border_glow" aria-hidden="true" />
       <a
         href={method.href}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={method.ariaLabel}
-        className="contact_link"
-      >
+        className="contact_link">
         <div className="icon_wrapper">
           <IconComponent className="contact_icon" aria-hidden="true" />
         </div>
@@ -100,8 +111,7 @@ const SecondaryContactCard = memo(({ method, isCopied, onCopy }) => {
           aria-label={`Copiar ${method.name}: ${method.value}`}
           title={`Copiar ${method.value}`}
           whileHover={{ scale: 1.15 }}
-          whileTap={{ scale: 0.9 }}
-        >
+          whileTap={{ scale: 0.9 }}>
           {isCopied ? (
             <FaCheck aria-hidden="true" />
           ) : (
@@ -119,9 +129,9 @@ SecondaryContactCard.displayName = "SecondaryContactCard";
 const StatsSection = memo(() => {
   const stats = useMemo(
     () => [
-      { icon: Clock, label: "Respuesta\n24h", value: "24h" },
-      
-      { icon: Zap, label: "Disponible\nAhora", value: "100%" }
+      { icon: FaClock, label: "Respuesta\n24h", value: "24h" },
+
+      { icon: FaBolt, label: "Disponible\nAhora", value: "100%" },
     ],
     []
   );
@@ -135,10 +145,9 @@ const StatsSection = memo(() => {
           role="listitem"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
           transition={{ delay: index * 0.1 }}
-          whileHover={{ y: -5, scale: 1.05 }}
-        >
+          whileHover={{ y: -5, scale: 1.05 }}>
           <div className="stat_icon_wrapper" aria-hidden="true">
             <stat.icon size={24} className="stat_icon" />
           </div>
@@ -169,7 +178,7 @@ export default function Contacto() {
         primary: true,
         copyable: true,
         ariaLabel: "Enviar email a Alejandro Anchundia",
-        category: "primary"
+        category: "primary",
       },
       {
         name: "WhatsApp",
@@ -178,7 +187,7 @@ export default function Contacto() {
         icon: FaWhatsapp,
         copyable: true,
         ariaLabel: "Contactar por WhatsApp a Alejandro Anchundia",
-        category: "instant"
+        category: "instant",
       },
       {
         name: "LinkedIn",
@@ -186,7 +195,7 @@ export default function Contacto() {
         href: "https://linkedin.com/in/alejandro-anchundia",
         icon: FaLinkedin,
         ariaLabel: "Ver perfil de LinkedIn de Alejandro Anchundia",
-        category: "professional"
+        category: "professional",
       },
       {
         name: "GitHub",
@@ -194,20 +203,20 @@ export default function Contacto() {
         href: "https://github.com/anchundiatech",
         icon: FaGithub,
         ariaLabel: "Ver repositorios de GitHub de Alejandro Anchundia",
-        category: "code"
-      }
+        category: "code",
+      },
     ],
     []
   );
 
   // Separar contactos una sola vez
   const primaryContacts = useMemo(
-    () => contactMethods.filter(method => method.primary),
+    () => contactMethods.filter((method) => method.primary),
     [contactMethods]
   );
 
   const secondaryContacts = useMemo(
-    () => contactMethods.filter(method => !method.primary),
+    () => contactMethods.filter((method) => !method.primary),
     [contactMethods]
   );
 
@@ -240,16 +249,16 @@ export default function Contacto() {
 
   // Función fallback mejorada
   const fallbackCopy = useCallback((text, itemName) => {
-    const textArea = document.createElement('textarea');
+    const textArea = document.createElement("textarea");
     textArea.value = text;
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-9999px';
-    textArea.style.top = '-9999px';
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    textArea.style.top = "-9999px";
     document.body.appendChild(textArea);
 
     try {
       textArea.select();
-      const success = document.execCommand('copy');
+      const success = document.execCommand("copy");
       if (success) {
         setCopiedItem(itemName);
         setCopyingItem(null);
@@ -285,18 +294,16 @@ export default function Contacto() {
             className="contact_header"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            transition={{ duration: 0.8 }}>
             <div className="tech_header_wrapper">
               <motion.div
                 className="tech_icon_container"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-              >
-                <Mailbox className="tech_main_icon" aria-hidden="true" />
+                viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                transition={{ type: "spring", stiffness: 200, delay: 0.2 }}>
+                <FaMailchimp className="tech_main_icon" aria-hidden="true" />
                 <div className="icon_glow" aria-hidden="true" />
               </motion.div>
               <h2 className="tech_title">
@@ -308,10 +315,12 @@ export default function Contacto() {
               className="contact_description"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              {t("contact.description", "¿Tienes un proyecto web en mente? Me especializo en crear experiencias frontend modernas y funcionales. ¡Estaré encantado de responderte!")}
+              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+              transition={{ delay: 0.3 }}>
+              {t(
+                "contact.description",
+                "¿Tienes un proyecto web en mente? Me especializo en crear experiencias frontend modernas y funcionales. ¡Estaré encantado de responderte!"
+              )}
             </motion.p>
 
             <StatsSection />
@@ -323,18 +332,16 @@ export default function Contacto() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}>
             {/* Contacto principal */}
             <div className="primary_contact_section">
               <motion.div
                 className="section_header"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
+                viewport={{ once: true, margin: "0px 0px -100px 0px" }}>
                 <h3>
-                  <Zap className="section_icon" aria-hidden="true" size={20} />
+                  <FaBolt className="section_icon" aria-hidden="true" />
                   {t("contact.preferred", "Contacto Preferido")}
                 </h3>
               </motion.div>
@@ -344,9 +351,8 @@ export default function Contacto() {
                   key={method.name}
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
+                  viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                  transition={{ delay: index * 0.1 }}>
                   <PrimaryContactCard
                     method={method}
                     isCopying={copyingItem === method.name}
@@ -363,10 +369,9 @@ export default function Contacto() {
                 className="section_header"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
+                viewport={{ once: true, margin: "0px 0px -100px 0px" }}>
                 <h3>
-                  <Globe className="section_icon" aria-hidden="true" size={20} />
+                  <FaGlobe className="section_icon" aria-hidden="true" />
                   {t("contact.other_methods", "Otras Formas de Contacto")}
                 </h3>
               </motion.div>
@@ -377,9 +382,8 @@ export default function Contacto() {
                     key={method.name}
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                  >
+                    viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                    transition={{ delay: index * 0.1 }}>
                     <SecondaryContactCard
                       method={method}
                       isCopied={copiedItem === method.name}
@@ -397,51 +401,59 @@ export default function Contacto() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}>
             <div className="cv_container">
               <div className="cv_header">
                 <h3>
-                  <FileText className="cv_icon" aria-hidden="true" size={24} />
+                  <FaFile className="cv_icon" aria-hidden="true" />
                   {t("contact.cv_title", "Curriculum Vitae")}
                 </h3>
                 <p className="cv_subtitle">
-                  {t("contact.cv_subtitle", "Descarga mi CV completo con toda la información detallada")}
+                  {t(
+                    "contact.cv_subtitle",
+                    "Descarga mi CV completo con toda la información detallada"
+                  )}
                 </p>
               </div>
 
               <motion.a
-                className={`cv-button ${cvDownloading ? 'cv-button--downloading' : ''}`}
+                className={`cv-button ${
+                  cvDownloading ? "cv-button--downloading" : ""
+                }`}
                 href={Cv}
                 download="CV_Alejandro_Anchundia_Frontend.pdf"
                 onClick={handleCvDownload}
                 aria-label="Descargar CV de Alejandro Anchundia en formato PDF"
                 whileHover={{
                   y: -3,
-                  scale: 1.05
+                  scale: 1.05,
                 }}
-                whileTap={{ scale: 0.95 }}
-              >
+                whileTap={{ scale: 0.95 }}>
                 <div className="cv_button_content">
                   <div className="cv_icon_container">
                     {cvDownloading ? (
                       <motion.div
                         className="loading_spinner"
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        aria-label="Descargando"
-                      >
-                        <Loader2 size={20} />
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        aria-label="Descargando">
+                        <FaSpinner />
                       </motion.div>
                     ) : (
-                      <Download className="cv_download_icon" aria-hidden="true" />
+                      <FaDownload
+                        className="cv_download_icon"
+                        aria-hidden="true"
+                      />
                     )}
                   </div>
                   <span className="cv_button_text">
-                    {cvDownloading ?
-                      t("contact.downloading", "Descargando...") :
-                      t("contact.download_cv", "Descargar CV")
-                    }
+                    {cvDownloading
+                      ? t("contact.downloading", "Descargando...")
+                      : t("contact.download_cv", "Descargar CV")}
                   </span>
                 </div>
                 <div className="cv_button_glow" aria-hidden="true" />
@@ -451,22 +463,19 @@ export default function Contacto() {
                 <div className="cv_details">
                   <motion.span
                     className="cv_detail"
-                    whileHover={{ scale: 1.05 }}
-                  >
+                    whileHover={{ scale: 1.05 }}>
                     <span className="detail_label">Formato:</span>
                     <span className="detail_value">PDF</span>
                   </motion.span>
                   <motion.span
                     className="cv_detail"
-                    whileHover={{ scale: 1.05 }}
-                  >
+                    whileHover={{ scale: 1.05 }}>
                     <span className="detail_label">Tamaño:</span>
                     <span className="detail_value">250KB</span>
                   </motion.span>
                   <motion.span
                     className="cv_detail"
-                    whileHover={{ scale: 1.05 }}
-                  >
+                    whileHover={{ scale: 1.05 }}>
                     <span className="detail_label">Actualizado:</span>
                     <span className="detail_value">Dic 2024</span>
                   </motion.span>
@@ -485,8 +494,7 @@ export default function Contacto() {
                 initial={{ opacity: 0, x: 100, scale: 0.8 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 100, scale: 0.8 }}
-                transition={{ type: "spring", stiffness: 500, damping: 30 }}
-              >
+                transition={{ type: "spring", stiffness: 500, damping: 30 }}>
                 <div className="notification_content">
                   <FaCheck className="notification_icon" aria-hidden="true" />
                   <span className="notification_text">

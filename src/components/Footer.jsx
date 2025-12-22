@@ -1,7 +1,5 @@
-import { Coffee } from "lucide-react";
-import { CoffeeIcon } from "lucide-react";
 import React, { useState } from "react";
-import { FaArrowUp, FaHeart } from "react-icons/fa";
+import { FaArrowUp, FaHeart, FaCoffee } from "react-icons/fa";
 import "@/styles/components/footer.css";
 
 export default function Footer() {
@@ -10,15 +8,25 @@ export default function Footer() {
 
   const scrollToTop = () => {
     setIsScrollingToTop(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setTimeout(() => setIsScrollingToTop(false), 1000);
   };
 
   const getLastUpdateDate = () => {
     const date = new Date();
     const meses = [
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre",
     ];
     return `${meses[date.getMonth()]} ${date.getFullYear()}`;
   };
@@ -26,16 +34,19 @@ export default function Footer() {
   return (
     <footer className="footer">
       <button
-        className={`back_to_top ${isScrollingToTop ? 'back_to_top--loading' : ''}`}
+        className={`back_to_top ${
+          isScrollingToTop ? "back_to_top--loading" : ""
+        }`}
         onClick={scrollToTop}
-        aria-label="Volver al inicio"
-      >
+        aria-label="Volver al inicio">
         <FaArrowUp />
       </button>
 
       <div className="footer_bottom">
         <p className="footer_made_with">
-          © {currentYear} Hecho con <FaHeart className="heart_icon" /> <span>y</span> <Coffee className="coffee_icon" /> por Alejandro Anchundia
+          © {currentYear} Hecho con <FaHeart className="heart_icon" />{" "}
+          <span>y</span> <FaCoffee className="coffee_icon" /> por Alejandro
+          Anchundia
         </p>
 
         <p className="footer_update">
