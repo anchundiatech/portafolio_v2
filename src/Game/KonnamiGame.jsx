@@ -2,11 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 
 // --- Utilidad: Konami code ---
 const KONAMI = [
-  "ArrowUp","ArrowUp",
-  "ArrowDown","ArrowDown",
-  "ArrowLeft","ArrowRight",
-  "ArrowLeft","ArrowRight",
-  "KeyB","KeyA",
+  "ArrowUp",
+  "ArrowUp",
+  "ArrowDown",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowLeft",
+  "ArrowRight",
+  "KeyB",
+  "KeyA",
 ];
 
 // --- Efecto: Matrix ---
@@ -16,10 +21,14 @@ function startMatrixEffect(canvas, ctx, animationRef) {
   const columns = Math.floor(canvas.width / fontSize);
   const drops = Array(columns).fill(1);
 
+  // Obtener color del root
+  const rootStyles = getComputedStyle(document.documentElement);
+  const neonIce = rootStyles.getPropertyValue("--neon-ice").trim();
+
   function draw() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#8b5cf6";
+    ctx.fillStyle = neonIce;
     ctx.font = `${fontSize}px monospace`;
 
     for (let i = 0; i < drops.length; i++) {
@@ -248,15 +257,21 @@ export default function KonnamiGame() {
             zIndex: 10000,
             background: "rgba(17, 17, 24, 0.8)",
             backdropFilter: "blur(8px)",
-            border: "1px solid rgba(139, 92, 246, 0.4)",
+            border:
+              "1px solid color-mix(in srgb, var(--neon-ice) 40%, transparent)",
             borderRadius: 16,
             padding: 16,
             color: "#fff",
             fontFamily: "ui-sans-serif, system-ui, -apple-system, Segoe UI",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
-          }}
-        >
-          <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 12 }}>
+            boxShadow: "var(--shadow-primary-lg)",
+          }}>
+          <div
+            style={{
+              display: "flex",
+              gap: 8,
+              alignItems: "center",
+              marginBottom: 12,
+            }}>
             <span style={{ fontWeight: 700 }}>🎮 KONAMI MODE</span>
             <button
               onClick={deactivate}
@@ -269,8 +284,7 @@ export default function KonnamiGame() {
                 padding: "6px 10px",
                 borderRadius: 8,
                 cursor: "pointer",
-              }}
-            >
+              }}>
               ✕
             </button>
           </div>
@@ -283,14 +297,17 @@ export default function KonnamiGame() {
                   key={m}
                   onClick={() => setEffect(m)}
                   style={{
-                    border: "1px solid rgba(139, 92, 246, 0.6)",
-                    background: effect === m ? "rgba(139, 92, 246, 0.6)" : "transparent",
+                    border:
+                      "1px solid color-mix(in srgb, var(--neon-ice) 60%, transparent)",
+                    background:
+                      effect === m
+                        ? "color-mix(in srgb, var(--neon-ice) 60%, transparent)"
+                        : "transparent",
                     color: "#fff",
                     padding: "6px 10px",
                     borderRadius: 8,
                     cursor: "pointer",
-                  }}
-                >
+                  }}>
                   {m.toUpperCase()}
                 </button>
               ))}
