@@ -1,6 +1,8 @@
 ﻿/* ========== FOOTER PRINCIPAL ========== */
 .footer {
   background: var(--bg-secondary);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 240px;
 }
 
 /* Línea superior con glow sutil */

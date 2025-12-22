@@ -104,13 +104,18 @@
   text-transform: uppercase;
 
   /* Optimize for LCP - use simpler initial state */
-  filter: drop-shadow(0 0 15px rgba(52, 235, 235, 0.3));
-  animation: titleGlow 4s ease-in-out infinite;
-  will-change: filter;
+  filter: none;
+  animation: none;
   /* Contain layout changes for faster rendering */
   contain: layout style paint;
-  /* Defer glow animation to reduce paint overhead on initial render */
-  animation-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero_text h1 {
+    animation: titleGlow 4s ease-in-out infinite;
+    /* Defer glow animation to reduce paint overhead on initial render */
+    animation-delay: 1.5s;
+  }
 }
 
 @keyframes titleGlow {

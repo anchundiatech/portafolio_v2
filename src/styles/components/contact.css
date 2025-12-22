@@ -5,6 +5,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
 }
 
 .contact-wrapper {
