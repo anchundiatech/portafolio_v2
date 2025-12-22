@@ -1,11 +1,6 @@
 ﻿/* ========== FOOTER PRINCIPAL ========== */
 .footer {
   background: var(--bg-secondary);
-  border-top: 1px solid var(--glass-border);
-  padding: var(--space-16) var(--space-6) var(--space-8);
-  margin-top: var(--space-24);
-  position: relative;
-  overflow: hidden;
 }
 
 /* Línea superior con glow sutil */
