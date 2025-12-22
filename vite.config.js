@@ -9,7 +9,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
   base: './',
 
-  plugins: [react()],
+  plugins: [react({
+    fastRefresh: process.env.NODE_ENV !== 'production',
+  })],
 
   resolve: {
     alias: {
@@ -41,28 +43,19 @@ export default defineConfig({
         manualChunks(id) {
           // Separar proveedores de terceros para mejor caching
           if (id.includes('node_modules')) {
-            if (id.includes('react/') || id.includes('react-dom')) {
-              return 'react-vendor';
+            // Keep react and react-dom in main bundle to avoid circular dependency issues
+            if (id.includes('react') && !id.includes('react-icons') && !id.includes('react-router') && !id.includes('react-helmet')) {
+              return null; // Put in main bundle
             }
-            // NO separar react-icons - dejamos que vaya con el componente que lo usa
-            // Esto hace que los chunks de iconos se carguen SOLO cuando el componente los necesita
-            if (id.includes('react-icons')) {
-              return null;
-            }
-            if (id.includes('react-router-dom')) {
-              return 'router-vendor';
-            }
-            // Keep react-helmet-async in vendor to ensure proper initialization with React
-            if (id.includes('react-helmet-async')) {
-              return null;
-            }
+            // Motion as separate vendor
             if (id.includes('motion')) {
               return 'motion-vendor';
             }
+            // i18next as separate vendor
             if (id.includes('i18next')) {
               return 'i18n-vendor';
             }
-            // Vendor general para otros módulos
+            // Everything else in general vendor
             return 'vendor';
           }
         },
