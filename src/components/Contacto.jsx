@@ -52,9 +52,8 @@ const PrimaryContactCard = memo(({ method, isCopying, isCopied, onCopy }) => {
 
         {method.copyable && (
           <motion.button
-            className={`copy_button ${
-              isCopying ? "copy_button--copying" : ""
-            } ${isCopied ? "copy_button--success" : ""}`}
+            className={`copy_button ${isCopying ? "copy_button--copying" : ""
+              } ${isCopied ? "copy_button--success" : ""}`}
             onClick={() => onCopy(method.value, method.name)}
             aria-label={`Copiar ${method.name}: ${method.value}`}
             title={`Copiar ${method.value}`}
@@ -417,9 +416,8 @@ export default function Contacto() {
               </div>
 
               <motion.a
-                className={`cv-button ${
-                  cvDownloading ? "cv-button--downloading" : ""
-                }`}
+                className={`cv-button ${cvDownloading ? "cv-button--downloading" : ""
+                  }`}
                 href={Cv}
                 download="CV_Alejandro_Anchundia_Frontend.pdf"
                 onClick={handleCvDownload}
