@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /private
-
 Sitemap: https://portafolio-v2-peach.vercel.app/sitemap.xml
