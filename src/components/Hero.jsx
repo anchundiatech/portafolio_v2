@@ -9,51 +9,37 @@ import git from "@/assets/tecnologias/git.svg";
 import "../App.css";
 
 function Hero() {
-  const [rotation, setRotation] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const mouseThrottleRef = useRef(null);
 
-  // Defer rotation updates - use CSS animations instead for critical render path
   useEffect(() => {
-    // Don't start animation until after first paint
-    const timer = setTimeout(() => {
-      const interval = setInterval(() => {
-        setRotation((prev) => (prev + 7.2) % 360);
-      }, 200);
-      return () => clearInterval(interval);
-    }, 100); // Small delay after mount
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    // Defer mouse tracking until after LCP
+    // Mouse tracking deferred and optimized
     const timer = setTimeout(() => {
       const wrapper = document.querySelector(".orbital_wrapper");
       if (!wrapper) return;
 
       const handleMouseMove = (e) => {
         const now = Date.now();
-        if (mouseThrottleRef.current && now - mouseThrottleRef.current < 16) {
+        if (mouseThrottleRef.current && now - mouseThrottleRef.current < 20) {
           return;
         }
         mouseThrottleRef.current = now;
 
         const { innerWidth, innerHeight } = window;
-        const x = (e.clientX / innerWidth - 0.5) * 20;
-        const y = (e.clientY / innerHeight - 0.5) * -20;
+        const x = (e.clientX / innerWidth - 0.5) * 15;
+        const y = (e.clientY / innerHeight - 0.5) * -15;
 
         requestAnimationFrame(() => {
-          wrapper.style.transform = `rotateZ(${rotation}deg) rotateX(${y}deg) rotateY(${x}deg)`;
+          wrapper.style.setProperty("--m-x", `${x}deg`);
+          wrapper.style.setProperty("--m-y", `${y}deg`);
         });
       };
 
       window.addEventListener("mousemove", handleMouseMove);
       return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, 200); // Defer after LCP
+    }, 500);
 
     return () => clearTimeout(timer);
-  }, [rotation]);
+  }, []);
 
   return (
     <section
@@ -73,8 +59,7 @@ function Hero() {
           <p className="hero_description" itemProp="description">
             Llevo <strong>2+ años</strong> creando interfaces modernas y
             fluidas. Me especializo en transformar ideas en experiencias web
-            visuales, rápidas y centradas en el usuario. El código es mi forma
-            de construir cosas que importan.
+            visuales, rápidas y centradas en el usuario.
           </p>
 
           <nav className="hero_cta" aria-label="Acciones principales">
@@ -93,7 +78,7 @@ function Hero() {
           </nav>
         </article>
 
-        {/* IMAGE + ORBITAL DECORATION */}
+        {/* IMAGE + ORBITAL */}
         <aside className="hero_image" aria-label="Visualización de tecnologías">
           <div
             className="orbital_container"
@@ -102,16 +87,15 @@ function Hero() {
             <div className="orbit orbit-1" aria-hidden="true"></div>
             <div className="orbit orbit-2" aria-hidden="true"></div>
             <div className="orbit orbit-3" aria-hidden="true"></div>
-            <div className="orbit orbit-4" aria-hidden="true"></div>
-            <div className="orbit orbit-5" aria-hidden="true"></div>
 
             <div className="orbital_center_glow" aria-hidden="true"></div>
 
             <figure className="image_decoration">
               <img
                 src={Me}
-                alt="Fotografía profesional de Alejandro Anchundia, Desarrollador Frontend"
+                alt="Alejandro Anchundia, Desarrollador Frontend"
                 loading="eager"
+                fetchpriority="high"
                 width="280"
                 height="280"
                 itemProp="image"
@@ -119,110 +103,53 @@ function Hero() {
             </figure>
 
             {/* Íconos orbitando */}
-            <div
-              className="orbital_wrapper"
-              style={{ transform: `rotateZ(${rotation}deg)` }}
-              aria-hidden="true">
+            <div className="orbital_wrapper orbital_wrapper--animated" aria-hidden="true">
               <div
                 className="orbital_tech"
                 style={{ transform: "rotate(0deg) translateY(-130px)" }}>
-                <div
-                  className="tech_orbital_icon"
-                  title="React - Librería JavaScript">
-                  <img
-                    src={react}
-                    alt="Logo de React"
-                    loading="lazy"
-                    width="40"
-                    height="40"
-                  />
+                <div className="tech_orbital_icon" title="React">
+                  <img src={react} alt="React" loading="lazy" width="40" height="40" />
                 </div>
-                <div className="tech_orbital_glow"></div>
-              </div>
-
-              <div
-                className="orbital_tech"
-                style={{ transform: "rotate(120deg) translateY(-130px)" }}>
-                <div
-                  className="tech_orbital_icon"
-                  title="JavaScript - Lenguaje de programación">
-                  <img
-                    src={js}
-                    alt="Logo de JavaScript"
-                    loading="lazy"
-                    width="40"
-                    height="40"
-                  />
-                </div>
-                <div className="tech_orbital_glow"></div>
-              </div>
-
-              <div
-                className="orbital_tech"
-                style={{ transform: "rotate(240deg) translateY(-130px)" }}>
-                <div
-                  className="tech_orbital_icon"
-                  title="Tailwind CSS - Framework de CSS">
-                  <img
-                    src={tailwind}
-                    alt="Logo de Tailwind CSS"
-                    loading="lazy"
-                    width="40"
-                    height="40"
-                  />
-                </div>
-                <div className="tech_orbital_glow"></div>
               </div>
 
               <div
                 className="orbital_tech"
                 style={{ transform: "rotate(60deg) translateY(-130px)" }}>
-                <div
-                  className="tech_orbital_icon"
-                  title="HTML5 - Lenguaje de marcado">
-                  <img
-                    src={html}
-                    alt="Logo de HTML5"
-                    loading="lazy"
-                    width="40"
-                    height="40"
-                  />
+                <div className="tech_orbital_icon" title="HTML5">
+                  <img src={html} alt="HTML5" loading="lazy" width="40" height="40" />
                 </div>
-                <div className="tech_orbital_glow"></div>
+              </div>
+
+              <div
+                className="orbital_tech"
+                style={{ transform: "rotate(120deg) translateY(-130px)" }}>
+                <div className="tech_orbital_icon" title="JavaScript">
+                  <img src={js} alt="JavaScript" loading="lazy" width="40" height="40" />
+                </div>
               </div>
 
               <div
                 className="orbital_tech"
                 style={{ transform: "rotate(180deg) translateY(-130px)" }}>
-                <div
-                  className="tech_orbital_icon"
-                  title="CSS3 - Hojas de estilo">
-                  <img
-                    src={css}
-                    alt="Logo de CSS3"
-                    loading="lazy"
-                    width="40"
-                    height="40"
-                  />
+                <div className="tech_orbital_icon" title="CSS3">
+                  <img src={css} alt="CSS3" loading="lazy" width="40" height="40" />
                 </div>
-                <div className="tech_orbital_glow"></div>
+              </div>
+
+              <div
+                className="orbital_tech"
+                style={{ transform: "rotate(240deg) translateY(-130px)" }}>
+                <div className="tech_orbital_icon" title="Tailwind CSS">
+                  <img src={tailwind} alt="Tailwind CSS" loading="lazy" width="40" height="40" />
+                </div>
               </div>
 
               <div
                 className="orbital_tech"
                 style={{ transform: "rotate(300deg) translateY(-130px)" }}>
-                <div
-                  className="tech_orbital_icon"
-                  title="Git - Control de versiones">
-                  <img
-                    src={git}
-                    alt="Logo de Git"
-                    loading="lazy"
-                    width="40"
-                    height="40"
-                  />
+                <div className="tech_orbital_icon" title="Git">
+                  <img src={git} alt="Git" loading="lazy" width="40" height="40" />
                 </div>
-                <div className="tech_orbital_glow"></div>
               </div>
             </div>
           </div>
