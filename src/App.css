@@ -1,6 +1,6 @@
 @import './styles/main.css';
 
-/* Skip Link - Accesibilidad */
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -19,18 +19,17 @@
   top: 0;
 }
 
-/* Focus visible para mejor accesibilidad */
+
 *:focus-visible {
   outline: 2px solid var(--neon-purple);
   outline-offset: 2px;
 }
 
-/* Scroll suave */
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Reducir animaciones para usuarios que lo prefieren */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -43,7 +42,7 @@ html {
   }
 }
 
-/* Optimización para pantallas pequeñas */
+
 @media (max-width: 480px) {
   .skip-link {
     font-size: 0.8rem;
@@ -55,14 +54,14 @@ html {
   }
 }
 
-/* Soporte para tema oscuro */
+
 @media (prefers-color-scheme: dark) {
   body {
     color-scheme: dark;
   }
 }
 
-/* Soporte para tema claro */
+
 @media (prefers-color-scheme: light) {
   body {
     color-scheme: light;
