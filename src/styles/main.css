@@ -20,7 +20,7 @@
 @import './layouts/main.css';
 
 /* Páginas */
-/* @import './pages/aboutme-detailed.css';  */
+@import './pages/aboutme-detailed.css';
 
 /* Utilidades */
 @import './utils/utilities.css';
