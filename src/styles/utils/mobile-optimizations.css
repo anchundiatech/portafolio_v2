@@ -1,12 +1,6 @@
-/* ========================================
-   MEJORAS DE RESPONSIVIDAD MÓVIL
-   Optimizaciones adicionales para dispositivos móviles
-======================================== */
-
-/* Mejoras generales para touch devices */
 @media (hover: none) and (pointer: coarse) {
 
-  /* Aumentar áreas táctiles para mejor UX en móviles */
+
   a,
   button,
   .btn_primary,
@@ -15,12 +9,12 @@
     min-width: 44px;
   }
 
-  /* Mejorar el tap highlight en móviles */
+
   * {
     -webkit-tap-highlight-color: color-mix(in srgb, var(--neon-ice) 20%, transparent);
   }
 
-  /* Desactivar hover effects en touch devices */
+
   .proyecto_card:hover,
   .technology:hover,
   .buttons_container button:hover,
@@ -30,43 +24,37 @@
   }
 }
 
-/* Optimizaciones para pantallas pequeñas */
 @media (max-width: 480px) {
 
-  /* Mejorar padding general */
   body {
     padding: 0;
   }
 
-  /* Optimizar espaciado en secciones */
   section {
     padding: var(--spacing-lg) var(--spacing-sm);
   }
 
-  /* Mejorar legibilidad de textos */
   p {
     line-height: 1.6;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
 
-  /* Optimizar imágenes para móvil */
   img {
     max-width: 100%;
     height: auto;
   }
 
-  /* Mejorar formularios en móvil */
+
   input,
   textarea,
   select {
     font-size: 16px;
-    /* Previene zoom en iOS */
     max-width: 100%;
   }
 }
 
-/* Optimizaciones específicas para Hero en móvil */
+
 @media (max-width: 600px) {
   .hero_Container {
     min-height: auto;
@@ -106,7 +94,7 @@
   }
 }
 
-/* Mejoras para pantallas muy pequeñas */
+
 @media (max-width: 360px) {
   .hero_text h1 {
     font-size: 1.6rem;
@@ -127,7 +115,7 @@
   }
 }
 
-/* Optimizaciones para landscape en móviles */
+
 @media (max-height: 500px) and (orientation: landscape) {
   .hero_Container {
     min-height: auto;
@@ -145,48 +133,39 @@
   }
 }
 
-/* Mejoras de performance para móviles */
 @media (max-width: 768px) {
 
-  /* Reducir animaciones complejas en móvil */
   .orbital_wrapper {
     animation: none;
   }
 
-  /* Simplificar efectos de fondo */
   .hero_Container::before,
   .hero_Container::after {
     opacity: 0.5;
   }
 
-  /* Optimizar sombras */
   .proyecto_card {
     box-shadow: 0 0 15px color-mix(in srgb, var(--neon-ice) 20%, transparent);
   }
 }
 
-/* Mejoras para accesibilidad en móvil */
 @media (max-width: 768px) {
 
-  /* Mejorar contraste de textos */
   .hero_description,
   .proyectos_text,
   .proyecto_card p {
     color: rgba(255, 255, 255, 0.9);
   }
 
-  /* Aumentar tamaño de fuente para mejor legibilidad */
   body {
     font-size: 16px;
   }
 
-  /* Mejorar espaciado entre elementos interactivos */
   .nav_item {
     margin: 0.5rem 0;
   }
 }
 
-/* Safe area para dispositivos con notch */
 @supports (padding: max(0px)) {
   body {
     padding-left: max(0px, env(safe-area-inset-left));
@@ -198,14 +177,12 @@
   }
 }
 
-/* Optimizaciones para PWA en móvil */
 @media (display-mode: standalone) {
   .Header {
     padding-top: calc(var(--spacing-sm) + env(safe-area-inset-top, 0));
   }
 }
 
-/* Mejoras para dark mode en móvil */
 @media (prefers-color-scheme: dark) and (max-width: 768px) {
   body {
     background: var(--pure-black);
@@ -216,21 +193,17 @@
   }
 }
 
-/* Optimización de scroll en móvil */
 @media (max-width: 768px) {
   html {
     scroll-padding-top: 80px;
-    /* Compensa el header fijo */
   }
 
-  /* Mejorar scroll suave en móvil */
   * {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
 }
 
-/* Mejoras para tablets en modo portrait */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .hero_content {
     grid-template-columns: 1fr;
@@ -242,7 +215,7 @@
   }
 }
 
-/* Optimizaciones para reducir motion sickness en móvil */
+
 @media (prefers-reduced-motion: reduce) and (max-width: 768px) {
   * {
     animation-duration: 0.01ms !important;
