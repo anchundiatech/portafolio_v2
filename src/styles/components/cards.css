@@ -1,20 +1,14 @@
-/* ========== BASE CARD ========== */
+/* ========== CARD ========== */
 .card {
-    /* Layout */
+
     display: flex;
     flex-direction: column;
     position: relative;
-
-    /* Apariencia */
     background: var(--bg-card);
     border: 1px solid rgba(168, 85, 247, 0.2);
     border-radius: var(--radius-2xl);
     overflow: hidden;
-
-    /* Sombra */
     box-shadow: var(--shadow-primary-sm);
-
-    /* Transición */
     transition: all var(--duration-300) var(--ease-out);
 }
 
@@ -26,7 +20,7 @@
 
 /* ========== VARIANTES ========== */
 
-/* Glass Card */
+
 .card-glass {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
@@ -41,7 +35,7 @@
     box-shadow: var(--shadow-primary-lg);
 }
 
-/* Elevated Card */
+
 .card-elevated {
     background: var(--bg-tertiary);
     border: 1px solid rgba(168, 85, 247, 0.15);
@@ -52,7 +46,7 @@
     box-shadow: var(--shadow-2xl), var(--shadow-primary-lg);
 }
 
-/* Bordered Card */
+
 .card-bordered {
     background: transparent;
     border: 2px solid rgba(168, 85, 247, 0.3);
@@ -65,7 +59,7 @@
     box-shadow: var(--glow-sm);
 }
 
-/* Gradient Card */
+
 .card-gradient {
     background: linear-gradient(135deg,
             rgba(168, 85, 247, 0.1) 0%,
@@ -80,7 +74,6 @@
     border-color: rgba(168, 85, 247, 0.4);
 }
 
-/* Interactive Card (más hover effect) */
 .card-interactive {
     cursor: pointer;
     user-select: none;
@@ -98,7 +91,7 @@
 
 /* ========== COMPONENTES DE CARD ========== */
 
-/* Card Header */
+
 .card-header {
     padding: var(--space-6);
     border-bottom: 1px solid rgba(168, 85, 247, 0.1);
@@ -108,7 +101,7 @@
     padding: var(--space-4);
 }
 
-/* Card Body */
+
 .card-body {
     padding: var(--space-6);
     flex: 1;
@@ -118,7 +111,7 @@
     padding: var(--space-4);
 }
 
-/* Card Footer */
+
 .card-footer {
     padding: var(--space-6);
     border-top: 1px solid rgba(168, 85, 247, 0.1);
@@ -129,7 +122,7 @@
     padding: var(--space-4);
 }
 
-/* Card Image */
+
 .card-image {
     width: 100%;
     height: auto;
@@ -173,7 +166,7 @@
     opacity: 1;
 }
 
-/* Card Title */
+
 .card-title {
     font-size: var(--text-xl);
     font-weight: var(--font-bold);
@@ -190,7 +183,7 @@
     font-size: var(--text-lg);
 }
 
-/* Card Description */
+
 .card-description {
     font-size: var(--text-base);
     color: var(--gray-400);
@@ -202,7 +195,7 @@
     font-size: var(--text-sm);
 }
 
-/* Card Meta */
+
 .card-meta {
     display: flex;
     align-items: center;
@@ -220,7 +213,7 @@
 
 /* ========== EFECTOS ESPECIALES ========== */
 
-/* Glow Border Effect */
+
 .card-glow {
     position: relative;
 }
@@ -244,7 +237,7 @@
     opacity: 0.6;
 }
 
-/* Shimmer Effect */
+
 .card-shimmer {
     position: relative;
     overflow: hidden;
@@ -268,7 +261,7 @@
     left: 100%;
 }
 
-/* Tilt Effect (3D) */
+
 .card-tilt {
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -294,7 +287,7 @@
 
 /* ========== LAYOUTS ESPECIALES ========== */
 
-/* Horizontal Card */
+
 .card-horizontal {
     flex-direction: row;
     align-items: center;
@@ -309,7 +302,7 @@
     width: 60%;
 }
 
-/* Feature Card (centrado) */
+
 .card-feature {
     text-align: center;
     align-items: center;
@@ -329,7 +322,7 @@
     box-shadow: var(--shadow-primary-md);
 }
 
-/* Stat Card */
+
 .card-stat {
     text-align: center;
     padding: var(--space-8);
