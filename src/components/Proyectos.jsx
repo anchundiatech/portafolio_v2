@@ -124,6 +124,16 @@ export default function Proyectos() {
         <div className="pause-indicator-proyectos" aria-hidden="true">
           ▶️ El scroll se pausa al pasar el cursor
         </div>
+
+        <div className="proyectos_footer">
+          <p className="proyectos_note">Estos son algunos de los proyectos en los que he trabajado. ¡Explora y descubre más en mi repositorio!</p>
+          <button
+            className="btn_secondary"
+            onClick={() => window.open("https://github.com/anchundiatech", "_blank", "noopener,noreferrer")}
+          >
+            Ver más proyectos en GitHub
+          </button>
+        </div>
       </div>
 
       {/* Modal */}
