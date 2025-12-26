@@ -6,7 +6,7 @@
   background: radial-gradient(circle at 50% 100%, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
-/* Defer animations after first paint - use animation-delay or @supports */
+
 .hero_Container::before {
   content: '';
   position: absolute;
@@ -18,7 +18,6 @@
   animation: gridMove 40s linear infinite;
   z-index: 0;
   will-change: transform;
-  /* Delay animation start to not block LCP */
   animation-delay: 1s;
   opacity: 0;
   animation-fill-mode: forwards;
@@ -49,7 +48,6 @@
   z-index: 0;
   opacity: 0;
   will-change: transform;
-  /* Defer animation to reduce render blocking */
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
 }
@@ -102,18 +100,14 @@
 
   position: relative;
   text-transform: uppercase;
-
-  /* Optimize for LCP - use simpler initial state */
   filter: none;
   animation: none;
-  /* Contain layout changes for faster rendering */
   contain: layout style paint;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .hero_text h1 {
     animation: titleGlow 4s ease-in-out infinite;
-    /* Defer glow animation to reduce paint overhead on initial render */
     animation-delay: 1.5s;
   }
 }
@@ -265,7 +259,7 @@
   perspective: 1000px;
 }
 
-/* Órbitas - Más sutiles */
+
 .orbit {
   position: absolute;
   border: 1px solid;
@@ -302,7 +296,6 @@
   animation: orbitPulse3 6.5s ease-in-out infinite;
 }
 
-/* Optimizar keyframes para menos repaints */
 @keyframes orbitPulse1 {
 
   0%,
@@ -345,7 +338,7 @@
   }
 }
 
-/* Imagen central */
+
 .image_decoration {
   position: relative;
   z-index: 10;
@@ -361,7 +354,6 @@
   animation: imageBorderGlow 3.5s ease-in-out infinite;
 }
 
-/* Optimizar glow de imagen - menos intenso */
 @keyframes imageBorderGlow {
 
   0%,
@@ -392,7 +384,7 @@
   transform: scale(1.1);
 }
 
-/* Glow central */
+
 .orbital_center_glow {
   position: absolute;
   width: 220px;
@@ -407,7 +399,6 @@
   will-change: transform, opacity;
 }
 
-/* Optimizar animación central - menos extrema */
 @keyframes centerPulse {
 
   0%,
@@ -422,7 +413,6 @@
   }
 }
 
-/* Wrapper orbital */
 .orbital_wrapper {
   position: absolute;
   width: 100%;
@@ -431,10 +421,25 @@
   left: 0;
   transform-style: preserve-3d;
   will-change: transform;
-  transition: transform var(--duration-700) var(--ease-out);
+  transform: rotateX(var(--m-y, 0deg)) rotateY(var(--m-x, 0deg));
+  transition: transform 0.5s ease-out;
 }
 
-/* Iconos orbitales */
+.orbital_wrapper--animated {
+  animation: rotateOrbital 60s linear infinite;
+}
+
+@keyframes rotateOrbital {
+  from {
+    transform: rotateX(var(--m-y, 0deg)) rotateY(var(--m-x, 0deg)) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(var(--m-y, 0deg)) rotateY(var(--m-x, 0deg)) rotateZ(360deg);
+  }
+}
+
+
 .orbital_tech {
   position: absolute;
   width: 60px;
@@ -463,7 +468,6 @@
   will-change: transform, box-shadow, border-color, background;
 }
 
-/* Optimizar animación de flotación - más suave */
 @keyframes iconFloat {
 
   0%,
@@ -514,7 +518,6 @@
   will-change: opacity, transform;
 }
 
-/* Reducir keyframes - animación más eficiente */
 @keyframes glowPulse {
 
   0%,
@@ -563,6 +566,7 @@
 
   .hero_content {
     gap: var(--space-12);
+    margin-top: 2rem;
   }
 
   .orbital_container {
@@ -733,7 +737,6 @@
   }
 }
 
-/* High Contrast Mode */
 @media (prefers-contrast: high) {
 
   .hero_text h1,
