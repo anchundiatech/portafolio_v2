@@ -130,6 +130,9 @@ function Header() {
         className="nav bg-grip"
         role="navigation"
         aria-label="Navegación principal">
+        <div className="logo_container" onClick={() => navigate("/")}>
+          <img src="/logo.svg" alt="Logo Alejandro Anchundia" className="logo_image" />
+        </div>
         <div className="menu_container">
           <ul className="list_nav">
             {navItems.map((item) => (
@@ -182,27 +185,24 @@ function Header() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
-              className={`burger-line burger-line-top ${
-                isMobileMenuOpen ? "open" : ""
-              }`}
+              className={`burger-line burger-line-top ${isMobileMenuOpen ? "open" : ""
+                }`}
               d="M4 6H20"
               stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"
             />
             <path
-              className={`burger-line burger-line-middle ${
-                isMobileMenuOpen ? "open" : ""
-              }`}
+              className={`burger-line burger-line-middle ${isMobileMenuOpen ? "open" : ""
+                }`}
               d="M4 12H20"
               stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"
             />
             <path
-              className={`burger-line burger-line-bottom ${
-                isMobileMenuOpen ? "open" : ""
-              }`}
+              className={`burger-line burger-line-bottom ${isMobileMenuOpen ? "open" : ""
+                }`}
               d="M4 18H20"
               stroke="currentColor"
               strokeWidth="1.5"
@@ -221,9 +221,8 @@ function Header() {
 
         <div
           id="mobile-navigation"
-          className={`mobile-menu ${
-            isMobileMenuOpen ? "mobile-menu--open" : ""
-          }`}>
+          className={`mobile-menu ${isMobileMenuOpen ? "mobile-menu--open" : ""
+            }`}>
           <button
             className="mobile-menu-close"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -252,9 +251,8 @@ function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className={`mobile-menu-link ${
-                      activeSection === item.href.slice(1) ? "active" : ""
-                    }`}
+                    className={`mobile-menu-link ${activeSection === item.href.slice(1) ? "active" : ""
+                      }`}
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavClick(item);
