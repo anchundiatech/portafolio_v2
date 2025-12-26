@@ -1,8 +1,4 @@
-/* ======================
-   EFECTOS
-====================== */
-
-/* Efectos de fondo para secciones gaming */
+/* ======== EFECTOS ======== */
 .gaming-section {
   position: relative;
   overflow: hidden;
@@ -88,7 +84,7 @@
   }
 }
 
-/* Efectos de partículas flotantes */
+
 .floating-particles {
   position: absolute;
   width: 100%;
@@ -114,7 +110,7 @@
   }
 }
 
-/* Efectos de grid energético */
+
 .energy-grid {
   position: absolute;
   width: 100%;
@@ -140,7 +136,7 @@
   }
 }
 
-/* Efectos de código matriz */
+
 .code-matrix {
   position: absolute;
   width: 100%;
@@ -162,7 +158,7 @@
   }
 }
 
-/* Efectos de brillo y resplandor */
+
 .card_glow {
   position: absolute;
   top: 0;
@@ -193,7 +189,7 @@
   transition: left 0.6s ease;
 }
 
-/* Efectos de hover épicos */
+
 .epic-hover:hover {
   animation: epicGlow 0.5s ease-in-out;
 }
@@ -210,7 +206,7 @@
   }
 }
 
-/* Efectos de texto brillante */
+
 .glowing-text {
   animation: textGlow 2s ease-in-out infinite alternate;
 }
@@ -225,7 +221,7 @@
   }
 }
 
-/* Animaciones adicionales */
+
 @keyframes matrixRain {
   0% {
     transform: translateY(-100vh);
@@ -274,7 +270,7 @@
   }
 }
 
-/* Efectos específicos para iconos */
+
 .icon_glow {
   position: absolute;
   top: 50%;
@@ -320,7 +316,7 @@
   }
 }
 
-/* Efectos de pulso y latido */
+
 @keyframes pulseGlow {
 
   0%,
@@ -373,9 +369,7 @@
   }
 }
 
-/* ==========================================
-   OPTIMIZACIONES DE RENDIMIENTO
-=========================================== */
+/* ======== OPTIMIZACIONES DE RENDIMIENTO ======== */
 
 @media (prefers-reduced-motion: reduce) {
 
