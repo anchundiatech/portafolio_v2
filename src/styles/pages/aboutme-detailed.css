@@ -1,4 +1,3 @@
-/* ========== CONTENEDOR PRINCIPAL - DEEP SPACE THEME ========== */
 .aboutme-detailed-container {
   min-height: 100vh;
   background: radial-gradient(circle at 50% 0%, var(--bg-secondary) 0%, var(--bg-primary) 100%);
@@ -7,7 +6,6 @@
   overflow-x: hidden;
 }
 
-/* Background element for "stars" or "depth" */
 .aboutme-detailed-container::before {
   content: "";
   position: absolute;
@@ -38,7 +36,7 @@
   z-index: 10;
 }
 
-/* Botón Volver */
+
 .back-button-detailed {
   display: inline-flex;
   align-items: center;
@@ -80,7 +78,7 @@
   transform: translateX(-3px);
 }
 
-/* Título de la página */
+
 .page-title {
   font-size: clamp(var(--text-3xl), 6vw, var(--text-5xl));
   font-weight: var(--font-black);
@@ -103,7 +101,7 @@
   position: relative;
   z-index: 5;
 
-  /* Glassmorphism Deep Space */
+
   background: rgba(0, 34, 51, 0.5);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
@@ -151,7 +149,7 @@
   position: relative;
 }
 
-/* Glow effect behind image */
+
 .hero-image::before {
   content: '';
   position: absolute;
@@ -181,7 +179,7 @@
   border-color: var(--neon-ice);
 }
 
-/* ========== SECTION HEADER GENÉRICO ========== */
+/* ========== SECTION HEADER========== */
 .section-header-detailed {
   text-align: center;
   margin-bottom: var(--space-12);
@@ -222,7 +220,7 @@
   padding: var(--space-12) 0;
 }
 
-/* Línea central del timeline */
+
 .timeline-detailed::before {
   content: '';
   position: absolute;
@@ -291,7 +289,7 @@
 .timeline-content-detailed {
   padding: var(--space-6);
 
-  /* Glassmorphism Card Deep Space */
+
   background: rgba(0, 34, 51, 0.4);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
@@ -418,7 +416,7 @@
   overflow: hidden;
 }
 
-/* Efecto shimmer neon */
+
 .value-card-detailed::before {
   content: '';
   position: absolute;
@@ -498,7 +496,7 @@
   align-items: center;
   justify-content: center;
 
-  /* Neon Gradient Button */
+
   background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--pacific-blue) 100%);
   color: white;
 
@@ -526,7 +524,7 @@
   transform: translateY(-4px);
   border-color: rgba(255, 255, 255, 0.5);
   color: #002233;
-  /* Dark text on bright background */
+
 }
 
 .cta-button-detailed:active {
@@ -534,8 +532,6 @@
 }
 
 /* ========== RESPONSIVE ========== */
-/* (Sin cambios mayores, solo manteniendo la estructura) */
-
 @media (max-width: 1024px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -730,7 +726,7 @@
   }
 }
 
-/* High Contrast Mode */
+
 @media (prefers-contrast: high) {
 
   .page-title,
