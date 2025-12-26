@@ -1,14 +1,12 @@
-
-
 :root {
-   
+
     --neon-ice: #34EBEB;
     --ocean-blue: #038EBE;
     --pacific-blue: #0C9EAD;
     --deep-space-blue: #003348;
     --tropical-teal: #40B9BC;
 
-    
+
     --primary-50: #f0fdfd;
     --primary-100: #ccfbfb;
     --primary-200: #99f6f6;
@@ -25,7 +23,7 @@
     /* #003348 - Muy oscuro */
     --primary-900: #002233;
 
-    
+
     --gray-50: #f8fafc;
     --gray-100: #f1f5f9;
     --gray-200: #e2e8f0;
@@ -38,7 +36,7 @@
     --gray-900: #0f172a;
     --gray-950: #020617;
 
-    
+
     --success: #10b981;
     --success-light: #34d399;
     --success-dark: #059669;
@@ -242,8 +240,6 @@
     /* 32px */
     --radius-full: 9999px;
 
-    /* ========== TRANSICIONES ========== */
-    /* Duraciones */
     --duration-75: 75ms;
     --duration-100: 100ms;
     --duration-150: 150ms;
@@ -254,7 +250,7 @@
     --duration-700: 700ms;
     --duration-1000: 1000ms;
 
-    /* Easing Functions */
+
     --ease-linear: linear;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
@@ -263,13 +259,13 @@
     --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
-    /* Transiciones Comunes */
+
     --transition-fast: var(--duration-150) var(--ease-out);
     --transition-base: var(--duration-200) var(--ease-out);
     --transition-slow: var(--duration-300) var(--ease-out);
     --transition-all: all var(--duration-200) var(--ease-out);
 
-    /* ========== Z-INDEX ========== */
+
     --z-0: 0;
     --z-10: 10;
     --z-20: 20;
@@ -284,7 +280,6 @@
     --z-popover: 1060;
     --z-tooltip: 1070;
 
-    /* ========== OPACIDADES ========== */
     --opacity-0: 0;
     --opacity-5: 0.05;
     --opacity-10: 0.1;
@@ -300,8 +295,6 @@
     --opacity-90: 0.9;
     --opacity-95: 0.95;
     --opacity-100: 1;
-
-    /* ========== BLUR ========== */
     --blur-none: 0;
     --blur-sm: 4px;
     --blur-md: 8px;
@@ -309,8 +302,6 @@
     --blur-xl: 16px;
     --blur-2xl: 24px;
     --blur-3xl: 40px;
-
-    /* ========== BREAKPOINTS (para referencia en JS) ========== */
     --breakpoint-sm: 640px;
     --breakpoint-md: 768px;
     --breakpoint-lg: 1024px;
@@ -318,11 +309,7 @@
     --breakpoint-2xl: 1536px;
 }
 
-/* ========================================
-   UTILIDADES GLOBALES
-======================================== */
 
-/* Contenedor Responsivo */
 .container {
     width: 100%;
     margin-left: auto;
@@ -365,7 +352,7 @@
     }
 }
 
-/* Glassmorphism Utility */
+
 .glass {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
@@ -381,7 +368,7 @@
     border: 1px solid var(--glass-border-strong);
 }
 
-/* Gradientes */
+
 .gradient-primary {
     background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
 }
@@ -393,7 +380,7 @@
     background-clip: text;
 }
 
-/* Sección con Padding Estándar */
+
 .section {
     padding-top: var(--space-16);
     padding-bottom: var(--space-16);
@@ -413,19 +400,18 @@
     }
 }
 
-/* Transiciones Suaves */
+
 .transition-smooth {
     transition: var(--transition-all);
 }
 
-/* Focus Visible Mejorado */
 *:focus-visible {
     outline: 2px solid var(--primary-500);
     outline-offset: 2px;
     border-radius: var(--radius-sm);
 }
 
-/* Scroll Suave */
+
 html {
     scroll-behavior: smooth;
 }
@@ -436,7 +422,7 @@ html {
     }
 }
 
-/* Selection Color */
+
 ::selection {
     background-color: var(--primary-500);
     color: white;
