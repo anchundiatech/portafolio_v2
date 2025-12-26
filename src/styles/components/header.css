@@ -7,7 +7,7 @@
   z-index: var(--z-fixed);
   width: 100%;
 
-  /* Glassmorphism */
+
   background: var(--glass-bg-strong);
   backdrop-filter: var(--glass-blur-strong);
   -webkit-backdrop-filter: var(--glass-blur-strong);
@@ -27,13 +27,33 @@
 /* ========== NAVEGACIÓN ========== */
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: var(--container-xl);
   margin: 0 auto;
   padding: var(--space-4) var(--space-6);
   position: relative;
+}
+
+/* ========== LOGO ========== */
+.logo_container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  transition: transform var(--duration-300) var(--ease-out);
+}
+
+.logo_container:hover {
+  transform: scale(1.05);
+}
+
+.logo_image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(52, 235, 235, 0.3));
 }
 
 /* ========== LISTA DE NAVEGACIÓN ========== */
@@ -57,7 +77,7 @@
   background: rgba(168, 85, 247, 0.1);
 }
 
-/* Indicador activo */
+
 .nav_item::before {
   content: '';
   position: absolute;
@@ -112,7 +132,7 @@
   box-shadow: var(--glow-sm);
 }
 
-/* Remover outlines no deseados */
+
 .Header a,
 .Header button {
   outline: none;
@@ -127,7 +147,7 @@
 
 /* ========== MENÚ MÓVIL ========== */
 
-/* Botón hamburguesa */
+
 .mobile-menu-button {
   display: none;
   position: relative;
@@ -165,7 +185,7 @@
   transform: scale(1.05);
 }
 
-/* Ícono SVG del burger */
+
 .burger-icon {
   display: block;
   width: 24px;
@@ -183,23 +203,19 @@
   transform-origin: center;
 }
 
-/* Animación de la línea superior */
 .burger-line-top.open {
   transform: translateY(6px) rotate(45deg);
 }
 
-/* Animación de la línea del medio */
 .burger-line-middle.open {
   opacity: 0;
   transform: translateX(-10px);
 }
 
-/* Animación de la línea inferior */
 .burger-line-bottom.open {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Overlay del menú móvil - Oculto */
 .mobile-menu-overlay {
   display: none;
 }
@@ -214,68 +230,52 @@
   }
 }
 
-/* Menú móvil - Desliza desde arriba */
+
 .mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-
-  /* Glassmorphism profesional */
   background: rgba(0, 10, 20, 0.95);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
-
   border-bottom: 1px solid rgba(52, 235, 235, 0.15);
-
   padding: var(--space-20) var(--space-6) var(--space-8);
-
   transform: translateY(-100%);
   transition: transform var(--duration-400) cubic-bezier(0.4, 0, 0.2, 1);
   z-index: var(--z-fixed);
-
   max-height: 100vh;
   overflow-y: auto;
-
   box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(52, 235, 235, 0.08),
     inset 0 1px 0 rgba(52, 235, 235, 0.1);
 }
 
-
-
 .mobile-menu--open {
   transform: translateY(0);
 }
 
-/* Botón de cerrar mejorado */
 .mobile-menu-close {
   position: absolute;
   top: var(--space-6);
   right: var(--space-6);
-
   background: linear-gradient(135deg, rgba(52, 235, 235, 0.1), rgba(12, 158, 173, 0.08));
   border: 1px solid rgba(52, 235, 235, 0.3);
   border-radius: var(--radius-2xl);
-
   width: 44px;
   height: 44px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
   transition: all var(--duration-300) cubic-bezier(0.4, 0, 0.2, 1);
-
   color: var(--gray-200);
   font-size: 28px;
   font-weight: var(--font-bold);
   line-height: 1;
   padding: 0;
   z-index: calc(var(--z-fixed) + 1);
-
   box-shadow:
     0 2px 12px rgba(52, 235, 235, 0.15),
     inset 0 1px 0 rgba(52, 235, 235, 0.1);
@@ -295,7 +295,6 @@
   transform: scale(0.9) rotate(90deg);
 }
 
-/* Lista del menú móvil */
 .mobile-menu ul {
   background: transparent;
   padding: 0;
@@ -306,7 +305,6 @@
   gap: var(--space-2);
 }
 
-/* Animación escalonada de los items */
 .mobile-menu--open ul li {
   animation: slideInDown 0.4s var(--ease-out) backwards;
 }
@@ -343,42 +341,32 @@
   }
 }
 
-/* Enlaces del menú móvil - Diseño profesional */
 .mobile-menu-link {
   position: relative;
   display: block;
   padding: var(--space-4) var(--space-5);
-
   color: var(--gray-200);
   text-decoration: none;
   font-weight: var(--font-normal);
   font-size: var(--text-base);
   text-align: center;
-
-  /* Glassmorphism sutil */
   background: linear-gradient(135deg,
       rgba(52, 235, 235, 0.03),
       rgba(12, 158, 173, 0.02));
   border: 1px solid rgba(52, 235, 235, 0.12);
   border-radius: var(--radius-xl);
-
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-
   transition: all var(--duration-300) cubic-bezier(0.4, 0, 0.2, 1);
-
   min-height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Sombra sutil */
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(52, 235, 235, 0.05);
 }
 
-/* Efecto hover profesional */
 .mobile-menu-link:hover {
   background: linear-gradient(135deg,
       rgba(52, 235, 235, 0.08),
@@ -386,13 +374,11 @@
   border-color: rgba(52, 235, 235, 0.3);
   color: var(--neon-ice);
   transform: translateY(-2px);
-
   box-shadow:
     0 4px 16px rgba(52, 235, 235, 0.15),
     inset 0 1px 0 rgba(52, 235, 235, 0.1);
 }
 
-/* Estado activo profesional */
 .mobile-menu-link.active {
   background: linear-gradient(135deg,
       rgba(52, 235, 235, 0.12),
@@ -400,14 +386,12 @@
   border-color: rgba(52, 235, 235, 0.4);
   color: var(--neon-ice);
   font-weight: var(--font-medium);
-
   box-shadow:
     0 4px 20px rgba(52, 235, 235, 0.2),
     inset 0 1px 0 rgba(52, 235, 235, 0.15),
     0 0 0 1px rgba(52, 235, 235, 0.1);
 }
 
-/* Línea indicadora para el elemento activo */
 .mobile-menu-link.active::before {
   content: '';
   position: absolute;
@@ -521,7 +505,7 @@
   }
 }
 
-/* High Contrast Mode */
+
 @media (prefers-contrast: high) {
   .Header {
     border-bottom-width: 2px;
@@ -540,8 +524,6 @@
   }
 }
 
-/* ========== SCROLL PADDING ========== */
-/* Compensar el header fijo en los anchors */
 html {
   scroll-padding-top: 80px;
 }
@@ -552,7 +534,7 @@ html {
   }
 }
 
-/* ========== ANIMACIÓN DE ENTRADA ========== */
+
 .Header {
   animation: slideDown 0.5s var(--ease-out);
 }
